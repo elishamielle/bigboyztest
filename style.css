@@ -1,0 +1,1207 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bebas+Neue&family=BenchNine:wght@400;700&family=Concert+One&family=Passion+One:wght@400;700;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(images/HOMEPAGE.png);
+    background-color: #f7a63b; /* Good fallback while testing */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    font-family: "Passion One", sans-serif;
+}
+
+/* 1. Main Navbar styling (The horizontal pill shape) */
+.navbar {
+    background-color: #EF5225;
+    width: 98%; /* Stretches the bar almost to the very edges */
+    max-width: none; /* Removes the previous width limit completely */
+    height: 55px;
+    margin: 20px auto; 
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    z-index: 10;
+}
+
+/* 2. The Center "Bulge" behind the logo */
+.navbar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Keeps it perfectly centered */
+    width: 280px; /* Width of the dropdown area */
+    height: 130px; /* How far it drops down */
+    background-color: #EF5225;
+    border-radius: 0 0 40px 40px; /* Flat on top, rounded on the bottom */
+    z-index: -1; /* Puts it behind the main navbar content */
+}
+
+/* 3. Link alignment and spacing */
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px; /* Sets even spacing between all items */
+    margin: 0;
+    padding: 0 40;
+    width: 100%;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem; /* Scaled up to match the bold image text */
+    padding: 8px 20px;
+    border-radius: 60px;
+    transition: 0.3s;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.nav-links li {
+    flex: 1; /* Forces perfectly equal spacing */
+    display: flex;
+    justify-content: center; /* Centers the word perfectly inside its space */
+}
+
+.nav-links a:hover {
+    color: #EF5225;
+    background-color: white;
+}
+
+/* 4. Positioning the logo over the bulge */
+.logo-item {
+    width: 350px; /* Acts purely as an invisible spacer to keep the links away from the center */
+    display: flex;
+    justify-content: center;
+}
+
+.logo-item img {
+    position: absolute;
+    left: 50%; /* Locks the logo to the exact center of the navbar */
+    transform: translateX(-50%); /* Perfectly centers the image itself */
+    top: -40px; /* Pushes it down into the bulge. Increase this number to push it lower! */
+    height: 200px; /* Makes the logo bigger while keeping it inside the bulge */
+    z-index: 20;
+    transition: transform 0.3s ease;
+}
+
+.logo-item img:hover {
+    transform: translateX(-50%) scale(1.1); /* Scales it up slightly! */
+    cursor: pointer; /* Turns your mouse into a clicking hand */
+}
+
+/* Removes the white background hover effect specifically from the logo */
+.logo-item a:hover,
+.logo-item:hover {
+    background-color: transparent !important; 
+}
+
+/* 1. Set the list item to relative so the box stays anchored to it */
+.dropdown {
+    position: relative;
+}
+
+/* 2. The hidden white box that holds the links */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: -8px; /* Pulls it up slightly so it perfectly covers the original text */
+    background-color: white;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center; /* Centers the text inside */
+    padding: 8px 20px 20px 20px; /* Extra padding at bottom for breathing room */
+    z-index: 40; /* Keeps it on top of the red bar */
+    white-space: nowrap; /* Prevents text from wrapping */
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1); /* Optional: adds a soft shadow so it pops */
+}
+
+/* 3. Show the box when hovering over the menu area */
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+/* 4. Style all the text inside the white box */
+.dropdown-content a {
+    color: #EF5225 !important; /* Forces the text orange */
+    padding: 8px 0 !important; /* Adds space between the stacked words */
+    background-color: transparent !important; /* Removes the white hover box from earlier */
+}
+
+/* 5. Make the sub-links slightly smaller than the main "MENU" text */
+.dropdown-content a:nth-child(2),
+.dropdown-content a:nth-child(3) {
+    font-size: 1.4rem; /* Adjust this to make the sub-locations bigger/smaller */
+}
+
+/* 6. Subtle hover effect for the sub-links */
+.dropdown-content a:hover {
+    color: #c43e18 !important; /* Slightly darker orange when hovered */
+}
+
+/* 1. Target the word "MENU" (the first item) in the dropdown box */
+.dropdown-content a:first-child {
+    cursor: default !important;      /* Changes the hand icon back to a normal arrow */
+    pointer-events: none !important; /* Physically prevents it from being clicked */
+}
+
+/* 2. Prevent the text color from turning dark orange on hover */
+.dropdown-content a:first-child:hover {
+    color: #EF5225 !important;       /* Forces it to stay the standard orange */
+    background-color: transparent !important;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    max-width: none; /* REMOVED the limit so it spans the whole screen */
+    margin: 40px 0; /* Removed 'auto' to stop it from centering */
+    padding-left: 60px; /* Keeps your text on the left from hitting the edge */
+    padding-right: 5; /* Lets the image on the right touch the edge! */
+}
+
+/* --- LEFT SIDE CONTAINER --- */
+.hero-tagline {
+    flex: 1; /* Tells this box to take up the left half of the screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Keeps the image aligned to the left side */
+}
+
+/* --- THE TAGLINE IMAGE --- */
+.tagline-img {
+    width: 600px; /* Adjust size here */
+    max-width: 100%;
+    height: auto;
+        
+    /* HERE ARE YOUR MOVEMENT CONTROLS! */
+    margin-top: -50px; /* Pulls it up */
+    margin-left: 5px; /* Pushes it to the right */
+}
+
+.hero-image {
+    flex: 1; 
+    display: flex;
+    justify-content: flex-end; /* Pushes the image flush to the right */
+}
+
+.hero-image img {
+    height: 1800px; 
+    max-height: 85vh; 
+    object-fit: contain;
+    max-width: 100%;
+    margin-right: 0px; /* Tweak this negative number to drag it perfectly to the edge! */
+}
+/* --- RED PILL BUTTON --- */
+.flavor-btn {
+    background-color: #FF0202;
+    border: 3px solid #FF0202;
+    color: white;
+    font-family: "Concert One", sans-serif;
+    font-size: 2.5rem;
+    text-decoration: none;
+    padding: 10px 35px;
+    border-radius: 50px; 
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); 
+    display: inline-block; /* Allows margins and padding to work correctly */
+    margin-top: 20px; /* Space between the tagline image and the button */
+    margin-left: 60px;
+}
+
+.flavor-btn:hover {
+    background-color: transparent; /* Or transparent if you prefer */
+    color: #FF0202; /* Turns the text red to match the border */
+    border: 3px solid #FF0202; /* Added 'px' and 'solid' */
+}
+
+/* --- BEST SELLERS SECTION --- */
+.best-sellers {
+    position: relative;
+    background-color: transparent; /* REMOVED THE WHITE RECTANGLE */
+    padding: 100px 0; /* Keeps space for the torn edges */
+    margin-top: 0; 
+}
+
+.torn-paper {
+    background-image: url('images/paper.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute; 
+    left: 0;
+    top: 0px;
+    height: 1000px; /* Adjust this to match your image's actual height */
+    width: 100%;   /* Ensures it spans the whole section */
+    background-size: 100% 100%; /* Stretches it to fit the box exactly */
+}
+
+
+.section {
+    text-align: center;
+    padding: 70px 0;
+    position: relative;
+    z-index: 15; /* Ensures text stays above the torn paper */
+}
+
+.section1-title {
+    font-family: 'Acme', sans-serif;
+    font-size: 4rem;
+    color: #000000;
+    display: inline-flex;
+    align-items: center;
+    gap: 20px; 
+    text-transform: capitalize;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Creating the red lines on the sides */
+.section1-title::before,
+.section1-title::after {
+    content: "";
+    height: 8px;      
+    width: 300px;     
+    background-color: #ff4d00;
+    display: inline-block;
+    border-radius: 20px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* --- CONTAINER --- */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 100px; /* Space between the rectangles */
+    padding: 20px;
+    flex-wrap: wrap; /* Allows them to stack on mobile */
+}
+
+/* --- THE RECTANGLE BASE --- */
+.menu-card {
+    width: 300.3px;
+    height: 383.13px;
+    border-radius: 25px;
+    padding: 10px; /* This sets 10px everywhere */
+    display: flex;
+    flex-direction: column; /* Stacks the title and image vertically */
+    align-items: center;
+    
+    /* THE FIX: Override the top padding to something very small */
+    padding-top: 2px; 
+    
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px); /* Lifts the card when you hover */
+}
+
+/* --- THE FOOD NAMES --- */
+.menu-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    /* THE FIX: This physically pulls the text up toward the card's edge */
+    margin-top: 30px;
+    
+}
+
+/* --- INDIVIDUAL IMAGE SIZES --- */
+
+.bibimbap-img {
+    width: 300px; /* Bibimbap is round and wide, so it needs a slightly smaller width */
+    height: auto;
+    margin-top: 10px;
+}
+
+.wings-img {
+    width: 340px; /* Wings look best slightly larger */
+    height: auto;
+}
+
+.torikatsu-img {
+    width: 270px; /* Making the sandwich the largest to "pop" */
+    height: auto;
+    margin-top: -5px; /* Nudge it up slightly if needed */
+}
+
+/* --- THE IMAGES --- */
+.menu-card img {
+    /* This forces the image to be a block that takes up its own line */
+    display: block; 
+    height: auto;
+    /* Ensure the image doesn't get too big for the card */
+    align-content: center;
+}
+
+/* --- UNIQUE COLORS --- */
+.teal { background-color: #08979C; }
+.lime { background-color: #9BB605; }
+.red { background-color: #FF0202; }
+
+.section2 {
+    text-align: center;
+    padding: 120px;
+    position: relative;
+    z-index: 15;
+    margin-top: 130px;
+}
+.section2-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 6rem;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    gap: 20px; 
+    text-transform: capitalize;
+    text-shadow: 5px 5px 0px rgb(224, 102, 3);
+}
+
+/* --- CONTAINER --- */
+.choose-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 40px 10px;
+    gap: 20px;
+    padding: 10px;
+
+}
+
+/* --- THE CARD BASE --- */
+.choose-card {
+    width: 550px;
+    height: 320px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+/* --- THE ICONS --- */
+.choose-card .icon img {
+    width: 150px; /* Adjust based on your icon size */
+    height: auto;
+    margin-bottom: 25px;
+}
+
+/* --- THE TEXT --- */
+.choose-card p {
+    font-family: 'BenchNine', sans-serif;
+    font-size: 2.5rem;
+    color: white;
+    line-height: 1.1;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* --- BRAND COLORS --- */
+.choose-card.orange { background-color: #ff4d00; }
+.choose-card.teal   { background-color: #0097a7; }
+.choose-card.lime   { background-color: #8bc34a; }
+ 
+.section3 {
+    text-align: center;
+    padding: 20px 20px;
+    background-color: transparent; /* Assuming it's over your striped background */
+}
+
+/* BIG BOYZ CUSTOMER'S FEEDBACK! Title */
+.section3-title {
+    font-family: 'Passion One', sans-serif;
+    font-weight: bold;
+    font-size: 5rem;
+    color: #889E0C ;
+    -webkit-text-stroke: 2px #ffffff; /* Green outline */
+    margin-bottom: 40px;
+}
+
+.testi-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows 3-2 layout */
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testi-card {
+    background: #ffffff;
+    width: 340px;
+    min-height: 180px;
+    border-radius: 30px; /* Highly rounded corners like in image_727f76.png */
+    padding: 25px;
+    text-align: left; /* Text is left-aligned inside cards */
+    border: 4px solid; /* Thickness of the colorful border */
+}
+
+/* User Header Styles */
+.user-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.user-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+}
+
+/* Body Text Styles */
+.feedback-text {
+    font-family: 'BenchNine', sans-serif;
+    font-size: 1.5rem;
+    color: #333;
+    line-height: 1.2;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* Shared style for all user icons */
+.user-photo {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Mapping your individual images to the color classes */
+.teal .user-photo   { background-image: url('images/icon_blue.png');}
+.orange .user-photo { background-image: url('images/icon_orange.png');}
+.red .user-photo    { background-image: url('images/icon_red.png'); }
+.lime .user-photo   { background-image: url('images/icon_green.png');}
+.purple .user-photo { background-image: url('images/icon_purple.png');}
+
+/* Individual Card Border & Text Colors */
+.testi-card.teal   { border-color: #0097a7; color: #08979C; }
+.testi-card.orange { border-color: #ff4d00; color: #EF5225; }
+.testi-card.red    { border-color: #f44336; color: #FF0202; }
+.testi-card.lime   { border-color: #8bc34a; color: #889E0C; }
+.testi-card.purple { border-color: #9c27b0; color: #9747FF; }
+
+/* --- PROMOS SECTION WRAPPER --- */
+.section4 {
+    text-align: center;
+    padding: 100px 0; /* Matches the spacing of your other sections */
+    position: relative;
+    z-index: 15;
+}
+
+/* --- PROMOS SPECIFIC STYLE --- */
+.section4.promos {
+    background-color: transparent; 
+}
+
+.promo-title-container {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    gap: 15px;
+}
+
+/* The small stacked "BIG BOYZ" */
+.brand-stack {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-family: 'Passion One', sans-serif;
+    font-size: 7.8rem;
+    line-height: 0.70; /* Pulls "BIG" and "BOYZ" closer together */
+    color: #000000;
+}
+
+/* The massive "PROMOS" */
+.main-promo-text {
+    font-family: 'Passion One', sans-serif;
+    font-size: 17rem;
+    margin: 0;
+    color: #000000;
+    letter-spacing: -3px; /* Creates that chunky, bold look */
+    text-transform: uppercase;
+}
+
+.box {
+    --w: 1200px;
+    --h: 373px;
+    --r: 20px; /* Your corner radius */
+
+    width: var(--w);
+    height: var(--h);
+    background: white;
+    margin: -30px auto 20px auto;
+    position: relative;        /* Required so the image stays attached to this box */
+    overflow: visible !important; /* CRITICAL: Allows the bowl to 'pop out' the top */
+    z-index: 10;
+
+    /* Using shape() to allow for rounded corners */
+    clip-path: shape(
+        /* 1. Start at Top-Left (rounded) */
+        from 0 var(--r),
+        curve to var(--r) 0 with 0 0,
+
+        /* 2. Top-Right (rounded) */
+        line to calc(var(--w) - var(--r)) 0,
+        curve to var(--w) var(--r) with var(--w) 0,
+
+        /* 3. Bottom-Right: Pulled up to 170px (rounded) */
+        line to var(--w) calc(170px - var(--r)),
+        curve to calc(var(--w) - var(--r)) 170px with var(--w) 170px,
+
+        /* 4. Bottom-Left: Stays at 373px (rounded) */
+        line to var(--r) var(--h),
+        curve to 0 calc(var(--h) - var(--r)) with 0 var(--h),
+        
+        close
+    );
+}
+
+
+.box-loyalty {
+    --w: 1200px;
+    --h: 564px;
+    --r: 20px; /* Corner radius */
+    
+    width: var(--w);
+    height: var(--h);
+    background: white;
+    margin: -160px auto 0 auto;
+    position: relative;
+    z-index: 5;
+
+    /* Using shape() to draw rounded slanted corners */
+    clip-path: shape(
+        /* 1. TOP-LEFT: Pulled down to 191.5px */
+        from 0 calc(191.5px + var(--r)),
+        curve to var(--r) 191.5px with 0 191.5px,
+
+        /* 2. TOP-RIGHT: Remains at top */
+        line to calc(var(--w) - var(--r)) 0,
+        curve to var(--w) var(--r) with var(--w) 0,
+
+        /* 3. BOTTOM-RIGHT: Remains at bottom */
+        line to var(--w) calc(var(--h) - var(--r)),
+        curve to calc(var(--w) - var(--r)) var(--h) with var(--w) var(--h),
+
+        /* 4. BOTTOM-LEFT: Pulled up to 372.5px */
+        line to var(--r) 372.5px,
+        curve to 0 calc(372.5px - var(--r)) with 0 372.5px,
+        
+        close
+    );
+}
+
+.box-upside-down {
+    --w: 1200px;
+    --h: 373px;
+    --r: 20px;
+    --slant-top-y: 203px; /* Mirrored 170px slant from the top */
+
+    width: var(--w);
+    height: var(--h);
+    background: white;
+    margin: -140px auto 0 auto;
+    position: relative;
+    z-index: 3;
+
+    clip-path: shape(
+        /* 1. TOP-LEFT: Remains at the very top (0px) */
+        from 0 var(--r),
+        curve to var(--r) 0 with 0 0,
+
+        /* 2. TOP-RIGHT: Pulled DOWN to 203px */
+        line to calc(var(--w) - var(--r)) var(--slant-top-y),
+        curve to var(--w) calc(var(--slant-top-y) + var(--r)) with var(--w) var(--slant-top-y),
+
+        /* 3. BOTTOM-RIGHT: Remains at the very bottom (373px) */
+        line to var(--w) calc(var(--h) - var(--r)),
+        curve to calc(var(--w) - var(--r)) var(--h) with var(--w) var(--h),
+
+        /* 4. BOTTOM-LEFT: Remains at the very bottom (373px) */
+        line to var(--r) var(--h),
+        curve to 0 calc(var(--h) - var(--r)) with 0 var(--h),
+        
+        close
+    );
+}
+
+
+/* FONTS: Passion One (Title) & BenchNine (Body) */
+.promo-title {
+    font-family: 'Passion One', sans-serif;
+    font-size: 7rem;
+    color: #EF5225;
+    line-height: 0.9;
+    margin: 0;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: -20px;
+}
+
+.promo-description {
+    font-family: 'BenchNine', sans-serif;
+    font-size: 1.8rem;
+    color: #EF5225;
+    margin-top: 10px;
+}
+
+.promo-text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Aligns all text to the left */
+    text-align: left;
+    width: 65%; /* Leaves space on the right for images */
+    height: 100%; 
+    box-sizing: border-box;
+    padding-left: 40px;
+}
+
+/* Specific alignment for the Loyalty Box */
+.loyalty-align {
+    align-self: flex-end; /* Moves the container to the right */
+    align-items: flex-end; /* Aligns the text lines to the right */
+    text-align: right;
+    padding-left: 0;
+    padding-right: 80px; /* Safe zone from the right rounded edge */
+    margin-left: auto; /* Pushes the flex item to the far right */
+}
+
+/* BOX 1: Move "RICE ALL U CAN" UP */
+.box .promo-text-content {
+    justify-content: flex-start; /* Aligns to top instead of center */
+    padding-top: 20px;           /* Adjust this to move it higher or lower */
+}
+
+/* BOX 3: Move "WEDNESDAY PROMO" DOWN */
+.box-upside-down .promo-text-content {
+    justify-content: flex-end;   /* Aligns toward the bottom */
+    padding-bottom: 50px;        /* Pushes it up from the bottom edge */
+    /* OR use margin-top if you prefer: */
+    /* margin-top: 60px; */
+}
+
+/* 1. The Anchor */
+.promo-item {
+    position: relative;
+    max-width: 1200px; /* Matches your box width */
+    margin: 0 auto;    /* Centers it on the page */
+    z-index: 10;
+}
+
+/* 2. The Pop-Out Image */
+.pop-out-rice {
+    position: absolute;
+    width: 380px;      /* Adjust size as needed */
+    height: auto;
+
+    transform: rotate(-8deg);
+    
+    /* THE POSITIONING */
+    top: -30px;        /* Negative value pulls it UP and out of the white box */
+    right: 100px;       /* Aligns it to the right side */
+    
+    /* THE LAYERING */
+    z-index: 20;       /* Ensures the bowl sits ON TOP of the white box */
+    
+    /* Optional: Adds a soft, realistic shadow to the bowl */
+    filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.2));
+    
+    pointer-events: none; /* Prevents the image from blocking clicks on text */
+}
+
+.pop-out-card {
+    position: absolute;
+    width: 500px;      /* Adjust this based on how big you want the card */
+    height: auto;
+    
+    /* THE POSITIONING */
+    top: 380px;        /* Pushes it down so it sits nicely in the slanted 'pinch' */
+    left: 80px;       /* A negative value pulls it slightly outside the left edge */
+    
+    /* THE TILT */
+    transform: rotate(5deg); /* Tilts the card slightly to the left */
+    
+    /* THE LAYERING */
+    z-index: 20;       /* Sits ON TOP of the white box */
+    
+    /* SHADOW */
+    /* Notice the first value is negative (-10px) to cast the shadow to the left, matching the tilt */
+    filter: drop-shadow(-10px 15px 20px rgba(0, 0, 0, 0.3));
+    
+    pointer-events: none; /* Prevents the image from blocking text selection */
+}
+
+/* THE COMING SOON BADGE */
+.pop-out-coming {
+    position: absolute;
+    width: 400px;      /* Adjust this based on your image file's actual size */
+    height: auto;
+    
+    /* THE POSITIONING (Bottom Right) */
+    bottom: -80px;     /* A negative value makes it hang off the bottom edge */
+    right: 10px;       /* Keeps it safely away from the absolute right edge */
+    
+    /* THE LAYERING */
+    z-index: 20;       /* Sits ON TOP of the white box */
+    
+    /* NO TILT (Rotation removed) */
+    
+    /* SHADOW */
+    filter: drop-shadow(0px 15px 20px rgba(0, 0, 0, 0.3)); /* Straight shadow for depth */
+    
+    pointer-events: none; /* Prevents the image from blocking clicks */
+}
+
+/* SHIFT TEXT TO THE RIGHT (To avoid hitting your new left image) */
+.wednesday-align {
+    align-self: flex-end; 
+    align-items: flex-end; 
+    text-align: right;
+    padding-left: 0;
+    padding-right: 80px; 
+    margin-left: auto; 
+}
+
+/* 5. Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    /* Shrink the main pill shape */
+    .navbar {
+        height: 30px; /* Thinner bar */
+        border-radius: 30px;
+    }
+    
+    /* Shrink the center bulge */
+    .navbar::after {
+        width: 110px; /* Narrower bulge */
+        height: 60px; /* Shallower drop */
+        border-radius: 0 0 20px 20px;
+    }
+
+    /* Adjust the text spacing so it fits on a small screen */
+    .nav-links {
+        padding: 0 5px; /* Less padding on the far left/right */
+        gap: 0; /* Remove the gap, letting 'flex: 1' do all the work */
+    }
+
+    .nav-links a {
+        font-size: 0.9rem; /* Shrink the text heavily so it fits side-by-side */
+        padding: 4px;
+        white-space: nowrap; /* Forces "CONTACT US" to stay on one line */
+    }
+
+    /* Shrink the center invisible spacer */
+    .logo-item {
+        width: 120px; /* Smaller gap for the smaller logo */
+        flex: 0 0 140px; /* Ensure it doesn't stretch or shrink */
+    }
+    
+    /* Shrink and reposition the logo */
+    .logo-item img {
+        height: 80px; /* Smaller logo */
+        top: -10px; /* Adjust the vertical position for the smaller bulge */
+    }
+
+    /* 1. Shrink the white box itself */
+    .dropdown-content {
+        min-width: 80px; /* Prevents the box from being unnecessarily wide */
+        padding: 4px 12px 10px 12px; /* Reduces the empty white space inside the box */
+        border-radius: 12px; /* Slightly tighter corners for a smaller box */
+    }
+
+    /* 2. Shrink the main "MENU" text */
+    .dropdown-content a {
+        font-size: 1rem !important; /* Smaller main text */
+        padding: 3px 0 !important; 
+    }
+
+    /* 3. Shrink the sub-links so they fit nicely */
+    .dropdown-content a:nth-child(2),
+    .dropdown-content a:nth-child(3) {
+        font-size: 0.9rem !important; /* Noticeably smaller sub-links */
+    }
+
+    /* --- MOBILE HERO SECTION --- */
+    .hero-section {
+        margin: 20px 0; /* Reduces the top/bottom spacing for smaller screens */
+        padding-left: 20px; /* Reduces the heavy left padding */
+        padding-right: 20px; /* Adds even padding to the right so things stay centered */
+    }
+
+    .hero-image {
+        width: 100%;
+        display: flex;
+        
+        /* Change this to 'flex-end' to keep the hand on the right side of the phone */
+        justify-content: flex-end; 
+    }
+
+
+    .hero-image img {
+        height: 220px; 
+        max-height: 50vh; 
+        object-fit: contain;
+        max-width: 100%;
+        
+        /* CHANGE THIS: Pulls the image 20px to the right, ignoring the container's padding! */
+        margin-right: -20px; 
+        margin-top: -20px;
+    }
+
+    /* --- MOBILE ALIGNMENT FIX --- */
+
+    .hero-tagline {
+        width: 100%; 
+        display: flex;
+        
+        /* This keeps the BOX centered, but we can change the IMAGE inside it */
+    
+    }
+
+    .tagline-img {
+        width: 220px; /* Keep it a nice size for phones */
+        margin-top: -20px; 
+        
+        /* --- THE FIX --- */
+        /* Use 'flex-start' to move it to the LEFT */
+        /* Use 'flex-end' to move it to the RIGHT */
+        /* Change this to flex-start if you want it left-aligned */
+    }
+
+    .flavor-btn {
+        font-size: 0.8rem;
+        padding: 3px 10px;
+        border: 3px solid #FF0202; /* Thinner border for small screens */
+        margin-top: 10px;
+        margin-left: 35px;
+    }
+
+    .best-sellers {
+    padding: 0px 0; /* Keeps space for the torn edges */
+    margin-top: -30px; 
+    }
+
+    .torn-paper {
+    display: flex;
+    justify-content: flex-end;
+    height: 400px;
+    }
+
+    .section {
+        padding: 85px 0;
+    }
+
+    .section1-title {
+        font-size: 1.5rem;
+    }
+
+    .section1-title::before,
+    .section1-title::after {
+        height: 2px;      
+        width: 80px; 
+        border-radius: 10px;
+    }
+
+    .cards-container {
+        gap: 20px;
+    }
+
+    .menu-card {
+        width: 130px;
+        height: 160px;
+        border-radius: 10px;
+        padding: 5px;
+        padding-top: 2px; 
+    }
+
+    .menu-card h3{
+        font-size: 1.5rem;
+        font-weight: lighter;
+        margin-top: 10px;
+        letter-spacing: 1px;
+    }
+
+    .bibimbap-img{
+        width: 130px;
+        margin-top: -5px;
+    }
+
+    .wings-img {
+        width: 150px; /* Wings look best slightly larger */
+        margin-top: -5px;
+    }
+
+    .torikatsu-img {
+        width: 100px; /* Making the sandwich the largest to "pop" */
+        margin-top: -5px; /* Nudge it up slightly if needed */
+    }
+
+    .menu-card img{
+        height: auto;
+        display: block;
+    }
+
+    .section2{
+        padding: 20px;
+        margin-top: 15px;
+        
+    }
+
+    .section2-title{
+        font-size: 2.5rem;
+        text-shadow: 2px 3px 0px rgb(224, 102, 3);
+    }
+
+    .choose-container {
+        gap: 8px;
+        padding: 0px 0px;
+    }
+
+    .choose-card{
+        width: 500px;
+        height: 130px;
+        padding: 5px;
+        border-radius: 10px;
+    }
+
+    .choose-card .icon img {
+        width: 60px; /* Adjust based on your icon size */
+        margin-bottom: 5px;
+    }
+
+    .choose-card p {
+        font-size: 1rem;
+
+    }
+
+    .section3{
+        padding: 30px 0px;
+    }
+
+    .section3-title{
+        font-size: 1.8rem;
+        -webkit-text-stroke: 1px #ffffff;
+        margin-bottom: 10px;
+    }
+    .testi-container{
+        gap: 10px;
+        margin: 0px;
+        padding: -20px;
+    }
+
+    .testi-card{
+        width: 150px;
+        min-height: 0;
+        padding: 13px;
+        border-radius: 12px;
+        border: 2.3px solid; 
+    }
+
+    .user-header {
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+
+    .user-name {
+        font-size: .6rem;
+    }
+
+    .feedback-text{
+        font-size: .6rem;
+        margin-top: 0;
+        margin-bottom: 0px;
+    }
+    .user-photo {
+        width: 20px;
+        height: 20px;
+
+    }
+
+    .section4{
+        padding: 20px 0;
+        margin-top: -25px;
+
+    }
+
+    .promo-title-container{
+        gap: 0px;
+        display: flex;
+        margin: auto;
+
+    }
+
+    .brand-stack{
+        font-size: 3rem;
+
+    }
+    
+    .main-promo-text{
+        font-size: 6.8rem;
+
+    }
+
+    .box {
+        --w: 90vw;
+        --h: 180px;
+        --r: 20px;
+        width: var(--w);
+        height: var(--h);
+        margin: 0 auto;
+        background: white;
+        z-index: 10;
+
+        clip-path: shape(
+            from 0 var(--r),
+            curve to var(--r) 0 with 0 0,
+            line to calc(var(--w) - var(--r)) 0,
+            curve to var(--w) var(--r) with var(--w) 0,
+            /* Slant ends at 110px from the top */
+            line to var(--w) calc(110px - var(--r)), 
+            curve to calc(var(--w) - var(--r)) 110px with var(--w) 110px,
+            line to var(--r) var(--h),
+            curve to 0 calc(var(--h) - var(--r)) with 0 var(--h),
+            close
+        );
+    }
+
+    .box-loyalty {
+        --w: 90vw;
+        --h: 240px;
+        --r: 20px;
+        width: var(--w);
+        height: var(--h);
+        background: white;
+        /* Pulls up to hide the bottom slant of Box 1 (180px box) */
+        margin: -50px auto 0 auto; 
+        position: relative;
+        z-index: 5;
+
+        clip-path: shape(
+            /* 1. TOP-LEFT: Pulled down to 70px */
+            from 0 calc(70px + var(--r)),
+            curve to var(--r) 70px with 0 70px,
+
+            /* 2. TOP-RIGHT: Stays at the top */
+            line to calc(var(--w) - var(--r)) 0,
+            curve to var(--w) var(--r) with var(--w) 0,
+
+            /* 3. BOTTOM-RIGHT: Stays at the bottom (240px) */
+            line to var(--w) calc(var(--h) - var(--r)),
+            curve to calc(var(--w) - var(--r)) var(--h) with var(--w) var(--h),
+
+            /* 4. BOTTOM-LEFT: Pulled up to 170px (leaving 70px gap at bottom) */
+            line to var(--r) 170px,
+            curve to 0 calc(170px - var(--r)) with 0 170px,
+            
+            close
+        );
+    }
+
+    .box-upside-down {
+        --w: 90vw;
+        --h: 180px;
+        --r: 20px;
+        width: var(--w);
+        height: var(--h);
+        background: white;
+        /* Pulls up -70px to interlock with the Loyalty box */
+        margin: -50px auto 0 auto; 
+        position: relative;
+        z-index: 1;
+
+        clip-path: shape(
+            /* 1. TOP-LEFT: Stays at the top */
+            from 0 var(--r),
+            curve to var(--r) 0 with 0 0,
+
+            /* 2. TOP-RIGHT: Pulled down 70px to create the downward slant */
+            line to calc(var(--w) - var(--r)) 70px,
+            curve to var(--w) calc(70px + var(--r)) with var(--w) 70px,
+
+            /* 3. BOTTOM-RIGHT: Stays at the bottom (180px) */
+            line to var(--w) calc(var(--h) - var(--r)),
+            curve to calc(var(--w) - var(--r)) var(--h) with var(--w) var(--h),
+
+            /* 4. BOTTOM-LEFT: Stays at the bottom (180px) */
+            line to var(--r) var(--h),
+            curve to 0 calc(var(--h) - var(--r)) with 0 var(--h),
+            
+            close
+        );
+    }
+
+    .promo-title {
+        font-size: 3rem; /* Scaled down from 7rem */
+        margin-top: 10px;
+        margin-bottom: -5px;
+    }
+
+    .promo-description {
+        font-size: .8rem; /* Scaled down from 1.8rem */
+        line-height: 1.2;
+    }
+
+    /* 2. TEXT CONTAINER ADJUSTMENTS */
+    .promo-text-content {
+        width: 100%; /* Uses full width instead of 65% */
+        padding-left: 20px; /* Tighter padding for mobile */
+    }
+
+    .loyalty-align, .wednesday-align {
+        padding-right: 20px; /* Reduced safe zones from 80px */
+        padding-left: 0;
+    }
+
+    /* 3. BOX-SPECIFIC SPACING */
+    .box .promo-text-content {
+        padding-top: 10px; 
+    }
+
+    .box-upside-down .promo-text-content {
+        padding-bottom: 20px; /* Reduced from 50px */
+    }
+
+    /* 4. SHRINKING THE POP-OUT IMAGES */
+    .pop-out-rice {
+        width: 170px;       /* Shrunk down from 380px */
+        top: 0px;         /* Adjusted negative pull for smaller bowl */
+        right: 20px;        /* Hugs the right edge */
+    }
+
+    .pop-out-card {
+        width: 210px;       /* Shrunk down from 500px */
+        top: 190px;         /* Adjusted to fit the shorter mobile box height */
+        left: 40px;          /* Hugs the left edge */
+    }
+
+    .pop-out-coming {
+        width: 160px;   
+        bottom: -20px;   
+        right: 20px;        
+    }
+}

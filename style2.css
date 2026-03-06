@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(images/HOMEPAGE.png);
+    background-color: #f7a63b; /* Good fallback while testing */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    font-family: "Passion One", sans-serif;
+}
+
+/* 1. Main Navbar styling (The horizontal pill shape) */
+.navbar {
+    background-color: #EF5225;
+    width: 98%; /* Stretches the bar almost to the very edges */
+    max-width: none; /* Removes the previous width limit completely */
+    height: 55px;
+    margin: 20px auto; 
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    z-index: 10;
+}
+
+/* 2. The Center "Bulge" behind the logo */
+.navbar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Keeps it perfectly centered */
+    width: 280px; /* Width of the dropdown area */
+    height: 130px; /* How far it drops down */
+    background-color: #EF5225;
+    border-radius: 0 0 40px 40px; /* Flat on top, rounded on the bottom */
+    z-index: -1; /* Puts it behind the main navbar content */
+}
+
+/* 3. Link alignment and spacing */
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px; /* Sets even spacing between all items */
+    margin: 0;
+    padding: 0 40;
+    width: 100%;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem; /* Scaled up to match the bold image text */
+    padding: 8px 20px;
+    border-radius: 60px;
+    transition: 0.3s;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.nav-links li {
+    flex: 1; /* Forces perfectly equal spacing */
+    display: flex;
+    justify-content: center; /* Centers the word perfectly inside its space */
+}
+
+.nav-links a:hover {
+    color: #EF5225;
+    background-color: white;
+}
+
+/* 4. Positioning the logo over the bulge */
+.logo-item {
+    width: 350px; /* Acts purely as an invisible spacer to keep the links away from the center */
+    display: flex;
+    justify-content: center;
+}
+
+.logo-item img {
+    position: absolute;
+    left: 50%; /* Locks the logo to the exact center of the navbar */
+    transform: translateX(-50%); /* Perfectly centers the image itself */
+    top: -40px; /* Pushes it down into the bulge. Increase this number to push it lower! */
+    height: 200px; /* Makes the logo bigger while keeping it inside the bulge */
+    z-index: 20;
+    transition: transform 0.3s ease;
+}
+
+.logo-item img:hover {
+    transform: translateX(-50%) scale(1.1); /* Scales it up slightly! */
+    cursor: pointer; /* Turns your mouse into a clicking hand */
+}
+
+/* Removes the white background hover effect specifically from the logo */
+.logo-item a:hover,
+.logo-item:hover {
+    background-color: transparent !important; 
+}
+
+
+/* 1. Set the list item to relative so the box stays anchored to it */
+.dropdown {
+    position: relative;
+}
+
+/* 2. The hidden white box that holds the links */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: -8px; /* Pulls it up slightly so it perfectly covers the original text */
+    background-color: white;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center; /* Centers the text inside */
+    padding: 8px 20px 20px 20px; /* Extra padding at bottom for breathing room */
+    z-index: 40; /* Keeps it on top of the red bar */
+    white-space: nowrap; /* Prevents text from wrapping */
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1); /* Optional: adds a soft shadow so it pops */
+}
+
+/* 3. Show the box when hovering over the menu area */
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+/* 4. Style all the text inside the white box */
+.dropdown-content a {
+    color: #EF5225 !important; /* Forces the text orange */
+    padding: 8px 0 !important; /* Adds space between the stacked words */
+    background-color: transparent !important; /* Removes the white hover box from earlier */
+}
+
+/* 5. Make the sub-links slightly smaller than the main "MENU" text */
+.dropdown-content a:nth-child(2),
+.dropdown-content a:nth-child(3) {
+    font-size: 1.4rem; /* Adjust this to make the sub-locations bigger/smaller */
+}
+
+/* 6. Subtle hover effect for the sub-links */
+.dropdown-content a:hover {
+    color: #c43e18 !important; /* Slightly darker orange when hovered */
+}
+
+/* 1. Target the word "MENU" (the first item) in the dropdown box */
+.dropdown-content a:first-child {
+    cursor: default !important;      /* Changes the hand icon back to a normal arrow */
+    pointer-events: none !important; /* Physically prevents it from being clicked */
+}
+
+/* 2. Prevent the text color from turning dark orange on hover */
+.dropdown-content a:first-child:hover {
+    color: #EF5225 !important;       /* Forces it to stay the standard orange */
+    background-color: transparent !important;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    max-width: none; /* REMOVED the limit so it spans the whole screen */
+    margin: 40px 0; /* Removed 'auto' to stop it from centering */
+    padding-left: 60px; /* Keeps your text on the left from hitting the edge */
+    padding-right: 5; /* Lets the image on the right touch the edge! */
+}
+
+.hero-text {
+    flex: 1; /* Takes up the left half of the screen */
+    min-height: 10px; /* Keeps the invisible box from collapsing */
+}
+
+.hero-image {
+    flex: 1; 
+    display: flex;
+    justify-content: flex-end; /* Pushes the image flush to the right */
+}
+
+.hero-image img {
+    height: 1800px; 
+    max-height: 85vh; 
+    object-fit: contain;
+    max-width: 100%;
+    margin-right: 0px; /* Tweak this negative number to drag it perfectly to the edge! */
+}
+
+/* 5. Mobile Responsiveness */
+@media screen and (max-width: 1000px) {
+    /* Shrink the main pill shape */
+    .navbar {
+        height: 30px; /* Thinner bar */
+        border-radius: 30px;
+    }
+    
+    /* Shrink the center bulge */
+    .navbar::after {
+        width: 110px; /* Narrower bulge */
+        height: 60px; /* Shallower drop */
+        border-radius: 0 0 20px 20px;
+    }
+
+    /* Adjust the text spacing so it fits on a small screen */
+    .nav-links {
+        padding: 0 5px; /* Less padding on the far left/right */
+        gap: 0; /* Remove the gap, letting 'flex: 1' do all the work */
+    }
+
+    .nav-links a {
+        font-size: 0.9rem; /* Shrink the text heavily so it fits side-by-side */
+        padding: 4px;
+        white-space: nowrap; /* Forces "CONTACT US" to stay on one line */
+    }
+
+    /* Shrink the center invisible spacer */
+    .logo-item {
+        width: 120px; /* Smaller gap for the smaller logo */
+        flex: 0 0 140px; /* Ensure it doesn't stretch or shrink */
+    }
+    
+    /* Shrink and reposition the logo */
+    .logo-item img {
+        height: 80px; /* Smaller logo */
+        top: -10px; /* Adjust the vertical position for the smaller bulge */
+    }
+
+    /* 1. Shrink the white box itself */
+    .dropdown-content {
+        min-width: 80px; /* Prevents the box from being unnecessarily wide */
+        padding: 4px 12px 10px 12px; /* Reduces the empty white space inside the box */
+        border-radius: 12px; /* Slightly tighter corners for a smaller box */
+    }
+
+    /* 2. Shrink the main "MENU" text */
+    .dropdown-content a {
+        font-size: 1rem !important; /* Smaller main text */
+        padding: 3px 0 !important; 
+    }
+
+    /* 3. Shrink the sub-links so they fit nicely */
+    .dropdown-content a:nth-child(2),
+    .dropdown-content a:nth-child(3) {
+        font-size: 0.9rem !important; /* Noticeably smaller sub-links */
+    }
+
+    /* --- MOBILE HERO SECTION --- */
+    .hero-section {
+        flex-direction: column; /* This is the magic! Stacks the text and image vertically */
+        margin: 20px 0; /* Reduces the top/bottom spacing for smaller screens */
+        padding-left: 20px; /* Reduces the heavy left padding */
+        padding-right: 20px; /* Adds even padding to the right so things stay centered */
+    }
+
+    .hero-text {
+
+        width: 100%; /* Forces the text container to take up the full screen width */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers your text horizontally */
+        text-align: center; 
+        margin-bottom: 30px; /* Adds breathing room between the text and the hand image below it */
+    }
+
+    .hero-image {
+        width: 100%; 
+        display: flex;
+        justify-content: flex-end; /* Centers the hand image instead of pushing it to the right edge */
+    }
+
+        /* --- TAGLINE IMAGE (Left Side) --- */
+    .tagline-img {
+        width: 450px; /* CHANGE THIS NUMBER to make the tagline bigger or smaller! */
+        max-width: 100%; /* Keeps it from breaking out of the screen */
+        height: auto; /* Keeps the proportions perfect */
+        object-fit: contain;
+    }
+    
+    .hero-image img {
+        height: 220px; 
+        max-height: 50vh; 
+        object-fit: contain;
+        max-width: 100%;
+        
+        /* CHANGE THIS: Pulls the image 20px to the right, ignoring the container's padding! */
+        margin-right: -20px; 
+        margin-top: -110px;
+    }
+}
+
+.banner-container {
+    padding: 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between the text and the pill */
+}
+
+.specials-title {
+    font-size: 50px;
+    color: #0da19d; /* Teal color matching the image */
+    margin: 0;
+    letter-spacing: 2px;
+    
+    /* Creates the thick white outline */
+    -webkit-text-stroke: 8px #ffffff;
+    paint-order: stroke fill; /* Ensures the stroke goes on the outside of the text */
+    
+    /* Adds a subtle shadow behind the white stroke to make it pop */
+    filter: drop-shadow(0px 4px 2px rgba(0, 0, 0, 0.15));
+}
+
+.location-pill {
+    background-color: #0da19d;
+    color: #ffffff;
+    padding: 10px 40px;
+    border-radius: 50px; /* Makes the edges completely rounded */
+    font-size: 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px; /* Space between the icon and text */
+}
+
+.pin-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.location-pill span {
+    /* Bayon font sits a little high by default, this centers it visually with the icon */
+    padding-top: 6px; 
+}
+
+.coming-soon-section {
+    position: relative; /* This is crucial! It keeps the overlaid text constrained to this section */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paper-image {
+    width: 100%;
+    height: auto;
+    display: block; /* Removes weird spacing at the bottom of the image */
+}
+
+.content-overlay {
+    position: absolute; /* This yanks the text out of the normal flow and puts it ON TOP of the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.coming-soon-text {
+    font-family: 'Boogaloo', sans-serif;
+    font-size: 56px;
+    color: #000000;
+    margin: 0;
+    letter-spacing: 2px;
+    text-shadow: 2px 3px 4px rgba(0, 0, 0, 0.2);
+}
+
+.orange-line {
+    width: 150px;
+    height: 4px;
+    background-color: #f15a24;
+    border-radius: 2px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
