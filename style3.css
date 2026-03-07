@@ -1,0 +1,676 @@
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(images/HOMEPAGE.png);
+    background-color: #f7a63b; /* Good fallback while testing */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    font-family: "Passion One", sans-serif;
+}
+
+/* 1. Main Navbar styling (The horizontal pill shape) */
+.navbar {
+    background-color: #EF5225;
+    width: 98%; /* Stretches the bar almost to the very edges */
+    max-width: none; /* Removes the previous width limit completely */
+    height: 55px;
+    margin: 20px auto; 
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    z-index: 10;
+}
+
+/* 2. The Center "Bulge" behind the logo */
+.navbar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Keeps it perfectly centered */
+    width: 280px; /* Width of the dropdown area */
+    height: 130px; /* How far it drops down */
+    background-color: #EF5225;
+    border-radius: 0 0 40px 40px; /* Flat on top, rounded on the bottom */
+    z-index: -1; /* Puts it behind the main navbar content */
+}
+
+/* 3. Link alignment and spacing */
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px; /* Sets even spacing between all items */
+    margin: 0;
+    padding: 0 40;
+    width: 100%;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem; /* Scaled up to match the bold image text */
+    padding: 8px 20px;
+    border-radius: 60px;
+    transition: 0.3s;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.nav-links li {
+    flex: 1; /* Forces perfectly equal spacing */
+    display: flex;
+    justify-content: center; /* Centers the word perfectly inside its space */
+}
+
+.nav-links a:hover {
+    color: #EF5225;
+    background-color: white;
+}
+
+/* 4. Positioning the logo over the bulge */
+.logo-item {
+    width: 350px; /* Acts purely as an invisible spacer to keep the links away from the center */
+    display: flex;
+    justify-content: center;
+}
+
+.logo-item img {
+    position: absolute;
+    left: 50%; /* Locks the logo to the exact center of the navbar */
+    transform: translateX(-50%); /* Perfectly centers the image itself */
+    top: -40px; /* Pushes it down into the bulge. Increase this number to push it lower! */
+    height: 200px; /* Makes the logo bigger while keeping it inside the bulge */
+    z-index: 20;
+    transition: transform 0.3s ease;
+}
+
+.logo-item img:hover {
+    transform: translateX(-50%) scale(1.1); /* Scales it up slightly! */
+    cursor: pointer; /* Turns your mouse into a clicking hand */
+}
+
+/* 1. Set the list item to relative so the box stays anchored to it */
+.dropdown {
+    position: relative;
+}
+
+/* 2. The hidden white box that holds the links */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: -8px; /* Pulls it up slightly so it perfectly covers the original text */
+    background-color: white;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center; /* Centers the text inside */
+    padding: 8px 20px 20px 20px; /* Extra padding at bottom for breathing room */
+    z-index: 40; /* Keeps it on top of the red bar */
+    white-space: nowrap; /* Prevents text from wrapping */
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1); /* Optional: adds a soft shadow so it pops */
+}
+
+/* 3. Show the box when hovering over the menu area */
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+
+/* 4. Style all the text inside the white box */
+.dropdown-content a {
+    color: #EF5225 !important; /* Forces the text orange */
+    padding: 8px 0 !important; /* Adds space between the stacked words */
+    background-color: transparent !important; /* Removes the white hover box from earlier */
+}
+
+/* 5. Make the sub-links slightly smaller than the main "MENU" text */
+.dropdown-content a:nth-child(2),
+.dropdown-content a:nth-child(3) {
+    font-size: 1.4rem; /* Adjust this to make the sub-locations bigger/smaller */
+}
+
+/* 6. Subtle hover effect for the sub-links */
+.dropdown-content a:hover {
+    color: #c43e18 !important; /* Slightly darker orange when hovered */
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    max-width: none; /* REMOVED the limit so it spans the whole screen */
+    margin: 40px 0; /* Removed 'auto' to stop it from centering */
+    padding-left: 60px; /* Keeps your text on the left from hitting the edge */
+    padding-right: 5; /* Lets the image on the right touch the edge! */
+}
+
+.hero-text {
+    flex: 1; /* Takes up the left half of the screen */
+    min-height: 10px; /* Keeps the invisible box from collapsing */
+}
+
+.hero-image {
+    flex: 1; 
+    display: flex;
+    justify-content: flex-end; /* Pushes the image flush to the right */
+}
+
+.hero-image img {
+    height: 1800px; 
+    max-height: 85vh; 
+    object-fit: contain;
+    max-width: 100%;
+    margin-right: 0px; /* Tweak this negative number to drag it perfectly to the edge! */
+}
+
+/* 5. Mobile Responsiveness */
+@media screen and (max-width: 1000px) {
+    /* Shrink the main pill shape */
+    .navbar {
+        height: 30px; /* Thinner bar */
+        border-radius: 30px;
+    }
+    
+    /* Shrink the center bulge */
+    .navbar::after {
+        width: 110px; /* Narrower bulge */
+        height: 60px; /* Shallower drop */
+        border-radius: 0 0 20px 20px;
+    }
+
+    /* Adjust the text spacing so it fits on a small screen */
+    .nav-links {
+        padding: 0 5px; /* Less padding on the far left/right */
+        gap: 0; /* Remove the gap, letting 'flex: 1' do all the work */
+    }
+
+    .nav-links a {
+        font-size: 0.9rem; /* Shrink the text heavily so it fits side-by-side */
+        padding: 4px;
+        white-space: nowrap; /* Forces "CONTACT US" to stay on one line */
+    }
+
+    /* Shrink the center invisible spacer */
+    .logo-item {
+        width: 120px; /* Smaller gap for the smaller logo */
+        flex: 0 0 140px; /* Ensure it doesn't stretch or shrink */
+    }
+    
+    /* Shrink and reposition the logo */
+    .logo-item img {
+        height: 80px; /* Smaller logo */
+        top: -10px; /* Adjust the vertical position for the smaller bulge */
+    }
+
+    /* 1. Shrink the white box itself */
+    .dropdown-content {
+        min-width: 80px; /* Prevents the box from being unnecessarily wide */
+        padding: 4px 12px 10px 12px; /* Reduces the empty white space inside the box */
+        border-radius: 12px; /* Slightly tighter corners for a smaller box */
+    }
+
+    /* 2. Shrink the main "MENU" text */
+    .dropdown-content a {
+        font-size: 1rem !important; /* Smaller main text */
+        padding: 3px 0 !important; 
+    }
+
+    /* 3. Shrink the sub-links so they fit nicely */
+    .dropdown-content a:nth-child(2),
+    .dropdown-content a:nth-child(3) {
+        font-size: 0.9rem !important; /* Noticeably smaller sub-links */
+    }
+
+    /* --- MOBILE HERO SECTION --- */
+    .hero-section {
+        flex-direction: column; /* This is the magic! Stacks the text and image vertically */
+        margin: 20px 0; /* Reduces the top/bottom spacing for smaller screens */
+        padding-left: 20px; /* Reduces the heavy left padding */
+        padding-right: 20px; /* Adds even padding to the right so things stay centered */
+    }
+
+    .hero-text {
+
+        width: 100%; /* Forces the text container to take up the full screen width */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers your text horizontally */
+        text-align: center; 
+        margin-bottom: 30px; /* Adds breathing room between the text and the hand image below it */
+    }
+
+    .hero-image {
+        width: 100%; 
+        display: flex;
+        justify-content: flex-end; /* Centers the hand image instead of pushing it to the right edge */
+    }
+
+        /* --- TAGLINE IMAGE (Left Side) --- */
+    .tagline-img {
+        width: 450px; /* CHANGE THIS NUMBER to make the tagline bigger or smaller! */
+        max-width: 100%; /* Keeps it from breaking out of the screen */
+        height: auto; /* Keeps the proportions perfect */
+        object-fit: contain;
+    }
+    
+    .hero-image img {
+        height: 220px; 
+        max-height: 50vh; 
+        object-fit: contain;
+        max-width: 100%;
+        
+        /* CHANGE THIS: Pulls the image 20px to the right, ignoring the container's padding! */
+        margin-right: -20px; 
+        margin-top: -110px;
+    }
+}
+
+/* Styling for the new Branches Banner */
+.branches-banner {
+    display: flex;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+    gap: 20px; /* Adds space between the lines and the text */
+    padding: 85px 20px; /* Adds space above and below the banner */
+    
+}
+
+/* Controls the size of the orange side lines */
+.title-line {
+    max-width: 150px; 
+    height: auto;
+}
+
+/* Controls the size of the main text image */
+.title-text {
+    max-width: 350px;
+    height: auto;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .title-line {
+        max-width: 80px; /* Shrinks the lines on mobile */
+    }
+    
+    .title-text {
+        max-width: 200px; /* Shrinks the text on mobile */
+    }
+}
+
+h1 {
+    font-family: 'Luckiest Guy', cursive;
+  }
+
+
+/* Reusing your luckiest guy class concept */
+.big-boyz-font {
+    font-family: "Luckiest Guy", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* --- New CSS for the Side-by-Side Layout --- */
+
+.branch-locations {
+    display: flex;
+    justify-content: center; /* Centers the cards horizontally */
+    align-items: center; /* Aligns them vertically */
+    gap: 40px; /* Space between the two cards */
+    padding: 10px 20px;
+    flex-wrap: wrap; /* Allows stacking on smaller screens */
+}
+
+.branch-card {
+    display: flex;
+    align-items: center; /* Aligns image and text vertically */
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 600px; /* Adjust as needed */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Optional: adds depth */
+}
+
+/* Colors based on your uploaded image */
+.left-card {
+    background-color: #94b51a; /* Greenish yellow */
+}
+
+.right-card {
+    background-color: #179397; /* Teal */
+}
+
+/* Image container styling */
+.branch-image-container {
+    flex-shrink: 0; /* Prevents the image from shrinking too much */
+}
+
+.branch-image-container img {
+    max-width: 250px; /* Adjust based on your actual images */
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+/* Typography for the cards */
+.branch-info {
+    font-family: "Luckiest Guy", cursive;
+
+    font-size: 45px;
+    color: white;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+
+.branch-info p {
+    margin: 0; /* Removes default paragraph spacing */
+    padding: 5px 0;
+}
+
+/* Specific Alignment */
+.left-align {
+    text-align: left;
+    margin-left: 20px; /* Space between image and text */
+}
+
+.right-align {
+    text-align: right;
+    margin-right: 20px; /* Space between text and image */
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 900px) {
+    .branch-locations {
+        flex-direction: column; /* Stacks cards vertically on smaller screens */
+    }
+    
+    .branch-card {
+        flex-direction: column; /* Stacks image and text inside the card */
+        text-align: center;
+    }
+    
+    .left-align, .right-align {
+        text-align: center; /* Centers text on mobile */
+        margin: 20px 0 0 0; /* Adjust spacing */
+    }
+    
+    /* Reverse order on mobile for the right card so image is on top */
+    .right-card {
+       flex-direction: column-reverse;
+    }
+     .right-card .right-align {
+        margin: 0 0 20px 0;
+    }
+}
+
+.archers-kitchen-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Formats the title like the photo: white text, black outline */
+.archers-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 55px; 
+    color: #ffffff;
+    letter-spacing: 2px;
+    -webkit-text-stroke: .01px black; /* Creates the black border */
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+
+/* Container keeping the 3 images in a row */
+.image-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; 
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Allows images to stack on phones */
+}
+
+.image-row img {
+    width: 30%; /* Keeps them identically sized */
+    max-width: 350px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Formats the block of description text */
+.description-text {
+    font-family: 'Barlow Condensed', sans-serif; 
+    font-size: 22px;
+    color: #000000;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+/* Mobile responsiveness so it doesn't break on small screens */
+@media (max-width: 768px) {
+    .image-row {
+        flex-direction: column;
+    }
+    .image-row img {
+        width: 90%;
+        margin-bottom: 15px;
+    }
+}
+
+.lti-square-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Formats the title like the photo: white text, black outline */
+.lti-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 55px; 
+    color: #ffffff;
+    letter-spacing: 2px;
+    -webkit-text-stroke: .2px black; /* Creates the black border */
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+
+/* Container keeping the 3 images in a row */
+.image-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px; 
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* Allows images to stack on phones */
+}
+
+.image-row1 img {
+    width: 150%; /* Keeps them identically sized */
+    max-width: 350px;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 8px 16px #FF0202;
+}
+.image-row2 img {
+    width: 150%; /* Keeps them identically sized */
+    max-width: 350px;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 8px 16px #08979C;
+}
+.image-row3 img {
+    width: 150%; /* Keeps them identically sized */
+    max-width: 350px;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 8px 16px #9BB605;
+}
+
+/* Formats the block of description text */
+.description-text {
+    font-family: 'Barlow Condensed', sans-serif; 
+    font-size: 22px;
+    color: #000000;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+/* Mobile responsiveness so it doesn't break on small screens */
+@media (max-width: 768px) {
+    .image-row {
+        flex-direction: column;
+    }
+    .image-row img {
+        width: 90%;
+        margin-bottom: 15px;
+    }
+}
+
+/* --- WHERE TO FIND MAP SECTION (Scaled Down) --- */
+.dlsu-where-to-find-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px; /* Reduced top/bottom spacing */
+    width: 100%;
+}
+
+/* The Green Container Box */
+.dlsu-map-container-card {
+    background-color: #8cb019; 
+    border-radius: 30px; /* Slightly tighter corners */
+    padding: 30px; /* Reduced from 40px */
+    width: 100%;
+    max-width: 700px; /* Reduced from 900px to make the whole block smaller */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly softer shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header layout with lines and text */
+.map-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Tighter gap between text and lines */
+    margin-bottom: 20px; /* Reduced from 30px */
+    width: 100%;
+}
+
+.map-title {
+    font-family: "Luckiest Guy", cursive;
+    font-size: 2.8rem; /* Scaled down from 3.5rem */
+    color: #000000;
+    margin: 0;
+    letter-spacing: 1.5px;
+}
+
+.map-line {
+    flex-grow: 1;
+    max-width: 90px; /* Shorter lines */
+    height: auto;
+}
+
+/* Map Image Styling */
+.map-image-wrapper {
+    width: 100%;
+    margin-bottom: 20px; /* Reduced from 30px */
+    display: flex;
+    justify-content: center;
+}
+
+.map-image {
+    width: 100%;
+    height: auto;
+    border: 4px solid white; /* Slightly thinner frame */
+    border-radius: 5px; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Wrapper & Link Styling */
+/* Button Wrapper & Link Styling */
+.map-button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+/* Creates the white pill shape behind the image */
+.map-link-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 15px 45px; /* INCREASED: makes the white pill wider and taller */
+    border-radius: 50px; 
+    text-decoration: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+    transition: transform 0.2s ease-in-out;
+}
+
+.map-link-btn:hover {
+    transform: scale(1.05); 
+}
+
+/* The image inside the button */
+.map-button-img {
+    height: 40px; /* INCREASED: scales up the actual "Google Maps" image */
+    width: auto;
+    display: block;
+}
+
+/* --- Responsive Adjustments for Mobile --- */
+@media (max-width: 768px) {
+    .map-container-card {
+        padding: 20px 15px;
+        border-radius: 20px;
+    }
+    
+    .map-title {
+        font-size: 1.8rem; /* Shrinks title further on phones */
+    }
+    
+    .map-line {
+        max-width: 50px; 
+    }
+    
+    .map-link-btn {
+        padding: 12px 35px; /* INCREASED for mobile */
+    }
+    
+    .map-button-img {
+        height: 30px; /* INCREASED for mobile */
+    }
+}
+
+.lti-where-to-find-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px; /* Reduced top/bottom spacing */
+    width: 100%;
+}
+
+.lti-map-container-card {
+    background-color: #11999E; 
+    border-radius: 30px; /* Slightly tighter corners */
+    padding: 30px; /* Reduced from 40px */
+    width: 100%;
+    max-width: 700px; /* Reduced from 900px to make the whole block smaller */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly softer shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
