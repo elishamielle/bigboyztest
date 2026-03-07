@@ -167,6 +167,7 @@ body {
 .hero-section {
     display: flex;
     justify-content: space-between; 
+    position: relative;
     align-items: center; 
     width: 100%; 
     max-width: none; /* REMOVED the limit so it spans the whole screen */
