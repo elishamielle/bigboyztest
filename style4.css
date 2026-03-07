@@ -417,15 +417,17 @@ body {
         gap: 15px;
     }
     .hero-title {
-        font-size: 1rem; /* Scaled down from 4.5rem */
-        -webkit-text-stroke: .05px white; /* Slightly thicker stroke to be visible on smaller text */
+        font-size: 1.2rem; /* Scaled down from 4.5rem */
+        -webkit-text-stroke: .2px white; /* Slightly thicker stroke to be visible on smaller text */
         margin-top: -50px;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.15);
     }
 
     .dlsu.title {
         font-size: .8rem; /* Scaled down from 2rem */
         padding: 1px 20px;
         margin-top: -15px;
+        box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2); 
     }
 
     .location-pin {
@@ -440,7 +442,7 @@ body {
     }
 
     .torn-paper {
-        height: 200px; 
+        height: 250px; 
         width: 100%;   
         background-size: 100% 100%; /* Stretches it to fit the new, smaller box */
     }
@@ -453,6 +455,7 @@ body {
     .section1-title {
         font-size: 1rem; /* Scaled down from 4rem */
         gap: 5px;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
     }
 
     /* Shrink the massive 300px red lines so they fit on a phone */
@@ -479,8 +482,9 @@ body {
     }
 
     .menu-card h3 {
-        font-size: .5rem;
+        font-size: .8rem;
         margin-top: 5px;
+        letter-spacing: .5px;
     }
 
     /* 5. SCALE DOWN THE POP-OUT FOOD IMAGES */
