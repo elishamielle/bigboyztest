@@ -289,7 +289,6 @@ body {
     justify-content: center;
     gap: 100px; /* Space between the rectangles */
     padding: 20px;
-    flex-wrap: wrap; /* Allows them to stack on mobile */
 }
 
 /* --- THE RECTANGLE BASE --- */
@@ -788,19 +787,123 @@ body {
     margin-left: auto; 
 }
 
+/* =========================================
+   FOOTER & TOP BAR ALIGNMENT
+========================================= */
+
+/* 1. Shared Grid Setup for Perfect Alignment */
+.top-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    
+    /* THE NEW ADDITIONS FOR CENTERING: */
+    height: 100%;          /* Forces the grid to match the orange bar's new height */
+    align-items: center;   /* Pushes the phone, email, etc., to the vertical middle */
+}
+
+/* 1. Force the orange bar to stay thin */
+.top-bar {
+    background-color: #FF6100;
+    padding: 10px 10px;
+    height: 80px; /* Locks the thickness of the bar */
+    position: relative; 
+    z-index: 20;
+    overflow: visible !important; /* Allows the giant logo to stick out */
+}
+
+/* 2. Make the logo huge and pull it out of the layout */
+.top-logo {
+    position: absolute; /* Breaks it out of the grid's height calculation */
+    height: 130px;      /* Make this as big as you want! */
+    width: auto;
+    top: -25px;         /* Pulls it up so it overlaps the top and bottom */
+    left: 40;            /* Aligns it to the left of your grid container */
+    z-index: 30;        /* Keeps it on top of everything */
+}
+
+/* 3. Keep the phone number from sliding to the left */
+.contact-item:first-of-type {
+    /* Since the logo is now 'absolute', this forces the phone number 
+       to stay in column 2, leaving column 1 empty for your logo */
+    grid-column: 2; 
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    font-family: 'BenchNine', sans-serif; /* Matches your body font */
+    font-size: 1.8rem;
+    color: black;
+}
+
+.contact-icon {
+    height: 40px; /* Adjust based on your icon image sizes */
+    width: auto;
+}
+
+/* 3. Bottom Dark Brown Footer Styling */
+.footer {
+    background-color: #4a2e15; /* The dark brown from your image */
+    padding: 30px 40px;
+}
+
+.footer-container {
+    display: grid;
+    /* THIS IS THE MAGIC LINE: It must exactly match your .top-content columns! */
+    grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
+    
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: start; /* Keeps the footer text anchored to the top of the brown section */
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Vertical spacing between the links */
+    font-family: 'BenchNine', sans-serif;
+}
+
+.footer-col h3 {
+    color: white;
+    font-size: 2rem;
+    font-weight: normal;
+    margin: 0 0 10px 0;
+}
+
+.footer-col a {
+    color: #e0e0e0; /* Slightly dimmed white for links */
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: #FF6100; /* Turns orange on hover */
+}
+
+.desktop-spacer {
+    height: 100px;
+}
+
 /* 5. Mobile Responsiveness */
 @media screen and (max-width: 768px) {
     /* Shrink the main pill shape */
     .navbar {
-        height: 30px; /* Thinner bar */
+        height: 20px; /* Thinner bar */
         border-radius: 30px;
     }
     
     /* Shrink the center bulge */
     .navbar::after {
-        width: 110px; /* Narrower bulge */
-        height: 60px; /* Shallower drop */
-        border-radius: 0 0 20px 20px;
+        width: 80px; /* Narrower bulge */
+        height: 40px; /* Shallower drop */
+        border-radius: 0 0 10px 10px;
     }
 
     /* Adjust the text spacing so it fits on a small screen */
@@ -810,7 +913,7 @@ body {
     }
 
     .nav-links a {
-        font-size: 0.9rem; /* Shrink the text heavily so it fits side-by-side */
+        font-size: 0.5rem; /* Shrink the text heavily so it fits side-by-side */
         padding: 4px;
         white-space: nowrap; /* Forces "CONTACT US" to stay on one line */
     }
@@ -823,27 +926,28 @@ body {
     
     /* Shrink and reposition the logo */
     .logo-item img {
-        height: 80px; /* Smaller logo */
+        height: 60px; /* Smaller logo */
         top: -10px; /* Adjust the vertical position for the smaller bulge */
     }
 
     /* 1. Shrink the white box itself */
     .dropdown-content {
-        min-width: 80px; /* Prevents the box from being unnecessarily wide */
-        padding: 4px 12px 10px 12px; /* Reduces the empty white space inside the box */
-        border-radius: 12px; /* Slightly tighter corners for a smaller box */
+        min-width: 40px; /* Prevents the box from being unnecessarily wide */
+        padding: 0px 4px 4px 4px; /* Reduces the empty white space inside the box */
+        border-radius: 10px; /* Slightly tighter corners for a smaller box */
+        top: 0px;
     }
 
     /* 2. Shrink the main "MENU" text */
     .dropdown-content a {
-        font-size: 1rem !important; /* Smaller main text */
-        padding: 3px 0 !important; 
+        font-size: .5rem !important; /* Smaller main text */
+        padding: 2px 0 !important; 
     }
 
     /* 3. Shrink the sub-links so they fit nicely */
     .dropdown-content a:nth-child(2),
     .dropdown-content a:nth-child(3) {
-        font-size: 0.9rem !important; /* Noticeably smaller sub-links */
+        font-size: 0.5rem !important; /* Noticeably smaller sub-links */
     }
 
     /* --- MOBILE HERO SECTION --- */
@@ -870,7 +974,7 @@ body {
         
         /* CHANGE THIS: Pulls the image 20px to the right, ignoring the container's padding! */
         margin-right: -20px; 
-        margin-top: -20px;
+        margin-top: -50px;
     }
 
     /* --- MOBILE ALIGNMENT FIX --- */
@@ -885,7 +989,7 @@ body {
 
     .tagline-img {
         width: 220px; /* Keep it a nice size for phones */
-        margin-top: -20px; 
+        margin-top: -40px; 
         
         /* --- THE FIX --- */
         /* Use 'flex-start' to move it to the LEFT */
@@ -894,37 +998,38 @@ body {
     }
 
     .flavor-btn {
-        font-size: 0.8rem;
-        padding: 3px 10px;
-        border: 3px solid #FF0202; /* Thinner border for small screens */
-        margin-top: 10px;
-        margin-left: 35px;
+        font-size: 0.6rem;
+        padding: 5px 10px;
+        border: 2px solid #FF0202; /* Thinner border for small screens */
+        margin-top: 5px;
+        margin-left: 27px;
+        
     }
 
     .best-sellers {
     padding: 0px 0; /* Keeps space for the torn edges */
-    margin-top: -30px; 
+    margin-top: -60px; 
     }
 
     .torn-paper {
     display: flex;
     justify-content: flex-end;
-    height: 400px;
+    height: 300px;
     }
 
     .section {
-        padding: 85px 0;
+        padding: 60px 0px;
     }
 
     .section1-title {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 
     .section1-title::before,
     .section1-title::after {
         height: 2px;      
-        width: 80px; 
-        border-radius: 10px;
+        width: 50px; 
+        border-radius: 5px;
     }
 
     .cards-container {
@@ -932,32 +1037,32 @@ body {
     }
 
     .menu-card {
-        width: 130px;
-        height: 160px;
+        width: 100px;
+        height: 130px;
         border-radius: 10px;
         padding: 5px;
         padding-top: 2px; 
     }
 
     .menu-card h3{
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: lighter;
-        margin-top: 10px;
+        margin-top: 5px;
         letter-spacing: 1px;
     }
 
     .bibimbap-img{
-        width: 130px;
+        width: 100px;
         margin-top: -5px;
     }
 
     .wings-img {
-        width: 150px; /* Wings look best slightly larger */
+        width: 100px; /* Wings look best slightly larger */
         margin-top: -5px;
     }
 
     .torikatsu-img {
-        width: 100px; /* Making the sandwich the largest to "pop" */
+        width: 80px; /* Making the sandwich the largest to "pop" */
         margin-top: -5px; /* Nudge it up slightly if needed */
     }
 
@@ -968,13 +1073,14 @@ body {
 
     .section2{
         padding: 20px;
-        margin-top: 15px;
+        margin-top: -10px;
         
     }
 
     .section2-title{
-        font-size: 2.5rem;
-        text-shadow: 2px 3px 0px rgb(224, 102, 3);
+        font-size: 2rem;
+        font-weight: lighter;
+        text-shadow: 1px 1px 0px rgb(224, 102, 3);
     }
 
     .choose-container {
@@ -984,30 +1090,30 @@ body {
 
     .choose-card{
         width: 500px;
-        height: 130px;
+        height: 100px;
         padding: 5px;
         border-radius: 10px;
     }
 
     .choose-card .icon img {
-        width: 60px; /* Adjust based on your icon size */
+        width: 50px; /* Adjust based on your icon size */
         margin-bottom: 5px;
     }
 
     .choose-card p {
-        font-size: 1rem;
-
+        font-size: .8rem;
     }
 
     .section3{
-        padding: 30px 0px;
+        padding: 20px 0px;
     }
 
     .section3-title{
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         -webkit-text-stroke: 1px #ffffff;
         margin-bottom: 10px;
     }
+    
     .testi-container{
         gap: 10px;
         margin: 0px;
@@ -1056,12 +1162,12 @@ body {
     }
 
     .brand-stack{
-        font-size: 3rem;
+        font-size: 2rem;
 
     }
     
     .main-promo-text{
-        font-size: 6.8rem;
+        font-size: 5rem;
 
     }
 
@@ -1156,13 +1262,13 @@ body {
     }
 
     .promo-title {
-        font-size: 3rem; /* Scaled down from 7rem */
+        font-size: 2rem; /* Scaled down from 7rem */
         margin-top: 10px;
         margin-bottom: -5px;
     }
 
     .promo-description {
-        font-size: .8rem; /* Scaled down from 1.8rem */
+        font-size: .5rem; /* Scaled down from 1.8rem */
         line-height: 1.2;
     }
 
@@ -1179,24 +1285,24 @@ body {
 
     /* 3. BOX-SPECIFIC SPACING */
     .box .promo-text-content {
-        padding-top: 10px; 
+        padding-top: 30px; 
     }
 
     .box-upside-down .promo-text-content {
-        padding-bottom: 20px; /* Reduced from 50px */
+        padding-bottom: 50px; /* Reduced from 50px */
     }
 
     /* 4. SHRINKING THE POP-OUT IMAGES */
     .pop-out-rice {
-        width: 170px;       /* Shrunk down from 380px */
+        width: 150px;       /* Shrunk down from 380px */
         top: 0px;         /* Adjusted negative pull for smaller bowl */
         right: 20px;        /* Hugs the right edge */
     }
 
     .pop-out-card {
-        width: 210px;       /* Shrunk down from 500px */
-        top: 190px;         /* Adjusted to fit the shorter mobile box height */
-        left: 40px;          /* Hugs the left edge */
+        width: 180px;       /* Shrunk down from 500px */
+        top: 200px;         /* Adjusted to fit the shorter mobile box height */
+        left: 30px;          /* Hugs the left edge */
     }
 
     .pop-out-coming {
@@ -1204,4 +1310,77 @@ body {
         bottom: -20px;   
         right: 20px;        
     }
+
+    /* 1. SHRINK THE TOP BAR & KEEP GRID */
+    .top-bar {
+        /* Your existing mobile styles */
+        height: 40px; 
+        padding: 5px; 
+        
+        /* THE FIX: Pulls the entire footer section UP */
+        margin-top: -100px; /* Make this number more negative (e.g., -100px) if you need to pull it higher! */
+    }
+
+    .top-content {
+        display: grid;
+        /* Keeps your exact 5-column desktop layout */
+        grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
+        height: 100%;
+        align-items: center;
+        gap: 2px; /* Tiny gap to save space */
+    }
+
+    /* 2. SCALE DOWN THE POP-OUT LOGO */
+    .top-logo {
+        position: absolute; 
+        height: 50px; /* Much smaller so it doesn't cover the screen */
+        top: 50%; 
+        transform: translateY(-50%);
+        left: 40;
+    }
+
+    /* 3. SHRINK ICONS & TEXT TO FIT */
+    .contact-item {
+        font-size: 0.65rem; /* VERY small text to fit the 5 columns */
+        gap: 3px;           /* Less space between icon and text */
+        
+        /* Forces the long email address to wrap to two lines instead of breaking the layout */
+        word-break: break-all; 
+        overflow-wrap: anywhere; 
+        line-height: 1.1;
+    }
+
+    .contact-icon {
+        height: 12px; /* Tiny icons */
+    }
+
+    /* 4. SHRINK THE FOOTER & KEEP GRID */
+    .footer {
+        padding: 15px 5px; /* Minimal padding */
+    }
+
+    .footer-container {
+        display: grid;
+        /* Matches the top bar exactly to keep that invisible vertical alignment */
+        grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
+        gap: 2px;
+    }
+
+    .footer-col {
+        gap: 4px;
+    }
+
+    .footer-col h3 {
+        font-size: 0.9rem; /* Scaled down titles */
+        margin: 0 0 5px 0;
+    }
+
+    .footer-col a {
+        font-size: 0.75rem; /* Scaled down links */
+    }
+
+    .desktop-spacer {
+        display: none;
+    }
+
 }

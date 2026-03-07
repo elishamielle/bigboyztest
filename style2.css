@@ -197,15 +197,15 @@ body {
 @media screen and (max-width: 1000px) {
     /* Shrink the main pill shape */
     .navbar {
-        height: 30px; /* Thinner bar */
+        height: 20px; /* Thinner bar */
         border-radius: 30px;
     }
     
     /* Shrink the center bulge */
     .navbar::after {
-        width: 110px; /* Narrower bulge */
-        height: 60px; /* Shallower drop */
-        border-radius: 0 0 20px 20px;
+        width: 80px; /* Narrower bulge */
+        height: 40px; /* Shallower drop */
+        border-radius: 0 0 10px 10px;
     }
 
     /* Adjust the text spacing so it fits on a small screen */
@@ -215,7 +215,7 @@ body {
     }
 
     .nav-links a {
-        font-size: 0.9rem; /* Shrink the text heavily so it fits side-by-side */
+        font-size: 0.5rem; /* Shrink the text heavily so it fits side-by-side */
         padding: 4px;
         white-space: nowrap; /* Forces "CONTACT US" to stay on one line */
     }
@@ -228,27 +228,28 @@ body {
     
     /* Shrink and reposition the logo */
     .logo-item img {
-        height: 80px; /* Smaller logo */
+        height: 60px; /* Smaller logo */
         top: -10px; /* Adjust the vertical position for the smaller bulge */
     }
 
     /* 1. Shrink the white box itself */
     .dropdown-content {
-        min-width: 80px; /* Prevents the box from being unnecessarily wide */
-        padding: 4px 12px 10px 12px; /* Reduces the empty white space inside the box */
-        border-radius: 12px; /* Slightly tighter corners for a smaller box */
+        min-width: 40px; /* Prevents the box from being unnecessarily wide */
+        padding: 0px 4px 4px 4px; /* Reduces the empty white space inside the box */
+        border-radius: 10px; /* Slightly tighter corners for a smaller box */
+        top: 0px;
     }
 
     /* 2. Shrink the main "MENU" text */
     .dropdown-content a {
-        font-size: 1rem !important; /* Smaller main text */
-        padding: 3px 0 !important; 
+        font-size: .5rem !important; /* Smaller main text */
+        padding: 2px 0 !important; 
     }
 
     /* 3. Shrink the sub-links so they fit nicely */
     .dropdown-content a:nth-child(2),
     .dropdown-content a:nth-child(3) {
-        font-size: 0.9rem !important; /* Noticeably smaller sub-links */
+        font-size: 0.5rem !important; /* Noticeably smaller sub-links */
     }
 
     /* --- MOBILE HERO SECTION --- */

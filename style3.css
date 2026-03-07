@@ -10,7 +10,6 @@
        
 }
 
-
 @font-face {
     font-family: "BigBoyzFont2";
     src: url("fonts/BebasNeue-Regular.ttf") format("truetype"),
@@ -757,27 +756,62 @@ body {
 
 
 @media screen and (max-width: 600px) {
+/* Shrink the main pill shape */
+    .navbar {
+        height: 20px; /* Thinner bar */
+        border-radius: 30px;
+    }
+    
+    /* Shrink the center bulge */
+    .navbar::after {
+        width: 80px; /* Narrower bulge */
+        height: 40px; /* Shallower drop */
+        border-radius: 0 0 10px 10px;
+    }
 
+    /* Adjust the text spacing so it fits on a small screen */
+    .nav-links {
+        padding: 0 5px; /* Less padding on the far left/right */
+        gap: 0; /* Remove the gap, letting 'flex: 1' do all the work */
+    }
 
-/* Navbar adjustments */
+    .nav-links a {
+        font-size: 0.5rem; /* Shrink the text heavily so it fits side-by-side */
+        padding: 4px;
+        white-space: nowrap; /* Forces "CONTACT US" to stay on one line */
+    }
 
+    /* Shrink the center invisible spacer */
+    .logo-item {
+        width: 120px; /* Smaller gap for the smaller logo */
+        flex: 0 0 140px; /* Ensure it doesn't stretch or shrink */
+    }
+    
+    /* Shrink and reposition the logo */
+    .logo-item img {
+        height: 60px; /* Smaller logo */
+        top: -10px; /* Adjust the vertical position for the smaller bulge */
+    }
 
-.nav-links a{
-    font-size:0.7rem;
-}
+    /* 1. Shrink the white box itself */
+    .dropdown-content {
+        min-width: 40px; /* Prevents the box from being unnecessarily wide */
+        padding: 0px 4px 4px 4px; /* Reduces the empty white space inside the box */
+        border-radius: 10px; /* Slightly tighter corners for a smaller box */
+        top: 0px;
+    }
 
+    /* 2. Shrink the main "MENU" text */
+    .dropdown-content a {
+        font-size: .5rem !important; /* Smaller main text */
+        padding: 2px 0 !important; 
+    }
 
-.logo-item img{
-    height:60px;
-}
-
-
-.navbar{
-    height:25px;
-}
-
-
-
+    /* 3. Shrink the sub-links so they fit nicely */
+    .dropdown-content a:nth-child(2),
+    .dropdown-content a:nth-child(3) {
+        font-size: 0.5rem !important; /* Noticeably smaller sub-links */
+    }
 
 /* Hero */
 
