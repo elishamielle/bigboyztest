@@ -300,7 +300,7 @@ body {
 .cards-container {
     display: flex;
     justify-content: center;
-    gap: 100px; /* Space between the rectangles */
+    gap: 60px; /* Space between the rectangles */
     padding: 20px;
 }
 
@@ -342,19 +342,19 @@ body {
 /* --- INDIVIDUAL IMAGE SIZES --- */
 
 .hotdog-img {
-    width: 300px; 
+    width: 280px; 
     height: auto;
     margin-top: -50px;
 }
 
 .carbonara-img {
-    width: 300px;
+    width: 280px;
     height: auto;
     margin-top: -40px;
 }
 
-.tonkatsu-img {
-    width: 270px;
+.wings-img {
+    width: 240px;
     height: auto;
     margin-top: 10px; /* Nudge it up slightly if needed */
 }
@@ -363,6 +363,12 @@ body {
     width: 270px;
     height: auto;
     margin-top: -30px; /* Nudge it up slightly if needed */
+}
+
+.liempo-img {
+    width: 220px;
+    height: auto;
+    margin-top: -20px; /* Nudge it up slightly if needed */
 }
 
 /* --- THE IMAGES --- */
@@ -379,6 +385,436 @@ body {
 .orange { background-color: #EF5225; }
 .teal { background-color: #08979C; }
 .red { background-color: #FF0202; }
+.brown { background-color: #8B4513; }
+
+/* =========================================
+   SANDIVHES 
+========================================= */
+.sandwiches {
+    padding: 60px 20px 100px 20px;
+    text-align: center;
+}
+
+.section2-title {
+    font-family: 'Bayon', sans-serif; 
+    font-weight: normal;
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+    -webkit-text-stroke: 1.5px #000000;
+}
+
+/* =========================================
+   THE 5-COLUMN GRID 
+========================================= */
+.dish-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Forces exactly 5 equal columns */
+    gap: 20px; /* Space between each card */
+    max-width: 1400px; /* Gives the row enough room to stretch out */
+    margin: 0 auto; /* Perfectly centers the grid on the screen */
+    padding: 0 10px;
+}
+
+/* =========================================
+   INDIVIDUAL DISH CARDS 
+========================================= */
+
+.dish-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 12px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    height: 270px; 
+    
+    /* THE FIX: Changes from 'space-between' to 'flex-start' to push everything to the top */
+    justify-content: flex-start; 
+}
+
+.dish-card:hover {
+    transform: translateY(-8px); 
+}
+
+.dish-image-wrapper {
+    position: relative; 
+    width: 100%;
+    background-image: url('images/greenbg.png'); 
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-color: transparent; 
+    border-radius: 5px; 
+    
+    display: flex;
+    justify-content: center;
+    
+    /* THE FIX: Aligns the sandwich to the top of the green box instead of the center */
+    align-items: flex-start; 
+    
+    /* THE FIX: Shrink the top padding so there isn't a massive gap above the food */
+    padding: 10px 0 20px 0; 
+}
+
+/* 2. The Resizable Food Image */
+.dish-img {
+    /* ✨ CHANGE THIS NUMBER TO RESIZE THE FOOD ✨ 
+       100% stays inside the box. 120% or 130% will make it pop out the sides! */
+    width: 150px; 
+
+    
+    /* This stops the flexbox from trying to squish your oversized image */
+    flex-shrink: 0; 
+    
+    /* Pulls the food slightly out of the top and bottom of the green box */
+    margin-top: 0px; 
+    margin-bottom: -15px;
+    
+    position: relative;
+    z-index: 5; 
+    filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.4)); /* 3D pop-out shadow */
+}
+
+/* 3. The Overlapping Badge */
+.best-seller-badge {
+    position: absolute;
+    
+    /* THE FIX: Negative values pull it outside the boundaries of the image box */
+    top: -30px;   
+    right: -30px; 
+    
+    width: 100px;  /* Adjust this if the starburst needs to be bigger/smaller */
+    
+    /* THE FIX: A high z-index forces it to sit on top of absolutely everything else */
+    z-index: 60;  
+    
+    transform: rotate(-5deg); /* That playful slanted look */
+}
+
+/* 3. Text Info Underneath */
+.dish-info {
+    padding-top: -150px;
+    text-align: left; /* Aligns text cleanly to the left edge */
+}
+
+.dish-info h4 {
+    font-family: 'Passion One', sans-serif; 
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #889E0C; /* The olive green from your mockup */
+    line-height: 1.1;
+}
+
+.dish-info p {
+    font-family: 'Passion One', sans-serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #617010; 
+    margin: 0;
+}
+
+/* =========================================
+   PASTA
+========================================= */
+
+.pasta {
+    padding: 60px 20px 100px 20px;
+    text-align: center;
+}
+
+.dish-image-wrapper1 {
+    position: relative; 
+    width: 100%;
+    background-image: url('images/orangebg.png'); 
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-color: transparent; 
+    border-radius: 5px; 
+    
+    display: flex;
+    justify-content: center;
+    
+    /* THE FIX: Aligns the sandwich to the top of the green box instead of the center */
+    align-items: flex-start; 
+    
+    /* THE FIX: Shrink the top padding so there isn't a massive gap above the food */
+    padding: 10px 0 20px 0; 
+}
+
+.dish-info1 {
+    padding-top: -150px;
+    text-align: left; /* Aligns text cleanly to the left edge */
+}
+
+.dish-info1 h4 {
+    font-family: 'Passion One', sans-serif; 
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #EF5225; /* The olive green from your mockup */
+    line-height: 1.1;
+}
+
+.dish-info1 p {
+    font-family: 'Passion One', sans-serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #943013; 
+    margin: 0;
+}
+
+/* =========================================
+   RICE MEALS
+========================================= */
+.rice-meals {
+    padding: 60px 20px 100px 20px;
+    text-align: center;
+}
+
+.dish-image-wrapper2 {
+    position: relative; 
+    width: 100%;
+    background-image: url('images/redbg.png'); 
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-color: transparent; 
+    border-radius: 5px; 
+    
+    display: flex;
+    justify-content: center;
+    
+    /* THE FIX: Aligns the sandwich to the top of the green box instead of the center */
+    align-items: flex-start; 
+    
+    /* THE FIX: Shrink the top padding so there isn't a massive gap above the food */
+    padding: 10px 0 20px 0; 
+}
+
+.dish-info2 {
+    padding-top: -150px;
+    text-align: left; /* Aligns text cleanly to the left edge */
+}
+
+.dish-info2 h4 {
+    font-family: 'Passion One', sans-serif; 
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #FF0202; /* The olive green from your mockup */
+    line-height: 1.1;
+}
+
+.dish-info2 p {
+    font-family: 'Passion One', sans-serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #5B0E0E; 
+    margin: 0;
+}
+
+
+/* =========================================
+   APPETIZERS
+========================================= */
+
+.appetizers {
+    padding: 60px 20px 100px 20px;
+    text-align: center;
+}
+
+.dish-image-wrapper3 {
+    position: relative; 
+    width: 100%;
+    background-image: url('images/redbg.png'); 
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-color: transparent; 
+    border-radius: 5px; 
+    
+    display: flex;
+    justify-content: center;
+    
+    /* THE FIX: Aligns the sandwich to the top of the green box instead of the center */
+    align-items: flex-start; 
+    
+    /* THE FIX: Shrink the top padding so there isn't a massive gap above the food */
+    padding: 10px 0 20px 0; 
+}
+
+.dish-info3 {
+    padding-top: -150px;
+    text-align: left; /* Aligns text cleanly to the left edge */
+}
+
+.dish-info3 h4 {
+    font-family: 'Passion One', sans-serif; 
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #FF0202; /* The olive green from your mockup */
+    line-height: 1.1;
+}
+
+.dish-info3 p {
+    font-family: 'Passion One', sans-serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #5B0E0E; 
+    margin: 0;
+}
+
+/* =========================================
+   BINALOT
+========================================= */
+
+.binalot {
+    padding: 60px 20px 100px 20px;
+    text-align: center;
+}
+
+.dish-image-wrapper4 {
+    position: relative; 
+    width: 100%;
+    background-image: url('images/redbg.png'); 
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-color: transparent; 
+    border-radius: 5px; 
+    
+    display: flex;
+    justify-content: center;
+    
+    /* THE FIX: Aligns the sandwich to the top of the green box instead of the center */
+    align-items: flex-start; 
+    
+    /* THE FIX: Shrink the top padding so there isn't a massive gap above the food */
+    padding: 10px 0 20px 0; 
+}
+
+.dish-info4 {
+    padding-top: -150px;
+    text-align: left; /* Aligns text cleanly to the left edge */
+}
+
+.dish-info4 h4 {
+    font-family: 'Passion One', sans-serif; 
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #FF0202; /* The olive green from your mockup */
+    line-height: 1.1;
+}
+
+.dish-info4 p {
+    font-family: 'Passion One', sans-serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #5B0E0E; 
+    margin: 0;
+}
+
+
+/* =========================================
+   FOOTER & TOP BAR ALIGNMENT
+========================================= */
+
+/* 1. Shared Grid Setup for Perfect Alignment */
+.top-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    
+    /* THE NEW ADDITIONS FOR CENTERING: */
+    height: 100%;          /* Forces the grid to match the orange bar's new height */
+    align-items: center;   /* Pushes the phone, email, etc., to the vertical middle */
+}
+
+/* 1. Force the orange bar to stay thin */
+.top-bar {
+    background-color: #FF6100;
+    padding: 10px 10px;
+    height: 80px; /* Locks the thickness of the bar */
+    position: relative; 
+    z-index: 20;
+    overflow: visible !important; /* Allows the giant logo to stick out */
+}
+
+/* 2. Make the logo huge and pull it out of the layout */
+.top-logo {
+    position: absolute; /* Breaks it out of the grid's height calculation */
+    height: 130px;      /* Make this as big as you want! */
+    width: auto;
+    top: -25px;         /* Pulls it up so it overlaps the top and bottom */
+    left: 40;            /* Aligns it to the left of your grid container */
+    z-index: 30;        /* Keeps it on top of everything */
+}
+
+/* 3. Keep the phone number from sliding to the left */
+.contact-item:first-of-type {
+    /* Since the logo is now 'absolute', this forces the phone number 
+       to stay in column 2, leaving column 1 empty for your logo */
+    grid-column: 2; 
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    font-family: 'BenchNine', sans-serif; /* Matches your body font */
+    font-size: 1.8rem;
+    color: black;
+}
+
+.contact-icon {
+    height: 40px; /* Adjust based on your icon image sizes */
+    width: auto;
+}
+
+/* 3. Bottom Dark Brown Footer Styling */
+.footer {
+    background-color: #4a2e15; /* The dark brown from your image */
+    padding: 30px 40px;
+}
+
+.footer-container {
+    display: grid;
+    /* THIS IS THE MAGIC LINE: It must exactly match your .top-content columns! */
+    grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
+    
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: start; /* Keeps the footer text anchored to the top of the brown section */
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Vertical spacing between the links */
+    font-family: 'BenchNine', sans-serif;
+}
+
+.footer-col h3 {
+    color: white;
+    font-size: 2rem;
+    font-weight: normal;
+    margin: 0 0 10px 0;
+}
+
+.footer-col a {
+    color: #e0e0e0; /* Slightly dimmed white for links */
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: #FF6100; /* Turns orange on hover */
+}
+
+.desktop-spacer {
+    height: 100px;
+}
 
 @media screen and (max-width: 768px) {
 /* Shrink the main pill shape */
@@ -556,5 +992,78 @@ body {
     .nachos-img { 
         width: 80px; 
         margin-top: -20px; 
+    }
+
+    
+    /* 1. SHRINK THE TOP BAR & KEEP GRID */
+    .top-bar {
+        /* Your existing mobile styles */
+        height: 40px; 
+        padding: 5px; 
+        
+        /* THE FIX: Pulls the entire footer section UP */
+        margin-top: -100px; /* Make this number more negative (e.g., -100px) if you need to pull it higher! */
+    }
+
+    .top-content {
+        display: grid;
+        /* Keeps your exact 5-column desktop layout */
+        grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
+        height: 100%;
+        align-items: center;
+        gap: 2px; /* Tiny gap to save space */
+    }
+
+    /* 2. SCALE DOWN THE POP-OUT LOGO */
+    .top-logo {
+        position: absolute; 
+        height: 50px; /* Much smaller so it doesn't cover the screen */
+        top: 50%; 
+        transform: translateY(-50%);
+        left: 40;
+    }
+
+    /* 3. SHRINK ICONS & TEXT TO FIT */
+    .contact-item {
+        font-size: 0.65rem; /* VERY small text to fit the 5 columns */
+        gap: 3px;           /* Less space between icon and text */
+        
+        /* Forces the long email address to wrap to two lines instead of breaking the layout */
+        word-break: break-all; 
+        overflow-wrap: anywhere; 
+        line-height: 1.1;
+    }
+
+    .contact-icon {
+        height: 12px; /* Tiny icons */
+    }
+
+    /* 4. SHRINK THE FOOTER & KEEP GRID */
+    .footer {
+        padding: 15px 5px; /* Minimal padding */
+    }
+
+    .footer-container {
+        display: grid;
+        /* Matches the top bar exactly to keep that invisible vertical alignment */
+        grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
+        gap: 2px;
+    }
+
+    .footer-col {
+        gap: 4px;
+    }
+
+    .footer-col h3 {
+        font-size: 0.9rem; /* Scaled down titles */
+        margin: 0 0 5px 0;
+    }
+
+    .footer-col a {
+        font-size: 0.75rem; /* Scaled down links */
+    }
+
+    .desktop-spacer {
+        display: none;
     }
 }
