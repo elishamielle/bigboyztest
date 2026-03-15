@@ -440,7 +440,7 @@ body {
 /* --- THE TEXT --- */
 .choose-card p {
     font-family: 'BenchNine', sans-serif;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     color: white;
     line-height: 1.1;
     margin: 0;
@@ -1182,12 +1182,12 @@ body {
     }
 
     .choose-card .icon img {
-        width: 50px; /* Adjust based on your icon size */
+        width: 40px; /* Adjust based on your icon size */
         margin-bottom: 5px;
     }
 
     .choose-card p {
-        font-size: .8rem;
+        font-size: .7rem;
     }
 
     .section3{
