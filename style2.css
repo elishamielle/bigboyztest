@@ -1,7 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Bebas+Neue&family=BenchNine:wght@400;700&family=Concert+One&family=Passion+One:wght@400;700;900&display=swap');
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -15,62 +17,61 @@ body {
     font-family: "Passion One", sans-serif;
 }
 
-/* 1. Main Navbar styling (The horizontal pill shape) */
+/* =========================================
+   MAIN NAVBAR STYLING 
+========================================= */
+
 .navbar {
     background-color: #EF5225;
-    width: 98%; /* Stretches the bar almost to the very edges */
-    max-width: none; /* Removes the previous width limit completely */
-    height: 55px;
+    width: 98%; 
+    max-width: none; 
+    height: 60px; /* Slightly taller to comfortably fit the new circle icons */
     margin: 20px auto; 
     border-radius: 50px;
     display: flex;
-    justify-content: center;
     align-items: center;
     position: relative; 
     z-index: 10;
 }
 
-/* 2. The Center "Bulge" behind the logo */
+/* 2. The Left "Bulge" behind the logo */
 .navbar::after {
     content: "";
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%); /* Keeps it perfectly centered */
-    width: 280px; /* Width of the dropdown area */
-    height: 130px; /* How far it drops down */
+    left: 0; /* Anchors the bulge strictly to the left edge */
+    width: 260px; /* Width of the bulge */
+    height: 120px; 
     background-color: #EF5225;
-    border-radius: 0 0 40px 40px; /* Flat on top, rounded on the bottom */
-    z-index: -1; /* Puts it behind the main navbar content */
+    border-radius: 50px 0 40px 40px; /* Matches top pill curve, rounds the bottom */
+    z-index: -1; 
 }
 
-/* 3. Link alignment and spacing */
+/* 3. General Link Setup & Flexbox Magic */
 .nav-links {
     list-style: none;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 120px; /* Sets even spacing between all items */
-    margin: 0;
-    padding: 0 40;
     width: 100%;
+    margin: 0;
+    padding: 0 20px;
+    gap: 35px; /* Spacing between the center links */
+}
+
+.nav-links li {
+    display: flex;
+    justify-content: center; 
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 1.4rem; /* Scaled up to match the bold image text */
-    padding: 8px 20px;
+    font-size: 1.4rem; 
+    padding: 8px 15px;
     border-radius: 60px;
     transition: 0.3s;
     font-weight: normal;
     letter-spacing: 1px;
-}
-
-.nav-links li {
-    flex: 1; /* Forces perfectly equal spacing */
-    display: flex;
-    justify-content: center; /* Centers the word perfectly inside its space */
 }
 
 .nav-links a:hover {
@@ -78,89 +79,119 @@ body {
     background-color: white;
 }
 
-/* 4. Positioning the logo over the bulge */
+/* =========================================
+   LEFT SIDE: LOGO 
+========================================= */
+
 .logo-item {
-    width: 350px; /* Acts purely as an invisible spacer to keep the links away from the center */
+    width: 180px; /* Creates invisible space pushing the other links right */
+    
+    /* THE MAGIC: Pushes everything after it perfectly to the center */
+    margin-right: auto; 
+    
     display: flex;
-    justify-content: center;
+    align-items: center;
 }
 
 .logo-item img {
     position: absolute;
-    left: 50%; /* Locks the logo to the exact center of the navbar */
-    transform: translateX(-50%); /* Perfectly centers the image itself */
-    top: -40px; /* Pushes it down into the bulge. Increase this number to push it lower! */
-    height: 200px; /* Makes the logo bigger while keeping it inside the bulge */
+    left: 38px; /* Locks the logo into the left bulge */
+    top: -30px; /* Pops it out of the top */
+    height: 180px; 
     z-index: 20;
     transition: transform 0.3s ease;
 }
 
-.logo-item img:hover {
-    transform: translateX(-50%) scale(1.1); /* Scales it up slightly! */
-    cursor: pointer; /* Turns your mouse into a clicking hand */
+
+/* =========================================
+   RIGHT SIDE: ICONS & LOGIN 
+========================================= */
+
+.right-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+    
+    /* THE MAGIC: Pushes this whole block perfectly to the far right */
+    margin-left: auto; 
 }
 
-/* Removes the white background hover effect specifically from the logo */
-.logo-item a:hover,
-.logo-item:hover {
+/* Removes the pill hover background strictly from the circle icons */
+.right-menu .icon-link {
+    padding: 0;
     background-color: transparent !important; 
 }
 
+/* The White Circle Shape for the Icons */
+.nav-icon {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    transition: transform 0.2s;
+}
 
-/* 1. Set the list item to relative so the box stays anchored to it */
+.nav-icon:hover {
+    transform: scale(1.1); 
+}
+
+/* Keep the log-in text readable and capitalized correctly */
+.login-link {
+    font-size: 1.4rem !important; 
+    font-weight: bold !important;
+}
+
+/* =========================================
+   DROPDOWN MENU 
+========================================= */
+
 .dropdown {
     position: relative;
 }
 
-/* 2. The hidden white box that holds the links */
 .dropdown-content {
     display: none;
     position: absolute;
-    top: -8px; /* Pulls it up slightly so it perfectly covers the original text */
+    top: -8px; 
     background-color: white;
     border-radius: 20px;
     flex-direction: column;
-    align-items: center; /* Centers the text inside */
-    padding: 8px 20px 20px 20px; /* Extra padding at bottom for breathing room */
-    z-index: 40; /* Keeps it on top of the red bar */
-    white-space: nowrap; /* Prevents text from wrapping */
-    box-shadow: 0px 10px 15px rgba(0,0,0,0.1); /* Optional: adds a soft shadow so it pops */
+    align-items: center; 
+    padding: 8px 20px 20px 20px; 
+    z-index: 40; 
+    white-space: nowrap; 
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1); 
 }
 
-/* 3. Show the box when hovering over the menu area */
 .dropdown:hover .dropdown-content {
     display: flex;
 }
 
-/* 4. Style all the text inside the white box */
 .dropdown-content a {
-    color: #EF5225 !important; /* Forces the text orange */
-    padding: 8px 0 !important; /* Adds space between the stacked words */
-    background-color: transparent !important; /* Removes the white hover box from earlier */
+    color: #EF5225 !important; 
+    padding: 8px 0 !important; 
+    background-color: transparent !important; 
 }
 
-/* 5. Make the sub-links slightly smaller than the main "MENU" text */
 .dropdown-content a:nth-child(2),
 .dropdown-content a:nth-child(3) {
-    font-size: 1.4rem; /* Adjust this to make the sub-locations bigger/smaller */
+    font-size: 1.4rem; 
 }
 
-/* 6. Subtle hover effect for the sub-links */
 .dropdown-content a:hover {
-    color: #c43e18 !important; /* Slightly darker orange when hovered */
+    color: #c43e18 !important; 
 }
 
-/* 1. Target the word "MENU" (the first item) in the dropdown box */
+/* Make "MENU" inside the dropdown unclickable */
 .dropdown-content a:first-child {
-    cursor: default !important;      /* Changes the hand icon back to a normal arrow */
-    pointer-events: none !important; /* Physically prevents it from being clicked */
+    cursor: default !important;      
+    pointer-events: none !important; 
 }
 
-/* 2. Prevent the text color from turning dark orange on hover */
 .dropdown-content a:first-child:hover {
-    color: #EF5225 !important;       /* Forces it to stay the standard orange */
+    color: #EF5225 !important;       
     background-color: transparent !important;
 }
+
 
 /* --- HERO SECTION --- */
 .hero-section {
@@ -195,63 +226,81 @@ body {
 
 /* 5. Mobile Responsiveness */
 @media screen and (max-width: 1000px) {
-    /* Shrink the main pill shape */
+    /* 1. Main Navbar sizing */
     .navbar {
         height: 20px; /* Thinner bar */
         border-radius: 30px;
+        margin: 10px auto; 
     }
     
-    /* Shrink the center bulge */
+    /* 2. Shrink the Left-Aligned Bulge */
     .navbar::after {
         width: 80px; /* Narrower bulge */
         height: 40px; /* Shallower drop */
-        border-radius: 0 0 10px 10px;
+        left: 0; /* Keeps it strictly on the left edge */
+        border-radius: 0px 0 10px 10px; /* Blends top-left with the pill shape, rounds the bottom */
     }
 
-    /* Adjust the text spacing so it fits on a small screen */
+    /* 3. Link alignment and text sizing */
     .nav-links {
         padding: 0 5px; /* Less padding on the far left/right */
-        gap: 0; /* Remove the gap, letting 'flex: 1' do all the work */
+        gap: 3px; /* Just a tiny gap between the center links */
     }
 
     .nav-links a {
-        font-size: 0.5rem; /* Shrink the text heavily so it fits side-by-side */
-        padding: 4px;
-        white-space: nowrap; /* Forces "CONTACT US" to stay on one line */
+        font-size: 0.5rem; /* Shrink the text heavily */
+        padding: 2px 4px;
+        white-space: nowrap; /* Forces text to stay on one line */
     }
 
-    /* Shrink the center invisible spacer */
+    /* 4. The Logo Spacer & Image */
     .logo-item {
-        width: 120px; /* Smaller gap for the smaller logo */
-        flex: 0 0 140px; /* Ensure it doesn't stretch or shrink */
+        /* Replaces your old flex: 140px rule so it pushes the center links correctly */
+        width: 60px; 
+        margin-right: auto; /* Shoves the main text links into the center */
     }
     
-    /* Shrink and reposition the logo */
     .logo-item img {
         height: 60px; /* Smaller logo */
-        top: -10px; /* Adjust the vertical position for the smaller bulge */
+        top: -10px; /* Adjust the vertical position */
+        left: 10px; /* Tucks it nicely inside the 80px bulge */
     }
 
-    /* 1. Shrink the white box itself */
+    /* 5. The Right Side Icons (NEW) */
+    .right-menu {
+        gap: 4px; /* Tiny gap between the cart and user icons */
+        margin-left: auto; /* Shoves the icons to the far right */
+    }
+
+    .nav-icon {
+        height: 14px; /* Micro white circles to match the 20px navbar */
+        width: 14px;
+        padding: 2px;
+    }
+
+    /* Hide the login text so it doesn't break your 0.5rem micro-layout */
+    .login-link {
+        display: none !important; 
+    }
+
+    /* 6. The Dropdown Box */
     .dropdown-content {
         min-width: 40px; /* Prevents the box from being unnecessarily wide */
-        padding: 0px 4px 4px 4px; /* Reduces the empty white space inside the box */
-        border-radius: 10px; /* Slightly tighter corners for a smaller box */
+        padding: 0px 4px 4px 4px; /* Reduces empty white space */
+        border-radius: 10px; 
         top: 0px;
     }
 
-    /* 2. Shrink the main "MENU" text */
     .dropdown-content a {
-        font-size: .5rem !important; /* Smaller main text */
+        font-size: 0.5rem !important; /* Smaller main text */
         padding: 2px 0 !important; 
     }
 
-    /* 3. Shrink the sub-links so they fit nicely */
     .dropdown-content a:nth-child(2),
     .dropdown-content a:nth-child(3) {
         font-size: 0.5rem !important; /* Noticeably smaller sub-links */
     }
-
+    
     /* --- MOBILE HERO SECTION --- */
     .hero-section {
         flex-direction: column; /* This is the magic! Stacks the text and image vertically */
@@ -297,7 +346,7 @@ body {
 }
 
 .banner-container {
-    padding: 100px;
+    padding: 100px 20px 0 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -305,11 +354,13 @@ body {
     gap: 10px; /* Space between the text and the pill */
 }
 
+
 .specials-title {
     font-size: 50px;
     color: #0da19d; /* Teal color matching the image */
     margin: 0;
     letter-spacing: 2px;
+    font-family: 'Bebas Neue', sans-serif;
     
     /* Creates the thick white outline */
     -webkit-text-stroke: 8px #ffffff;
@@ -322,12 +373,13 @@ body {
 .location-pill {
     background-color: #0da19d;
     color: #ffffff;
-    padding: 10px 40px;
+    padding: 0px 30px;
     border-radius: 50px; /* Makes the edges completely rounded */
     font-size: 36px;
     display: inline-flex;
     align-items: center;
     gap: 12px; /* Space between the icon and text */
+    font-family: 'Bebas Neue', sans-serif;
 }
 
 .pin-icon {
@@ -341,12 +393,14 @@ body {
 }
 
 .coming-soon-section {
-    position: relative; /* This is crucial! It keeps the overlaid text constrained to this section */
+    position: relative; 
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -30px; 
 }
+
 
 .paper-image {
     width: 100%;
@@ -377,4 +431,211 @@ body {
     background-color: #f15a24;
     border-radius: 2px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* 1. Shared Grid Setup for Perfect Alignment */
+.top-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    
+    /* THE NEW ADDITIONS FOR CENTERING: */
+    height: 100%;          /* Forces the grid to match the orange bar's new height */
+    align-items: center;   /* Pushes the phone, email, etc., to the vertical middle */
+}
+
+/* 1. Force the orange bar to stay thin */
+.top-bar {
+    background-color: #FF6100;
+    padding: 10px 10px;
+    height: 80px; /* Locks the thickness of the bar */
+    position: relative; 
+    z-index: 20;
+    overflow: visible !important; /* Allows the giant logo to stick out */
+}
+
+/* 2. Make the logo huge and pull it out of the layout */
+.top-logo {
+    position: absolute; /* Breaks it out of the grid's height calculation */
+    height: 130px;      /* Make this as big as you want! */
+    width: auto;
+    top: -25px;         /* Pulls it up so it overlaps the top and bottom */
+    left: 40;            /* Aligns it to the left of your grid container */
+    z-index: 30;        /* Keeps it on top of everything */
+}
+
+/* 3. Keep the phone number from sliding to the left */
+.contact-item:first-of-type {
+    /* Since the logo is now 'absolute', this forces the phone number 
+       to stay in column 2, leaving column 1 empty for your logo */
+    grid-column: 2; 
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    font-family: 'BenchNine', sans-serif; /* Matches your body font */
+    font-size: 1.8rem;
+    color: black;
+}
+
+.contact-icon {
+    height: 40px; /* Adjust based on your icon image sizes */
+    width: auto;
+}
+
+/* 3. Bottom Dark Brown Footer Styling */
+.footer {
+    background-color: #4a2e15; /* The dark brown from your image */
+    padding: 30px 40px;
+}
+
+.footer-container {
+    display: grid;
+    /* THIS IS THE MAGIC LINE: It must exactly match your .top-content columns! */
+    grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
+    
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    align-items: start; /* Keeps the footer text anchored to the top of the brown section */
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Vertical spacing between the links */
+    font-family: 'BenchNine', sans-serif;
+}
+
+.footer-col h3 {
+    color: white;
+    font-size: 2rem;
+    font-weight: normal;
+    margin: 0 0 10px 0;
+}
+
+.footer-col a {
+    color: #e0e0e0; /* Slightly dimmed white for links */
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: #FF6100; /* Turns orange on hover */
+}
+
+.desktop-spacer {
+    height: 100px;
+}
+
+/*mobile layout*/
+@media (max-width: 768px) {
+    .banner-container {
+        padding: 30px 10px;
+        gap: 15px;
+    }
+
+    .specials-title {
+        font-size: 26px;
+        -webkit-text-stroke: 4px #ffffff;
+    }
+
+    .location-pill {
+        padding: 0px 25px;
+        font-size: 24px;
+        gap: 8px;
+    }
+
+    .pin-icon {
+        width: 10px;
+        height: 20px;
+    }
+
+    .content-overlay {
+        gap: 10px;
+    }
+
+    .coming-soon-text {
+        font-size: 26px;
+    }
+
+    .orange-line {
+        width: 60px;
+    }
+
+    .top-bar {
+        /* Your existing mobile styles */
+        height: 40px; 
+        padding: 5px; 
+        
+        /* THE FIX: Pulls the entire footer section UP */
+        margin-top: -100px; /* Make this number more negative (e.g., -100px) if you need to pull it higher! */
+    }
+
+    .top-content {
+        display: grid;
+        /* Keeps your exact 5-column desktop layout */
+        grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
+        height: 100%;
+        align-items: center;
+        gap: 2px; /* Tiny gap to save space */
+    }
+
+    /* 2. SCALE DOWN THE POP-OUT LOGO */
+    .top-logo {
+        position: absolute; 
+        height: 50px; /* Much smaller so it doesn't cover the screen */
+        top: 50%; 
+        transform: translateY(-50%);
+        left: 40;
+    }
+
+    /* 3. SHRINK ICONS & TEXT TO FIT */
+    .contact-item {
+        font-size: 0.65rem; /* VERY small text to fit the 5 columns */
+        gap: 3px;           /* Less space between icon and text */
+        
+        /* Forces the long email address to wrap to two lines instead of breaking the layout */
+        word-break: break-all; 
+        overflow-wrap: anywhere; 
+        line-height: 1.1;
+    }
+
+    .contact-icon {
+        height: 12px; /* Tiny icons */
+    }
+
+    /* 4. SHRINK THE FOOTER & KEEP GRID */
+    .footer {
+        padding: 15px 5px; /* Minimal padding */
+    }
+
+    .footer-container {
+        display: grid;
+        /* Matches the top bar exactly to keep that invisible vertical alignment */
+        grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
+        gap: 2px;
+    }
+
+    .footer-col {
+        gap: 4px;
+    }
+
+    .footer-col h3 {
+        font-size: 0.9rem; /* Scaled down titles */
+        margin: 0 0 5px 0;
+    }
+
+    .footer-col a {
+        font-size: 0.75rem; /* Scaled down links */
+    }
+
+    .desktop-spacer {
+        display: none;
+    }
 }

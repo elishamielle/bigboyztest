@@ -15,62 +15,62 @@ body {
     font-family: "Passion One", sans-serif;
 }
 
-/* 1. Main Navbar styling (The horizontal pill shape) */
+
+/* =========================================
+   MAIN NAVBAR STYLING 
+========================================= */
+
 .navbar {
     background-color: #EF5225;
-    width: 98%; /* Stretches the bar almost to the very edges */
-    max-width: none; /* Removes the previous width limit completely */
-    height: 55px;
+    width: 98%; 
+    max-width: none; 
+    height: 60px; /* Slightly taller to comfortably fit the new circle icons */
     margin: 20px auto; 
     border-radius: 50px;
     display: flex;
-    justify-content: center;
     align-items: center;
     position: relative; 
     z-index: 10;
 }
 
-/* 2. The Center "Bulge" behind the logo */
+/* 2. The Left "Bulge" behind the logo */
 .navbar::after {
     content: "";
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%); /* Keeps it perfectly centered */
-    width: 280px; /* Width of the dropdown area */
-    height: 130px; /* How far it drops down */
+    left: 0; /* Anchors the bulge strictly to the left edge */
+    width: 260px; /* Width of the bulge */
+    height: 120px; 
     background-color: #EF5225;
-    border-radius: 0 0 40px 40px; /* Flat on top, rounded on the bottom */
-    z-index: -1; /* Puts it behind the main navbar content */
+    border-radius: 50px 0 40px 40px; /* Matches top pill curve, rounds the bottom */
+    z-index: -1; 
 }
 
-/* 3. Link alignment and spacing */
+/* 3. General Link Setup & Flexbox Magic */
 .nav-links {
     list-style: none;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 120px; /* Sets even spacing between all items */
-    margin: 0;
-    padding: 0 40;
     width: 100%;
+    margin: 0;
+    padding: 0 20px;
+    gap: 35px; /* Spacing between the center links */
+}
+
+.nav-links li {
+    display: flex;
+    justify-content: center; 
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 1.4rem; /* Scaled up to match the bold image text */
-    padding: 8px 20px;
+    font-size: 1.4rem; 
+    padding: 8px 15px;
     border-radius: 60px;
     transition: 0.3s;
     font-weight: normal;
     letter-spacing: 1px;
-}
-
-.nav-links li {
-    flex: 1; /* Forces perfectly equal spacing */
-    display: flex;
-    justify-content: center; /* Centers the word perfectly inside its space */
 }
 
 .nav-links a:hover {
@@ -78,86 +78,106 @@ body {
     background-color: white;
 }
 
-/* 4. Positioning the logo over the bulge */
+/* =========================================
+   LEFT SIDE: LOGO 
+========================================= */
+
 .logo-item {
-    width: 350px; /* Acts purely as an invisible spacer to keep the links away from the center */
+    width: 180px; /* Creates invisible space pushing the other links right */
+    
+    /* THE MAGIC: Pushes everything after it perfectly to the center */
+    margin-right: auto; 
+    
     display: flex;
-    justify-content: center;
+    align-items: center;
 }
 
-.logo-item img {
-    position: absolute;
-    left: 50%; /* Locks the logo to the exact center of the navbar */
-    transform: translateX(-50%); /* Perfectly centers the image itself */
-    top: -40px; /* Pushes it down into the bulge. Increase this number to push it lower! */
-    height: 200px; /* Makes the logo bigger while keeping it inside the bulge */
-    z-index: 20;
-    transition: transform 0.3s ease;
+/* =========================================
+   RIGHT SIDE: ICONS & LOGIN 
+========================================= */
+
+.right-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+    
+    /* THE MAGIC: Pushes this whole block perfectly to the far right */
+    margin-left: auto; 
 }
 
-.logo-item img:hover {
-    transform: translateX(-50%) scale(1.1); /* Scales it up slightly! */
-    cursor: pointer; /* Turns your mouse into a clicking hand */
-}
-
-/* Removes the white background hover effect specifically from the logo */
-.logo-item a:hover,
-.logo-item:hover {
+/* Removes the pill hover background strictly from the circle icons */
+.right-menu .icon-link {
+    padding: 0;
     background-color: transparent !important; 
 }
 
-/* 1. Set the list item to relative so the box stays anchored to it */
+/* The White Circle Shape for the Icons */
+.nav-icon {
+    height: 40px;
+    width: 40px;
+    object-fit: contain;
+    transition: transform 0.2s;
+}
+
+.nav-icon:hover {
+    transform: scale(1.1); 
+}
+
+/* Keep the log-in text readable and capitalized correctly */
+.login-link {
+    font-size: 1.4rem !important; 
+    font-weight: bold !important;
+}
+
+/* =========================================
+   DROPDOWN MENU 
+========================================= */
+
 .dropdown {
     position: relative;
 }
 
-/* 2. The hidden white box that holds the links */
 .dropdown-content {
     display: none;
     position: absolute;
-    top: -8px; /* Pulls it up slightly so it perfectly covers the original text */
+    top: -8px; 
     background-color: white;
     border-radius: 20px;
     flex-direction: column;
-    align-items: center; /* Centers the text inside */
-    padding: 8px 20px 20px 20px; /* Extra padding at bottom for breathing room */
-    z-index: 40; /* Keeps it on top of the red bar */
-    white-space: nowrap; /* Prevents text from wrapping */
-    box-shadow: 0px 10px 15px rgba(0,0,0,0.1); /* Optional: adds a soft shadow so it pops */
+    align-items: center; 
+    padding: 8px 20px 20px 20px; 
+    z-index: 40; 
+    white-space: nowrap; 
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1); 
 }
 
-/* 3. Show the box when hovering over the menu area */
 .dropdown:hover .dropdown-content {
     display: flex;
 }
 
-/* 4. Style all the text inside the white box */
 .dropdown-content a {
-    color: #EF5225 !important; /* Forces the text orange */
-    padding: 8px 0 !important; /* Adds space between the stacked words */
-    background-color: transparent !important; /* Removes the white hover box from earlier */
+    color: #EF5225 !important; 
+    padding: 8px 0 !important; 
+    background-color: transparent !important; 
 }
 
-/* 5. Make the sub-links slightly smaller than the main "MENU" text */
 .dropdown-content a:nth-child(2),
 .dropdown-content a:nth-child(3) {
-    font-size: 1.4rem; /* Adjust this to make the sub-locations bigger/smaller */
+    font-size: 1.4rem; 
 }
 
-/* 6. Subtle hover effect for the sub-links */
 .dropdown-content a:hover {
-    color: #c43e18 !important; /* Slightly darker orange when hovered */
+    color: #c43e18 !important; 
 }
 
-/* 1. Target the word "MENU" (the first item) in the dropdown box */
+/* Make "MENU" inside the dropdown unclickable */
 .dropdown-content a:first-child {
-    cursor: default !important;      /* Changes the hand icon back to a normal arrow */
-    pointer-events: none !important; /* Physically prevents it from being clicked */
+    cursor: default !important;      
+    pointer-events: none !important; 
 }
 
-/* 2. Prevent the text color from turning dark orange on hover */
 .dropdown-content a:first-child:hover {
-    color: #EF5225 !important;       /* Forces it to stay the standard orange */
+    color: #EF5225 !important;       
     background-color: transparent !important;
 }
 
@@ -194,58 +214,75 @@ body {
 
 /* 5. Mobile Responsiveness */
 @media screen and (max-width: 1000px) {
-    /* Shrink the main pill shape */
     .navbar {
         height: 20px; /* Thinner bar */
         border-radius: 30px;
+        margin: 10px auto; 
     }
     
-    /* Shrink the center bulge */
+    /* 2. Shrink the Left-Aligned Bulge */
     .navbar::after {
         width: 80px; /* Narrower bulge */
         height: 40px; /* Shallower drop */
-        border-radius: 0 0 10px 10px;
+        left: 0; /* Keeps it strictly on the left edge */
+        border-radius: 0px 0 10px 10px; /* Blends top-left with the pill shape, rounds the bottom */
     }
 
-    /* Adjust the text spacing so it fits on a small screen */
+    /* 3. Link alignment and text sizing */
     .nav-links {
         padding: 0 5px; /* Less padding on the far left/right */
-        gap: 0; /* Remove the gap, letting 'flex: 1' do all the work */
+        gap: 3px; /* Just a tiny gap between the center links */
     }
 
     .nav-links a {
-        font-size: 0.5rem; /* Shrink the text heavily so it fits side-by-side */
-        padding: 4px;
-        white-space: nowrap; /* Forces "CONTACT US" to stay on one line */
+        font-size: 0.5rem; /* Shrink the text heavily */
+        padding: 2px 4px;
+        white-space: nowrap; /* Forces text to stay on one line */
     }
 
-    /* Shrink the center invisible spacer */
+    /* 4. The Logo Spacer & Image */
     .logo-item {
-        width: 120px; /* Smaller gap for the smaller logo */
-        flex: 0 0 140px; /* Ensure it doesn't stretch or shrink */
+        /* Replaces your old flex: 140px rule so it pushes the center links correctly */
+        width: 60px; 
+        margin-right: auto; /* Shoves the main text links into the center */
     }
     
-    /* Shrink and reposition the logo */
     .logo-item img {
         height: 60px; /* Smaller logo */
-        top: -10px; /* Adjust the vertical position for the smaller bulge */
+        top: -10px; /* Adjust the vertical position */
+        left: 10px; /* Tucks it nicely inside the 80px bulge */
     }
 
-    /* 1. Shrink the white box itself */
+    /* 5. The Right Side Icons (NEW) */
+    .right-menu {
+        gap: 4px; /* Tiny gap between the cart and user icons */
+        margin-left: auto; /* Shoves the icons to the far right */
+    }
+
+    .nav-icon {
+        height: 14px; /* Micro white circles to match the 20px navbar */
+        width: 14px;
+        padding: 2px;
+    }
+
+    /* Hide the login text so it doesn't break your 0.5rem micro-layout */
+    .login-link {
+        display: none !important; 
+    }
+
+    /* 6. The Dropdown Box */
     .dropdown-content {
         min-width: 40px; /* Prevents the box from being unnecessarily wide */
-        padding: 0px 4px 4px 4px; /* Reduces the empty white space inside the box */
-        border-radius: 10px; /* Slightly tighter corners for a smaller box */
+        padding: 0px 4px 4px 4px; /* Reduces empty white space */
+        border-radius: 10px; 
         top: 0px;
     }
 
-    /* 2. Shrink the main "MENU" text */
     .dropdown-content a {
-        font-size: .5rem !important; /* Smaller main text */
+        font-size: 0.5rem !important; /* Smaller main text */
         padding: 2px 0 !important; 
     }
 
-    /* 3. Shrink the sub-links so they fit nicely */
     .dropdown-content a:nth-child(2),
     .dropdown-content a:nth-child(3) {
         font-size: 0.5rem !important; /* Noticeably smaller sub-links */
@@ -302,8 +339,17 @@ body {
     align-items: center; /* Centers items vertically */
     gap: 20px; /* Adds space between the lines and the text */
     padding: 85px 20px; /* Adds space above and below the banner */
-    
 }
+
+.title-text1 {
+    font-family: 'Boogaloo', cursive;
+    font-size: 55px; /* You can adjust this value to perfectly fit your layout */
+    letter-spacing: 2px;
+    color: #000000;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
+}
+
 
 /* Controls the size of the orange side lines */
 .title-line {
@@ -323,7 +369,7 @@ body {
         max-width: 80px; /* Shrinks the lines on mobile */
     }
     
-    .title-text {
+    .title-text1 {
         max-width: 200px; /* Shrinks the text on mobile */
     }
 }
@@ -347,7 +393,7 @@ h1 {
     justify-content: center; /* Centers the cards horizontally */
     align-items: center; /* Aligns them vertically */
     gap: 40px; /* Space between the two cards */
-    padding: 10px 20px;
+    padding: 5px 5px;
     flex-wrap: wrap; /* Allows stacking on smaller screens */
 }
 
@@ -384,12 +430,12 @@ h1 {
 /* Typography for the cards */
 .branch-info {
     font-family: "Luckiest Guy", cursive;
-
     font-size: 45px;
     color: white;
     text-transform: uppercase;
     line-height: 1;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    padding: 10px 10px;
 }
 
 
@@ -412,17 +458,18 @@ h1 {
 /* --- Responsive adjustments --- */
 @media (max-width: 900px) {
     .branch-locations {
-        flex-direction: column; /* Stacks cards vertically on smaller screens */
+        flex-direction: row; /* Stacks cards vertically on smaller screens */
     }
     
     .branch-card {
         flex-direction: column; /* Stacks image and text inside the card */
         text-align: center;
+        padding: 10px;
     }
     
     .left-align, .right-align {
         text-align: center; /* Centers text on mobile */
-        margin: 20px 0 0 0; /* Adjust spacing */
+        margin: 10px 0 0 0; /* Adjust spacing */
     }
     
     /* Reverse order on mobile for the right card so image is on top */
@@ -480,7 +527,9 @@ h1 {
 /* Mobile responsiveness so it doesn't break on small screens */
 @media (max-width: 768px) {
     .image-row {
-        flex-direction: column;
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: nowrap;
     }
     .image-row img {
         width: 90%;
@@ -511,7 +560,7 @@ h1 {
     align-items: center;
     gap: 100px; 
     margin-bottom: 30px;
-    flex-wrap: wrap; /* Allows images to stack on phones */
+    flex-direction: row;
 }
 
 .image-row1 img {
@@ -549,7 +598,9 @@ h1 {
 /* Mobile responsiveness so it doesn't break on small screens */
 @media (max-width: 768px) {
     .image-row {
-        flex-direction: column;
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: nowrap;
     }
     .image-row img {
         width: 90%;
@@ -631,12 +682,16 @@ h1 {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    gap: 12px; 
     background-color: white;
-    padding: 15px 45px; /* INCREASED: makes the white pill wider and taller */
+    padding: 10px 45px; 
     border-radius: 50px; 
     text-decoration: none;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
     transition: transform 0.2s ease-in-out;
+    font-family: 'Bayon', sans-serif;
+    font-size: 36px;
+    color: #749b14; 
 }
 
 .map-link-btn:hover {
@@ -644,13 +699,13 @@ h1 {
 }
 
 /* The image inside the button */
-.map-button-img {
-    height: 40px; /* INCREASED: scales up the actual "Google Maps" image */
+.map-icon-img {
+    height: 32px;
     width: auto;
     display: block;
 }
 
-/* --- Responsive Adjustments for Mobile --- */
+/* Responsive Adjustments for Mobile */
 @media (max-width: 768px) {
     .map-container-card {
         padding: 20px 15px;
@@ -658,7 +713,7 @@ h1 {
     }
     
     .map-title {
-        font-size: 1.8rem; /* Shrinks title further on phones */
+        font-size: 1.8rem; 
     }
     
     .map-line {
@@ -666,11 +721,13 @@ h1 {
     }
     
     .map-link-btn {
-        padding: 12px 35px; /* INCREASED for mobile */
+        padding: 8px 25px; 
+        font-size: 20px; 
+        gap: 8px; 
     }
     
-    .map-button-img {
-        height: 30px; /* INCREASED for mobile */
+    .map-icon-img {
+        height: 18px; 
     }
 }
 
@@ -693,3 +750,4 @@ h1 {
     flex-direction: column;
     align-items: center;
 }
+
