@@ -439,6 +439,37 @@ body {
     transform: translateY(-8px); 
 }
 
+.dish-image-wrapper,
+.dish-image-wrapper1,
+.dish-image-wrapper2,
+.dish-image-wrapper3,
+.dish-image-wrapper4 {
+    position: relative; 
+    width: 100%;
+    
+    /* 1. THE FIXED SIZE: Forces every background to be exactly this height */
+    height: 160px; /* You can adjust this slightly if you want them taller/shorter */
+    
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    
+    /* Centers the colored background image itself inside the wrapper */
+    background-position: center; 
+    
+    background-color: transparent; 
+    border-radius: 5px; 
+    
+    display: flex;
+    
+    /* 2. THE CENTERING MAGIC: Perfectly suspends the food image in the dead center */
+    justify-content: center; /* Horizontal center */
+    align-items: center;     /* Vertical center (Changed from flex-start!) */
+    
+    /* Remove padding so it doesn't push your centered images down */
+    padding: 0; 
+    margin-bottom: 10px; /* Space between the image box and the text below it */
+}
+
 .dish-image-wrapper {
     position: relative; 
     width: 100%;
@@ -460,21 +491,17 @@ body {
 
 /* 2. The Resizable Food Image */
 .dish-img {
-    /* ✨ CHANGE THIS NUMBER TO RESIZE THE FOOD ✨ 
-       100% stays inside the box. 120% or 130% will make it pop out the sides! */
     width: 150px; 
-
-    
-    /* This stops the flexbox from trying to squish your oversized image */
+    height: auto;
     flex-shrink: 0; 
     
-    /* Pulls the food slightly out of the top and bottom of the green box */
+    /* THE FIX: Reset these to 0 so the Flexbox can do its job and center the food! */
     margin-top: 0px; 
-    margin-bottom: -15px;
+    margin-bottom: 0px;
     
     position: relative;
     z-index: 5; 
-    filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.4)); /* 3D pop-out shadow */
+    filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.4)); 
 }
 
 /* 3. The Overlapping Badge */
@@ -575,7 +602,7 @@ body {
 .dish-image-wrapper2 {
     position: relative; 
     width: 100%;
-    background-image: url('images/redbg.png'); 
+    background-image: url('images/tealbg.png'); 
     background-size: contain; 
     background-repeat: no-repeat; 
     background-color: transparent; 
@@ -585,7 +612,7 @@ body {
     justify-content: center;
     
     /* THE FIX: Aligns the sandwich to the top of the green box instead of the center */
-    align-items: flex-start; 
+    align-items: flex-center; 
     
     /* THE FIX: Shrink the top padding so there isn't a massive gap above the food */
     padding: 10px 0 20px 0; 
@@ -600,7 +627,7 @@ body {
     font-family: 'Passion One', sans-serif; 
     font-size: 1.5rem;
     font-weight: normal;
-    color: #FF0202; /* The olive green from your mockup */
+    color: #08979C; /* The olive green from your mockup */
     line-height: 1.1;
 }
 
@@ -608,7 +635,7 @@ body {
     font-family: 'Passion One', sans-serif;
     font-size: 1.5rem;
     font-weight: normal;
-    color: #5B0E0E; 
+    color: #0D585B; 
     margin: 0;
 }
 
@@ -635,7 +662,7 @@ body {
     justify-content: center;
     
     /* THE FIX: Aligns the sandwich to the top of the green box instead of the center */
-    align-items: flex-start; 
+    align-items: center; 
     
     /* THE FIX: Shrink the top padding so there isn't a massive gap above the food */
     padding: 10px 0 20px 0; 
@@ -674,7 +701,7 @@ body {
 .dish-image-wrapper4 {
     position: relative; 
     width: 100%;
-    background-image: url('images/redbg.png'); 
+    background-image: url('images/brownbg.png'); 
     background-size: contain; 
     background-repeat: no-repeat; 
     background-color: transparent; 
@@ -683,8 +710,6 @@ body {
     display: flex;
     justify-content: center;
     
-    /* THE FIX: Aligns the sandwich to the top of the green box instead of the center */
-    align-items: flex-start; 
     
     /* THE FIX: Shrink the top padding so there isn't a massive gap above the food */
     padding: 10px 0 20px 0; 
@@ -699,7 +724,7 @@ body {
     font-family: 'Passion One', sans-serif; 
     font-size: 1.5rem;
     font-weight: normal;
-    color: #FF0202; /* The olive green from your mockup */
+    color: #8B4513; /* The olive green from your mockup */
     line-height: 1.1;
 }
 
@@ -707,7 +732,7 @@ body {
     font-family: 'Passion One', sans-serif;
     font-size: 1.5rem;
     font-weight: normal;
-    color: #5B0E0E; 
+    color: #3b1b05; 
     margin: 0;
 }
 
@@ -895,6 +920,7 @@ body {
 
     /* 1. HERO SECTION & TITLES */
     .hero-section {
+        margin-top: 20px; /* Adds a bit of breathing room above the hero */
         padding: 60px 10px 80px 10px; 
     }
 
@@ -902,7 +928,7 @@ body {
         gap: 15px;
     }
     .hero-title {
-        font-size: 1.2rem; /* Scaled down from 4.5rem */
+        font-size: 1.4rem; /* Scaled down from 4.5rem */
         -webkit-text-stroke: .5px white; /* Slightly thicker stroke to be visible on smaller text */
         margin-top: -50px;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
@@ -927,18 +953,32 @@ body {
     }
 
     .torn-paper {
-        height: 250px; 
+        /* ✨ THE MAGIC: Overrides the desktop image with your new mobile version! ✨ */
+        background-image: url('images/tornpapernew.png');
+        
+        position: absolute;
+        top: 0;
+        left: 0;
+        
+        /* Forces the new paper to be the exact height of the whole category section */
+        height: 100%; 
         width: 100%;   
-        background-size: 100% 100%; /* Stretches it to fit the new, smaller box */
+        
+        background-repeat: no-repeat; 
+        
+        /* Stretches the image to perfectly fill the space */
+        background-size: 100% 100%; 
+        
+        background-position: center top; 
     }
    
     .section {
         padding: 10px 0;
-        margin-top: -50px;
+        margin-top: -40px;
     }
 
     .section1-title {
-        font-size: 1rem; /* Scaled down from 4rem */
+        font-size: 1.5rem; /* Scaled down from 4rem */
         gap: 5px;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
@@ -946,52 +986,134 @@ body {
     /* Shrink the massive 300px red lines so they fit on a phone */
     .section1-title::before,
     .section1-title::after {
-        width: 40px; 
-        height: 2px;
+        width: 50px; 
+        height: 3px;
     }
-
-    /* 4. CARDS CONTAINER - SWITCH TO 2x2 GRID */
+    
+    /* =========================================
+       MOBILE: FEATURED CATEGORIES
+    ========================================= */
+    
     .cards-container {
         display: flex;
-        justify-content: center; /* Centers the whole 2x2 block on the screen */
-        gap: 30px; /* Now this exact pixel gap will physically push the cards apart! */
-        padding: 10px;
+        
+        /* THE MAGIC FIX: Allows the cards to drop to a new line! */
+        flex-wrap: wrap; 
+        
+        justify-content: center; /* Centers everything on the screen */
+        gap: 15px; /* A comfortable gap for touch screens */
+        padding: 10px 5px;
+        margin-top: 15px;
     }
 
     .menu-card {
-        /* I highly recommend bumping this up slightly from 60px so your food names fit! */
-        width: 60px; 
-        height: 80px; 
-        border-radius: 5px;
-        padding: 5px;
+        /* Big enough to tap, but small enough to fit two side-by-side on a phone */
+        width: 130px; 
+        height: 170px; 
+        border-radius: 15px;
+        padding: 8px;
     }
 
     .menu-card h3 {
-        font-size: .5rem;
+        font-size: 1.2rem; /* Scaled up so it's readable on a phone! */
         margin-top: 5px;
-        letter-spacing: .5px;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
     }
 
-    /* 5. SCALE DOWN THE POP-OUT FOOD IMAGES */
-    /* If the images are too big, they will overlap each other in the 2x2 grid! */
+    /* =========================================
+       SCALE DOWN THE POP-OUT CATEGORY IMAGES
+    ========================================= */
+    /* These are scaled proportionally to fit the new 150px cards 
+       without breaking out of the sides of the screen */
+
     .hotdog-img { 
-        width: 80px; 
+        width: 150px; 
         margin-top: -20px; 
     }
     
     .carbonara-img { 
-        width: 80px; 
+        width: 150px; 
         margin-top: -15px; 
     }
     
-    .tonkatsu-img { 
-        width: 80px; 
-        margin-top: -5px; 
+    .wings-img { 
+        width: 150px; 
+        margin-top: 5px; 
     }
     
     .nachos-img { 
-        width: 80px; 
+        width: 140px; 
+        margin-top: -10px; 
+    }
+    
+    .liempo-img { 
+        width: 140px; 
         margin-top: -20px; 
+    }
+
+    /* =========================================
+       MOBILE: FOOD CATEGORY GRIDS
+    ========================================= */
+    
+    /* 1. Shrink Section Padding & Titles */
+    .sandwiches, .pasta, .rice-meals, .appetizers, .binalot {
+        padding: 30px 10px 40px 10px; /* Reduces the massive desktop gaps */
+    }
+
+    .section2-title {
+        font-size: 2rem; /* Shrinks the massive 4rem font */
+        -webkit-text-stroke: 1px #000000;
+        margin-bottom: 20px;
+    }
+
+    /* 2. Collapse the Grid from 5 Columns to 2 Columns */
+    .dish-grid {
+        grid-template-columns: repeat(2, 1fr); /* THE MAGIC: 2 cards side-by-side! */
+        gap: 10px; /* Tighter gap for mobile screens */
+        padding: 0 5px;
+    }
+
+    /* 3. Scale Down the Cards & Wrappers */
+    .dish-card {
+        height: 190px; /* Reduced from 270px so they don't look awkwardly tall */
+        padding: 8px;
+        border-radius: 10px;
+    }
+
+    .dish-image-wrapper,
+    .dish-image-wrapper1,
+    .dish-image-wrapper2,
+    .dish-image-wrapper3,
+    .dish-image-wrapper4 {
+        height: 110px; /* Scaled down perfectly to fit the new card size */
+        margin-bottom: 5px; 
+    }
+
+    /* 4. Scale Down the Food Image & Badges */
+    .dish-img {
+        width: 100px; /* Scaled down from 150px */
+    }
+
+    .best-seller-badge {
+        width: 50px; /* Smaller badge for the smaller card */
+        top: -15px;  
+        right: -15px; 
+    }
+
+    /* 5. Scale Down the Text */
+    .dish-info, .dish-info1, .dish-info2, .dish-info3, .dish-info4 {
+        padding-top: 5px; /* Overrides any weird desktop padding */
+    }
+
+    .dish-info h4, .dish-info1 h4, .dish-info2 h4, .dish-info3 h4, .dish-info4 h4 {
+        font-size: 1rem; /* Scaled down for readability */
+        margin-bottom: 2px;
+        line-height: 1.1;
+    }
+
+    .dish-info p, .dish-info1 p, .dish-info2 p, .dish-info3 p, .dish-info4 p {
+        font-size: 1rem; 
     }
 
     
