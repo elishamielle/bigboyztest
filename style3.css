@@ -794,7 +794,7 @@ body {
     }
 
     .nav-links a {
-        font-size: 0.6rem; /* Shrink the text heavily */
+        font-size: 0.5rem; /* Shrink the text heavily */
         padding: 2px 4px;
         white-space: nowrap; /* Forces text to stay on one line */
     }
@@ -872,110 +872,6 @@ body {
         justify-content: flex-end; /* Centers the hand image instead of pushing it to the right edge */
     }
 
-    /* =========================================
-        FOOTER & TOP BAR ALIGNMENT
-        ========================================= */
-
-        /* 1. Shared Grid Setup for Perfect Alignment */
-        .top-content {
-            display: grid;
-            grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-            
-            /* THE NEW ADDITIONS FOR CENTERING: */
-            height: 100%;          /* Forces the grid to match the orange bar's new height */
-            align-items: center;   /* Pushes the phone, email, etc., to the vertical middle */
-        }
-
-        /* 1. Force the orange bar to stay thin */
-        .top-bar {
-            background-color: #FF6100;
-            padding: 10px 10px;
-            height: 80px; /* Locks the thickness of the bar */
-            position: relative; 
-            z-index: 20;
-            overflow: visible !important; /* Allows the giant logo to stick out */
-        }
-
-        /* 2. Make the logo huge and pull it out of the layout */
-        .top-logo {
-            position: absolute; /* Breaks it out of the grid's height calculation */
-            height: 130px;      /* Make this as big as you want! */
-            width: auto;
-            top: -25px;         /* Pulls it up so it overlaps the top and bottom */
-            left: 40;            /* Aligns it to the left of your grid container */
-            z-index: 30;        /* Keeps it on top of everything */
-        }
-
-        /* 3. Keep the phone number from sliding to the left */
-        .contact-item:first-of-type {
-            /* Since the logo is now 'absolute', this forces the phone number 
-            to stay in column 2, leaving column 1 empty for your logo */
-            grid-column: 2; 
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px; /* Space between icon and text */
-            font-family: 'BenchNine', sans-serif; /* Matches your body font */
-            font-size: 1.8rem;
-            color: black;
-        }
-
-        .contact-icon {
-            height: 40px; /* Adjust based on your icon image sizes */
-            width: auto;
-        }
-
-        /* 3. Bottom Dark Brown Footer Styling */
-        .footer {
-            background-color: #4a2e15; /* The dark brown from your image */
-            padding: 30px 40px;
-        }
-
-        .footer-container {
-            display: grid;
-            /* THIS IS THE MAGIC LINE: It must exactly match your .top-content columns! */
-            grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
-            
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-            align-items: start; /* Keeps the footer text anchored to the top of the brown section */
-        }
-
-        .footer-col {
-            display: flex;
-            flex-direction: column;
-            gap: 8px; /* Vertical spacing between the links */
-            font-family: 'BenchNine', sans-serif;
-        }
-
-        .footer-col h3 {
-            color: white;
-            font-size: 2rem;
-            font-weight: normal;
-            margin: 0 0 10px 0;
-        }
-
-        .footer-col a {
-            color: #e0e0e0; /* Slightly dimmed white for links */
-            text-decoration: none;
-            font-size: 1.3rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-col a:hover {
-            color: #FF6100; /* Turns orange on hover */
-        }
-
-        .desktop-spacer {
-            height: 100px;
-        }
-
 
 /* ============================= */
 /* MOBILE PHONES (600px ↓)      */
@@ -983,19 +879,80 @@ body {
 
 @media screen and (max-width: 600px) {
 
-/* Navbar adjustments */
+/* 1. Main Navbar sizing */
+    .navbar {
+        height: 20px; /* Thinner bar */
+        border-radius: 30px;
+        margin: 10px auto; 
+    }
+    
+    /* 2. Shrink the Left-Aligned Bulge */
+    .navbar::after {
+        width: 80px; /* Narrower bulge */
+        height: 40px; /* Shallower drop */
+        left: 0; /* Keeps it strictly on the left edge */
+        border-radius: 0px 0 10px 10px; /* Blends top-left with the pill shape, rounds the bottom */
+    }
 
-.nav-links a{
-    font-size:0.7rem;
-}
+    /* 3. Link alignment and text sizing */
+    .nav-links {
+        padding: 0 5px; /* Less padding on the far left/right */
+        gap: 3px; /* Just a tiny gap between the center links */
+    }
 
-.logo-item img{
-    height:60px;
-}
+    .nav-links a {
+        font-size: 0.5rem; /* Shrink the text heavily */
+        padding: 2px 4px;
+        white-space: nowrap; /* Forces text to stay on one line */
+    }
 
-.navbar{
-    height:25px;
-}
+    /* 4. The Logo Spacer & Image */
+    .logo-item {
+        /* Replaces your old flex: 140px rule so it pushes the center links correctly */
+        width: 60px; 
+        margin-right: auto; /* Shoves the main text links into the center */
+    }
+    
+    .logo-item img {
+        height: 60px; /* Smaller logo */
+        top: -10px; /* Adjust the vertical position */
+        left: 10px; /* Tucks it nicely inside the 80px bulge */
+    }
+
+    /* 5. The Right Side Icons (NEW) */
+    .right-menu {
+        gap: 4px; /* Tiny gap between the cart and user icons */
+        margin-left: auto; /* Shoves the icons to the far right */
+    }
+
+    .nav-icon {
+        height: 14px; /* Micro white circles to match the 20px navbar */
+        width: 14px;
+        padding: 2px;
+    }
+
+    /* Hide the login text so it doesn't break your 0.5rem micro-layout */
+    .login-link {
+        display: none !important; 
+    }
+
+    /* 6. The Dropdown Box */
+    .dropdown-content {
+        min-width: 40px; /* Prevents the box from being unnecessarily wide */
+        padding: 0px 4px 4px 4px; /* Reduces empty white space */
+        border-radius: 10px; 
+        top: 0px;
+    }
+
+    .dropdown-content a {
+        font-size: 0.5rem !important; /* Smaller main text */
+        padding: 2px 0 !important; 
+    }
+
+    .dropdown-content a:nth-child(2),
+    .dropdown-content a:nth-child(3) {
+        font-size: 0.5rem !important; /* Noticeably smaller sub-links */
+    }
 
 
 /* Hero */
@@ -1077,14 +1034,14 @@ body {
 
 /* 1. STRETCH THE CARD & SQUASH THE HEIGHT */
     .mvv-card {
-        width: 65%; /* Stretches it almost all the way across the screen */
+        width: 60%; /* Stretches it almost all the way across the screen */
         max-width: none; /* Removes any old limits stopping it from growing */
         
         height: auto !important; 
         min-height: auto;
         
         /* THE FIX: Less top/bottom padding, more side padding */
-        padding: 10x 25px; 
+        padding: 50x 50px; 
         
         /* THE FIX: Smaller radius makes it a rectangle, not a pill */
         border-radius: 25px; 
@@ -1102,14 +1059,13 @@ body {
 
     /* 3. KEEP THE TEXT READABLE SO IT FILLS THE NEW WIDE SHAPE */
     .mvv-card h2 {
-        font-size: 2rem; 
+        font-size: 1.5rem; 
         margin-bottom: 5px;
     }
 
     .mvv-card h3 {
-        margin-left: 20px;
-        margin-right: 20px;
-        font-size: 0.7rem; 
+        
+        font-size: 0.6rem; 
         margin-bottom: 8px;
     }
 
@@ -1117,8 +1073,8 @@ body {
         font-size: 0.5rem; 
         line-height: 1.4;
         margin-bottom: 0;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
     }
 
 
@@ -1143,7 +1099,7 @@ body {
     margin-bottom: -15px;
 }
 .HOW-CONTAINER {
-    margin-top: -240px;
+    margin-top: -200px;
     width: 375px; /* Image takes 80% of its parent container */
     height: auto; /* Keeps the aspect ratio */
     background-size: 100%;
@@ -1255,3 +1211,4 @@ body {
 }
     
 }
+ 
