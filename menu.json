@@ -1,0 +1,272 @@
+{
+  "tori-katsu": {
+    "name": "TORI KATSU SANDWICH",
+    "price": "P99.00",
+    "image": "images/torikatsu.png",
+    "description": "A Japanese inspired sandwich made with crispy breaded chicken cutlet placed between soft bread or buns. The chicken is deep fried until golden and crunchy, then topped with shredded cabbage and a savory tonkatsu style sauce. The result is a satisfying combination of crunchy chicken, soft bread, and flavorful sauce.",
+    "calories": "Estimated Calories: 550 to 650 kcal"
+  },
+  "plain-hotdog": {
+    "name": "HOTDOG SANDWICH PLAIN",
+    "price": "P79.00",
+    "image": "images/plain hotsog sandwich.png",
+    "description": "A classic sandwich made with a juicy grilled or fried hotdog placed in a soft bun. The simplicity of the dish highlights the savory flavor of the sausage, making it a quick and familiar comfort food option that can be enjoyed anytime.",
+    "calories": "Estimated Calories: 300 to 380 kcal"
+  },
+  "cheesy-nachos": {
+    "name": "CHEESY NACHOS",
+    "price": "P89.00",
+    "image": "images/cheese nachos.png",
+    "description": "A crunchy and satisfying starter made with a generous portion of crispy tortilla chips layered with rich, melted cheese. Each chip is coated with creamy cheese sauce that seeps into every corner, creating a perfect balance of crunch and gooey texture. The dish is ideal for sharing and delivers a comforting savory flavor with every bite. The saltiness of the chips combined with the creamy cheese makes it a simple but addictive snack that pairs well with cold drinks or heavier main meals.",
+    "calories": "Estimated Calories: 400 to 500 kcal"
+  },
+  "nachos-overload": {
+    "name": "NACHOS OVERLOAD",
+    "price": "P99.00",
+    "image": "images/nachos overlaod.png",
+    "description": "A more indulgent version of classic nachos, this dish comes piled high with crispy tortilla chips and a heavy layer of melted cheese, along with savory toppings that enhance both texture and flavor. The toppings typically include seasoned meat, beans, or additional cheese sauce, creating a hearty and satisfying appetizer. Each bite offers a mix of crunchy chips and flavorful toppings, making it perfect for sharing among friends or as a filling snack before the main course.",
+    "calories": "Estimated Calories: 600 to 750 kcal "
+  },
+  "mojo-potato": {
+    "name": "MOJO POTATO",
+    "price": "P99.00",
+    "image": "images/mojo potato.png",
+    "description": "Golden fried potato wedges seasoned with savory spices and herbs, giving them a flavorful crust and soft interior. These potatoes are fried until crispy on the outside while remaining fluffy and warm inside. Often served with a creamy dipping sauce, the dish offers a satisfying mix of crunch, saltiness, and comforting potato flavor. It is a popular snack that works well as either a light appetizer or a side dish.",
+    "calories": "Estimated Calories: 450 to 550 kcal "
+  },
+  "tofu-squares": {
+    "name": "TOFU SQUARES",
+    "price": "P109.00",
+    "image": "images/tofu.png",
+    "description": "Lightly battered tofu cubes fried to a crispy golden finish on the outside while remaining soft and tender inside. The tofu absorbs the seasoning and dipping sauce well, giving it a flavorful yet light taste. This dish is a great vegetarian friendly option that balances texture and flavor. Served warm, the tofu provides a mild, savory bite that pairs nicely with soy based or sweet chili sauces.",
+    "calories": "Estimated Calories: 250 to 320 kcal"
+  },
+  "chicken-fingers": {
+    "name": "CHICKEN FINGERS",
+    "price": "P119.00",
+    "image": "images/chicken fingers.png",
+    "description": "Tender strips of chicken breast coated in seasoned breadcrumbs and deep fried until crispy and golden brown. The outside offers a crunchy texture while the inside remains juicy and flavorful. These chicken strips are typically served with a dipping sauce such as honey mustard, barbecue, or garlic mayo, making them a comforting and familiar appetizer enjoyed by both kids and adults.",
+    "calories": "Estimated Calories: 450 to 550 kcal"
+  },
+  "stuffed-bread-sticks": {
+    "name": "STUFFED BREAD STICKS",
+    "price": "P99.00",
+    "image": "images/stuffed bread sticks.png",
+    "description": "Soft bread sticks filled with flavorful ingredients and baked or toasted until the outside develops a light crispness. The filling may include cheese, savory meats, or seasoned vegetables that create a warm and satisfying snack. Each bite delivers a balance of fluffy bread and rich filling, making it a great quick bite for people looking for something light yet filling.",
+    "calories": "Estimated Calories: 350 to 420 kcal "
+  },
+  "beef-shawarma": {
+    "name": "BEEF SHAWARMA",
+    "price": "P99.00",
+    "image": "images/beef shawarma.png",
+    "description": "Thinly sliced, seasoned beef wrapped inside soft flatbread along with fresh vegetables and creamy garlic sauce. The beef is cooked with aromatic spices that give it a bold and savory flavor. Combined with crisp lettuce, tomatoes, and a drizzle of sauce, the wrap becomes a well balanced handheld meal that is both filling and flavorful.",
+    "calories": "Estimated Calories: 450 to 550 kcal"
+  },
+  "chicken-shawarma": {
+    "name": "CHICKEN SHAWARMA",
+    "price": "P89.00",
+    "image": "images/chicken shawarma.png",
+    "description": "Juicy slices of seasoned chicken wrapped in warm flatbread with crunchy vegetables and a smooth garlic based sauce. The chicken is marinated with Middle Eastern inspired spices that add depth and aroma. Each bite combines savory chicken, fresh vegetables, and creamy sauce, creating a flavorful wrap that is both satisfying and easy to enjoy on the go.",
+    "calories": "Estimated Calories: 420 to 520 kcal "
+  },
+  "chicken-quesadilla": {
+    "name": "CHICKEN QUESADILLA",
+    "price": "P89.00",
+    "image": "images/chicken quesadilla.png",
+    "description": "A toasted tortilla folded around seasoned chicken and melted cheese, grilled until the outside becomes crisp and golden. The inside remains warm and gooey as the cheese melts together with the chicken filling. Served sliced into wedges, the quesadilla offers a delicious combination of crunchy tortilla and savory filling, often accompanied by dipping sauces.",
+    "calories": "Estimated Calories: 500 to 650 kcal "
+  },
+  "beef-quesadilla": {
+    "name": "BEEF QUESADILLA",
+    "price": "P99.00",
+    "image": "images/beef quesadilla.png",
+    "description": "A hearty tortilla filled with seasoned beef and melted cheese, then grilled until the tortilla becomes crispy and slightly toasted. The beef adds a rich and savory flavor while the melted cheese binds the filling together. The dish provides a satisfying balance of textures and flavors, making it a filling snack or light meal.",
+    "calories": "Estimated Calories: 550 to 700 kcal "
+  },
+  "hotdog-overload": {
+    "name": "HOTDOG SANDWICH OVERLOAD",
+    "price": "P89.00",
+    "image": "images/ovelroad hotdog.png",
+    "description": "An upgraded version of the classic hotdog sandwich topped with additional ingredients such as cheese, sauces, and possibly vegetables or extra meat toppings. The added ingredients create a richer flavor and a more filling meal.",
+    "calories": "Estimated Calories: 450 to 550 kcal "
+  },
+  "hungarian-sausage": {
+    "name": "HUNGARIAN SAUSAGE SANDWICH",
+    "price": "P99.00",
+    "image": "images/hungarian sausage sandwich.png",
+    "description": "A robust sandwich featuring a flavorful Hungarian style sausage served inside a soft bun. The sausage is typically seasoned with paprika and spices, giving it a smoky and savory taste. The rich sausage flavor pairs well with the soft bread, creating a hearty and satisfying handheld meal.",
+    "calories": "Estimated Calories: 500 to 600 kcal "
+  },
+  "korean-corndog": {
+    "name": "KOREAN CORNDOG",
+    "price": "P99.00",
+    "image": "images/korean corndog.png",
+    "description": "A popular Korean street snack featuring a hotdog coated in thick batter and deep fried until golden and crispy. Some versions include cheese inside or are coated with crunchy toppings like potato cubes. The result is a crispy outer layer with a warm savory center, often finished with sugar, ketchup, or mustard.",
+    "calories": "Estimated Calories: 450 to 550 kcal "
+  },
+  "cheesy-baked-mac": {
+    "name": "CHEESY BAKED MACARONI",
+    "price": "P119.00",
+    "image": "images/cheesy baked mac.png",
+    "description": "A comforting pasta dish made with elbow macaroni mixed in a creamy cheese sauce and baked until the top develops a golden crust. The inside remains rich and creamy while the baked cheese adds extra flavor and texture. It is a warm and filling dish that combines pasta, cheese, and savory ingredients into a satisfying meal.",
+    "calories": "Estimated Calories: 550 to 650 kcal "
+  },
+  "chicken-mac-n-cheese": {
+    "name": "CHICK N' MAC N CHEESE",
+    "price": "P139.00",
+    "image": "images/chknmac.png",
+    "description": "A rich and comforting pasta dish that combines tender macaroni with juicy pieces of seasoned chicken in a creamy cheese sauce. The macaroni is cooked until perfectly soft and then mixed with a smooth blend of melted cheeses that create a thick and velvety coating around every piece of pasta. The chicken adds a savory and slightly smoky flavor that balances the richness of the cheese, making the dish both hearty and satisfying.",
+    "calories": "Estimated Calories: 650 to 800 kcal"
+  },
+  "chicken-alfredo": {
+    "name": "CHICKEN ALFREDO",
+    "price": "P119.00",
+    "image": "images/chicken alfredo.png",
+    "description": "Fettuccine pasta tossed in a rich and creamy Alfredo sauce made with butter, cream, and cheese, then topped with tender slices of chicken. The sauce coats every strand of pasta, creating a smooth and indulgent texture. The chicken adds protein and depth, making the dish both rich and filling.",
+    "calories": "Estimated Calories: 700 to 850 kcal "
+  },
+  "carbonara": {
+    "name": "CARBONARA",
+    "price": "P119.00",
+    "image": "images/carbonara.png",
+    "description": "A classic pasta dish featuring spaghetti tossed with a creamy sauce made from eggs, cheese, and savory bacon or pancetta. The heat from the pasta creates a smooth sauce that coats each strand while the bacon adds a salty and smoky flavor. The dish is simple but rich and satisfying.",
+    "calories": "Estimated Calories: 650 to 750 kcal "
+  },
+  "tuna-pesto": {
+    "name": "TUNA PESTO",
+    "price": "P119.00",
+    "image": "images/tuna pesto.png",
+    "description": "Pasta combined with fragrant basil pesto sauce and chunks of tuna. The pesto provides a fresh herbal flavor with hints of garlic and olive oil, while the tuna adds a savory seafood element. Together they create a light yet flavorful pasta dish.",
+    "calories": "Estimated Calories: 550 to 650 kcal "
+  },
+  "aglio-e-olio": {
+    "name": "AGLIO E OLIO",
+    "price": "P119.00",
+    "image": "images/aglio e olio.png",
+    "description": "A simple Italian pasta made with spaghetti tossed in olive oil, garlic, and chili flakes. Despite its simplicity, the dish delivers a strong aroma and bold flavor from the garlic and olive oil combination. It is a lighter pasta option compared to cream based dishes.",
+    "calories": "Estimated Calories: 450 to 550 kcal "
+  },
+  "classic-spaghetti": {
+    "name": "BIG BOYZ CLASSIC SPAGHETTI",
+    "price": "P109.00",
+    "image": "images/classic spaghetti.png",
+    "description": "A classic spaghetti dish served with rich tomato based meat sauce. The pasta is coated with savory sauce made from ground meat, tomatoes, herbs, and spices, then topped with grated cheese. The dish offers a familiar and comforting flavor that appeals to a wide range of tastes.",
+    "calories": "Estimated Calories: 550 to 650 kcal "
+  },
+  "chicken-wings-1": {
+    "name": "CHICKEN WINGS",
+    "price": "P129.00",
+    "flavors": ["CRUNCHY HONEY GARLIC", "BUFFALO", "GARLIC PARMESAN", "HONEY SRIRACHA", "DRAGON FIRE"],
+    "image": "images/wings.png",
+    "description": "Crispy fried chicken wings coated in flavorful sauces. The wings are fried until crunchy on the outside while remaining juicy inside, then tossed in sauces that range from sweet and savory to spicy and tangy. Served with rice, the dish becomes a satisfying meal with bold flavor in every bite.",
+    "mixedNote": "Kindly input in the message before placing your order for mixed flavors.",
+    "calories": "Estimated Calories: 600 to 750 kcal "
+  },
+    "chicken-wings-2": {
+    "name": "CHICKEN WINGS",
+    "price": "P139.00",
+    "flavors": ["MANGO HABANERO", "SALTED EGG", "YANGNYEOM STYLE", "SNOW CHEESE", "FLAMIN' CHEETOS", "BB SISIG", "BB SINIGANG", "MIXED (2 FLAVORS)"],
+    "image": "images/wings.png",
+    "description": "Crispy fried chicken wings coated in flavorful sauces. The wings are fried until crunchy on the outside while remaining juicy inside, then tossed in sauces that range from sweet and savory to spicy and tangy. Served with rice, the dish becomes a satisfying meal with bold flavor in every bite.",
+    "mixedNote": "Kindly input in the message before placing your order for mixed flavors.",
+    "calories": "Estimated Calories: 600 to 750 kcal "
+  },
+  "bibimbap": {
+    "name": "KOREAN BIBIMBAP",
+    "price": "P139.00",
+    "image": "images/bibimbap.png",
+    "description": "A vibrant Korean rice bowl topped with a variety of ingredients including seasoned vegetables, marinated beef, and a fried egg. Everything is mixed together with spicy gochujang sauce, creating a balanced combination of textures and flavors. The dish offers a blend of savory, slightly spicy, and fresh tastes.",
+    "calories": "Estimated Calories: 650 to 750 kcal "
+  },
+  "beef-yakiniku": {
+    "name": "BEEF YAKINIKU",
+    "price": "P139.00",
+    "image": "images/beef yakiniku.png",
+    "description": "Thin slices of beef cooked in a sweet and savory soy based sauce, served over hot steamed rice. The beef is tender and flavorful, with caramelized edges that enhance the taste. The combination of rich beef and fluffy rice makes it a hearty and satisfying dish.",
+    "calories": "Estimated Calories: 650 to 750 kcal "
+  },
+  "chicken-shawarma-rice": {
+    "name": "CHICKEN SHAWARMA RICE",
+    "price": "P119.00",
+    "image": "images/chicken shwarma rice.png",
+    "description": "Seasoned shawarma style chicken served on a bed of warm rice with vegetables and creamy garlic sauce. The chicken is marinated in aromatic spices that give it a bold flavor, while the rice balances the dish with its mild taste.",
+    "calories": "Estimated Calories: 600 to 700 kcal "
+  },
+  "beef-shawarma-rice": {
+    "name": "BEEF SHAWARMA RICE",
+    "price": "P129.00",
+    "image": "images/beef shawarma rice.png",
+    "description": "Savory beef shawarma slices served with rice and fresh vegetables, topped with garlic sauce or tahini. The beef is rich and flavorful due to its marinade and grilling process, creating a filling rice meal with Middle Eastern inspired flavors.",
+    "calories": "Estimated Calories: 650 to 750 kcal "
+  },
+  "pork-tonkatsu": {
+    "name": "PORK TONKATSU",
+    "price": "P139.00",
+    "image": "images/tonkatsu.png",
+    "description": "A Japanese style breaded pork cutlet fried until crispy and served with rice. The pork remains juicy while the coating becomes golden and crunchy. It is typically paired with shredded cabbage and tonkatsu sauce for added flavor.",
+    "calories": "Estimated Calories: 700 to 800 kcal "
+  },
+  "ebi-tempura": {
+    "name": "EBI TEMPURA",
+    "price": "P139.00",
+    "image": "images/Ebi tempura.png",
+    "description": "Lightly battered shrimp fried until crispy and served with rice and dipping sauce. The batter is airy and delicate, allowing the natural sweetness of the shrimp to stand out.",
+    "calories": "Estimated Calories: 550 to 650 kcal "
+  },
+  "bacolod-inasal": {
+    "name": "BACOLOD CHICKEN INASAL",
+    "price": "P139.00",
+    "image": "images/Chicken bacolod inasal.png",
+    "description": "Grilled chicken marinated in a mixture of vinegar, calamansi, garlic, and spices, giving it a smoky and tangy flavor. Served with rice, the dish is known for its aromatic taste and juicy texture.",
+    "calories": "Estimated Calories: 600 to 700 kcal "
+  },
+  "chicken-pastil": {
+    "name": "CHICKEN PASTIL",
+    "price": "P129.00",
+    "image": "images/chicken pastil.png",
+    "description": "A Mindanao inspired dish featuring shredded chicken cooked in garlic and spices, served over steamed rice. The chicken is savory and slightly oily, giving it a rich flavor that pairs perfectly with the rice.",
+    "calories": "Estimated Calories: 450 to 550 kcal "
+  },
+  "pork-adobo": {
+    "name": "PORK ADOBO",
+    "price": "P139.00",
+    "image": "images/pork adobo.png",
+    "description": "A classic Filipino dish made with pork braised in soy sauce, vinegar, garlic, and spices until tender and flavorful. Served with rice, the dish offers a savory and slightly tangy taste that is deeply comforting.",
+    "calories": "Estimated Calories: 650 to 750 kcal "
+  },
+  "chicken-adobo": {
+    "name": "CHICKEN ADOBO",
+    "price": "P129.00",
+    "image": "images/chicken adobo.png",
+    "description": "Tender chicken pieces simmered in a savory mixture of soy sauce, vinegar, garlic, and spices. The slow cooking process allows the meat to absorb the flavorful sauce, making it rich and aromatic when paired with rice.",
+    "calories": "Estimated Calories: 600 to 700 kcal "
+  },
+  "pork-chop": {
+    "name": "PORK CHOP",
+    "price": "P139.00",
+    "image": "images/pork chop.png",
+    "description": "A thick pork chop seasoned and fried or grilled until the outside becomes crisp while the inside remains juicy. Served with rice, it offers a hearty and satisfying meal.",
+    "calories": "Estimated Calories: 700 to 800 kcal "
+  },
+  "liempo-bbq": {
+    "name": "LIEMPO BBQ",
+    "price": "P149.00",
+    "image": "images/liempo bbq.png",
+    "description": "Slices of pork belly marinated in a sweet and savory barbecue sauce, then grilled until caramelized. The meat is juicy and slightly smoky, making it a flavorful dish when paired with rice.",
+    "calories": "Estimated Calories: 750 to 900 kcal "
+  },
+    "rice": {
+    "name": "RICE",
+    "price": "P10.00",
+    "image": "images/rice.png",
+    "description": "Freshly cooked white rice prepared to be soft, fluffy, and lightly aromatic.",
+    "calories": "Estimated Calories: 200 to 250 kcal per cup "
+  },
+  "bangus": {
+    "name": "BANGUS",
+    "price": "P129.00",
+    "image": "images/bangus.png",
+    "description": "Filipino milkfish cooked either fried or grilled and served with rice. The fish has a mild, slightly sweet flavor and tender texture, often paired with vinegar dipping sauce for extra flavor.",
+    "calories": "Estimated Calories: 500 to 600 kcal "
+  }
+}

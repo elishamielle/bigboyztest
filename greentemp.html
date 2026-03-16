@@ -46,19 +46,19 @@
                 
                 <div class="dish-image-side">
                     <div class="dish-bg-box">
-                        <img src="images/torikatsu.png" alt="Torikatsu Sandwich" class="main-dish-img">
+                        <img src="images/imgPlaceholder.jpg" alt="placeholder" class="main-dish-img" id="dish-image">
                     </div>
                 </div>
 
                 <div class="dish-info-side">
                     <div class="dish-text-content">
-                    <h1 class="detail-title">TORIKATSU SANDWICH</h1>
-                    <h2 class="detail-price">P 99.00</h2>
-                    <p class="detail-desc">
-                        A classic sandwich made with a juicy grilled or fried hotdog placed in a soft bun. The simplicity of the dish highlights the savory flavor of the sausage, making it a quick and familiar comfort food option that can be enjoyed anytime.
+                    <h1 class="detail-title" id="dish-title">placeholder dish title</h1>
+                    <h2 class="detail-price" id="dish-price">placeholder price</h2>
+                    <p class="detail-desc" id="dish-desc">
+                        placeholder dish description
                     </p>
                     
-                    <p class="calories-desc"> Estimated Calories: 300–380 kcal</p>
+                    <p class="calories-desc" id="dish-calories"> placeholder dish calories</p>
             
                 </div>
 
@@ -140,5 +140,34 @@
 
         
 
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const dishKey = urlParams.get('dish');
+
+                if (dishKey) {
+                    fetch('menu.json')
+                        .then(response => response.json())
+                        .then(data => {
+                            const dish = data[dishKey];
+                            
+                            if (dish) {
+                                document.getElementById('dish-title').textContent = dish.name;
+                                document.getElementById('dish-price').textContent = dish.price;
+                                document.getElementById('dish-desc').textContent = dish.description;
+                                document.getElementById('dish-calories').textContent = dish.calories;
+                                document.getElementById('dish-image').src = dish.image;
+                                document.getElementById('dish-image').alt = dish.name;
+                            } else {
+                                document.getElementById('dish-title').textContent = "Dish Not Found";
+                                document.getElementById('dish-desc').textContent = "We could not find the details for this item.";
+                                document.getElementById('dish-price').textContent = "";
+                                document.getElementById('dish-calories').textContent = "";
+                            }
+                        })
+                        .catch(error => console.error('Error loading menu data:', error));
+                }
+            });
+        </script>
     </body>
 </html>
