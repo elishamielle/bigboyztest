@@ -528,6 +528,58 @@ body {
         font-size: 0.5rem !important; /* Noticeably smaller sub-links */
     }
 
+    /* --- PAYMENT PAGE LAYOUT --- */
+    .cart-section {
+        padding: 20px 10px;
+    }
+
+    .cart-container {
+        padding: 20px;
+        min-height: auto; /* Lets the white box shrink to fit contents */
+    }
+
+    .cart-title {
+        font-size: 2rem;
+    }
+
+    .payment-content {
+        flex-direction: column; /* Stacks the QR code above the upload button */
+        align-items: center;
+        gap: 30px;
+    }
+
+    .payment-qr-box {
+        width: 100%;
+        max-width: 320px; /* Keeps the QR box looking crisp on phones */
+        padding: 20px; /* Slightly less padding on mobile */
+    }
+
+    .payment-details {
+        align-items: center; /* Centers the right-column content */
+        width: 100%;
+        gap: 20px;
+    }
+
+    .payment-total .summary-total-label { font-size: 2.2rem; }
+    .payment-total .summary-total-price { font-size: 2rem; }
+
+    /* Makes the custom upload button fill the screen */
+    .upload-label {
+        width: 100%;
+        justify-content: space-between; /* Pushes text left and white pill right */
+        padding: 5px 5px 5px 15px;
+    }
+
+    .upload-text {
+        font-size: 1.5rem; /* Slightly smaller text to fit narrow screens */
+    }
+
+    /* Stretches the FINISH button for thumbs */
+    .finish-btn {
+        width: 100%;
+        align-self: center;
+        margin-top: 10px;
+    }
 
     /* 1. SHRINK THE TOP BAR & KEEP GRID */
     .top-bar {
