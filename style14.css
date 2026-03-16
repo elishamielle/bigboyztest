@@ -554,76 +554,55 @@ body {
         font-size: 0.5rem !important; /* Noticeably smaller sub-links */
     }
 
-
-    /* --- CART & ORDERS LAYOUT --- */
-    .cart-section {
-        padding: 20px 10px;
+/* --- PROFILE PAGE (THE FIX) --- */
+    .profile-body {
+        flex-direction: column; /* Stacks the buttons on top of the text */
+        gap: 40px;
     }
-
-    .cart-container {
-        padding: 20px;
-        min-height: auto; /* Lets the white box shrink to fit contents on mobile */
+    .profile-actions {
+        width: 100%;
+        align-items: center; /* Centers the orange buttons */
     }
-
-    .cart-title {
+    .profile-btn {
+        width: 100%;
+        max-width: 250px; /* Keeps them from looking too stretched out */
+    }
+    .profile-info {
+        align-items: center;
+        text-align: center;
+    }
+    .info-title {
         font-size: 2rem;
     }
-
-    .cart-row {
-        flex-direction: column; 
-        align-items: flex-end; /* Pushes the status block to the right */
-        gap: 10px;
+    .info-row {
+        justify-content: center;
+        flex-direction: column; /* Stacks "EMAIL" on top of the actual email address */
+        gap: 5px;
     }
-
-    .cart-item-card {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+    .profile-footer {
+        justify-content: center; /* Centers the Log-Out button on mobile */
+    }
+    .profile-logout-btn {
         width: 100%;
+        max-width: 250px;
     }
 
-    .cart-item-left {
-        width: 100%;
-    }
-
-    .cart-item-controls {
-        flex-wrap: wrap; 
-    }
-
-    .cart-item-title {
-        font-size: 1.6rem;
-    }
-    
-    .cart-item-img {
-        width: 70px; 
-    }
-
-    .cart-item-right {
-        width: 100%;
-        justify-content: space-between;
-        border-top: 1px solid rgba(255, 255, 255, 0.4);
-        padding-top: 15px;
-    }
+    /* --- CART & ORDERS LAYOUT --- */
+    .cart-section { padding: 20px 10px; }
+    .cart-container { padding: 20px; min-height: auto; }
+    .cart-title { font-size: 2rem; }
+    .cart-row { flex-direction: column; align-items: flex-end; gap: 10px; }
+    .cart-item-card { flex-direction: column; align-items: flex-start; gap: 15px; width: 100%; }
+    .cart-item-left { width: 100%; }
+    .cart-item-controls { flex-wrap: wrap; }
+    .cart-item-title { font-size: 1.6rem; }
+    .cart-item-img { width: 70px; }
+    .cart-item-right { width: 100%; justify-content: space-between; border-top: 1px solid rgba(255, 255, 255, 0.4); padding-top: 15px; }
 
     /* Orders Specific Mobile Rules */
-    .order-status-block {
-        width: 100%;
-        flex-direction: row; /* Places "STATUS" and the pill side-by-side */
-        justify-content: flex-end; /* Shoves them to the right edge */
-        align-items: center;
-        gap: 10px;
-        margin-top: 5px;
-    }
-
-    .status-label {
-        margin-bottom: 0;
-        font-size: 1.4rem;
-    }
-
-    .order-qty-text {
-        font-size: 1.4rem;
-    }
-    
+    .order-status-block { width: 100%; flex-direction: row; justify-content: flex-end; align-items: center; gap: 10px; margin-top: 5px; }
+    .status-label { margin-bottom: 0; font-size: 1.4rem; }
+    .order-qty-text { font-size: 1.4rem; }
     /* 1. SHRINK THE TOP BAR & KEEP GRID */
     .top-bar {
         /* Your existing mobile styles */

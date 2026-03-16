@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Big Boyz</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@400;700&family=Passion+One:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        
+        <aside class="admin-sidebar">
+            <img src="../images/mainlogo.png" alt="Big Boyz" class="sidebar-logo">
+            <ul class="sidebar-menu">
+                <li><a href="admin-dashboard.html" class="active">Overview & Sales</a></li>
+                <li><a href="admin-pending.html">Pending Orders</a></li>
+                <li><a href="admin-completed.html">Completed Orders</a></li>
+            </ul>
+            <button class="logout-btn">LOG OUT</button>
+        </aside>
+
+        <main class="admin-main">
+            
+            <header class="main-header">
+                <h1>DASHBOARD OVERVIEW</h1>
+                <p>Welcome back, Admin. Here is what is happening today.</p>
+            </header>
+
+            <section class="sales-summary-grid">
+                <div class="sales-card">
+                    <h3>TODAY'S SALES</h3>
+                    <p class="sales-number">P 4,250.00</p>
+                </div>
+                <div class="sales-card">
+                    <h3>THIS WEEK</h3>
+                    <p class="sales-number">P 28,140.00</p>
+                </div>
+                <div class="sales-card">
+                    <h3>THIS MONTH</h3>
+                    <p class="sales-number">P 112,500.00</p>
+                </div>
+            </section>
+
+            <section class="live-orders-section clickable-section" onclick="window.location.href='admin-pending.html'">
+                <h2>INCOMING ORDERS (ACTION REQUIRED)</h2>
+                
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#0042</td>
+                            <td>Elisha C.</td>
+                            <td>Chicken Wings (1), Classic Hotdog (1)</td>
+                            <td>P 289.00</td>
+                            <td><span class="badge pending">PENDING</span></td>
+                            <td><button class="action-btn" onclick="event.stopPropagation()">MARK COMPLETE</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>

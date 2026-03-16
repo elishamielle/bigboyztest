@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completed Orders - Big Boyz Admin</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@400;700&family=Passion+One:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        
+        <aside class="admin-sidebar">
+            <img src="../images/mainlogo.png" alt="Big Boyz" class="sidebar-logo">
+            <ul class="sidebar-menu">
+                <li><a href="admin-dashboard.html">Overview & Sales</a></li>
+                <li><a href="admin-pending.html">Pending Orders</a></li>
+                <li><a href="admin-completed.html" class="active">Completed Orders</a></li>
+            </ul>
+            <button class="logout-btn">LOG OUT</button>
+        </aside>
+
+        <main class="admin-main">
+            
+            <header class="main-header">
+                <h1>COMPLETED ORDERS</h1>
+                <p>History of fulfilled and served orders.</p>
+            </header>
+
+            <section class="live-orders-section">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Time Finished</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="order-main-row" onclick="toggleDetails('comp-39')">
+                            <td>#0039</td>
+                            <td>11:45 AM</td>
+                            <td>Marcus T.</td>
+                            <td>Chicken Wings (2), Fries (1)</td>
+                            <td>P 350.00</td>
+                            <td><span class="badge completed">COMPLETED</span></td>
+                        </tr>
+
+                        <tr class="order-details-row" id="comp-39">
+                            <td colspan="6">
+                                <div class="expanded-content">
+                                    <div class="expanded-left">
+                                        <h4>ORDER DETAILS</h4>
+                                        <p><strong>Customer Name:</strong> Marcus T.</p>
+                                        <p><strong>Time Finished:</strong> Oct 24, 2025 - 11:45 AM</p>
+                                        <p><strong>Notes:</strong> None</p>
+                                        
+                                        <h4>ITEMS ORDERED:</h4>
+                                        <ul>
+                                            <li>2x Chicken Wings (Flavor: Garlic Parmesan)</li>
+                                            <li>1x Fries (Flavor: Cheese)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="expanded-right">
+                                        <h4>PROOF OF PAYMENT</h4>
+                                        <div class="receipt-box">
+                                            <img src="../images/qr.png" alt="Receipt" class="proof-img">
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="order-main-row" onclick="toggleDetails('comp-40')">
+                            <td>#0040</td>
+                            <td>12:05 PM</td>
+                            <td>Sarah J.</td>
+                            <td>Classic Hotdog (2)</td>
+                            <td>P 300.00</td>
+                            <td><span class="badge completed">COMPLETED</span></td>
+                        </tr>
+
+                        <tr class="order-details-row" id="comp-40">
+                            <td colspan="6">
+                                <div class="expanded-content">
+                                    <div class="expanded-left">
+                                        <h4>ORDER DETAILS</h4>
+                                        <p><strong>Customer Name:</strong> Sarah J.</p>
+                                        <p><strong>Time Finished:</strong> Oct 24, 2025 - 12:05 PM</p>
+                                        <p><strong>Notes:</strong> No mustard please.</p>
+                                        
+                                        <h4>ITEMS ORDERED:</h4>
+                                        <ul>
+                                            <li>2x Classic Hotdog (Flavor: Original)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="expanded-right">
+                                        <h4>PROOF OF PAYMENT</h4>
+                                        <div class="receipt-box">
+                                            <img src="../images/qr.png" alt="Receipt" class="proof-img">
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="orders-summary">
+                    <span class="summary-label">Total Completed Orders:</span>
+                    <span class="summary-count" id="totalCompletedCount">0</span>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+    
+        // 1. The toggle function for expanding rows
+        function toggleDetails(orderId) {
+            const detailsRow = document.getElementById(orderId);
+            if (detailsRow.classList.contains('open')) {
+                detailsRow.classList.remove('open');
+            } else {
+                detailsRow.classList.add('open');
+            }
+        }
+
+        // 2. THE NEW AUTO-COUNTER MAGIC
+        // This counts how many rows have the class 'order-main-row'
+        const totalRows = document.querySelectorAll('.order-main-row').length;
+        
+        // This updates the '0' in your HTML to the actual counted number!
+        document.getElementById('totalCompletedCount').innerText = totalRows;
+    
+    </script>
+</body>
+</html>

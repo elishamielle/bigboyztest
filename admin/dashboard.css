@@ -1,0 +1,472 @@
+/* =========================================
+   DASHBOARD GLOBAL SETUP
+========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-body {
+    font-family: 'BenchNine', sans-serif;
+    background-color: #f4f6f8; /* A clean, professional light gray */
+    color: #333333;
+}
+
+/* The Main Split-Screen Layout */
+.dashboard-layout {
+    display: flex;
+    height: 100vh; /* Fills the entire screen height */
+    overflow: hidden; /* Stops the whole page from scrolling */
+}
+
+/* =========================================
+   LEFT SIDEBAR NAVIGATION
+========================================= */
+.admin-sidebar {
+    width: 260px;
+    background-color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05); /* Soft shadow on the right edge */
+    z-index: 10;
+}
+
+.sidebar-logo {
+    width: 140px;
+    margin: 0 auto 50px auto;
+    display: block;
+}
+
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar-menu a {
+    /* THE FIX: Makes the link a solid rectangle that fills the sidebar */
+    display: block; 
+    width: 100%;
+    
+    /* THE FIX: Forces the text to stay on a single line so it doesn't wrap */
+    white-space: nowrap; 
+    
+    text-decoration: none;
+    color: #555555;
+    font-family: 'Passion One', sans-serif;
+    
+    /* Slightly smaller font to ensure it fits perfectly inside the 260px sidebar */
+    font-size: 1.6rem; 
+    
+    padding: 12px 15px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    letter-spacing: 1px;
+}
+
+/* Hover effects for the links */
+.sidebar-menu a:hover {
+    background-color: #fff0e6;
+    color: #FF5100;
+}
+
+/* The "Active" page highlighter */
+.sidebar-menu a.active {
+    background-color: #FF5100;
+    color: white;
+}
+
+/* Pushes the Log Out button to the absolute bottom of the sidebar */
+.logout-btn {
+    margin-top: auto; 
+    background-color: #4a2e15; /* Dark brown from your footer */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50px;
+    font-family: 'Passion One', sans-serif;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.logout-btn:hover {
+    transform: translateY(-2px);
+    background-color: #36210f;
+}
+
+/* =========================================
+   RIGHT SIDE: MAIN CONTENT AREA
+========================================= */
+.admin-main {
+    flex: 1; /* Takes up all remaining width */
+    padding: 40px 50px;
+    overflow-y: auto; /* Allows only the right side to scroll! */
+}
+
+.main-header {
+    margin-bottom: 40px;
+}
+
+.main-header h1 {
+    font-family: 'Passion One', sans-serif;
+    font-size: 3.5rem;
+    color: #000000;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.main-header p {
+    font-size: 1.6rem;
+    color: #666666;
+}
+
+/* =========================================
+   SALES SUMMARY CARDS
+========================================= */
+.sales-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.sales-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid #889E0C; /* Green accent line on top */
+}
+
+.sales-card h3 {
+    font-family: 'BenchNine', sans-serif;
+    font-size: 1.6rem;
+    color: #889E0C; /* Olive Green */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.sales-number {
+    font-family: 'Passion One', sans-serif;
+    font-size: 3.5rem;
+    color: #000000;
+}
+
+/* =========================================
+   LIVE ORDERS TABLE
+========================================= */
+.live-orders-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.live-orders-section h2 {
+    font-family: 'Passion One', sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #000000;
+    letter-spacing: 1px;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.orders-table th {
+    font-family: 'Passion One', sans-serif;
+    font-size: 1.6rem;
+    color: #889E0C;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eeeeee;
+}
+
+.orders-table td {
+    padding: 15px 10px 15px 0;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+
+/* Status Pill */
+.badge {
+    font-family: 'BenchNine', sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 4px 12px;
+    border-radius: 50px;
+}
+
+.badge.pending {
+    background-color: #F8B133;
+    color: #000000;
+}
+
+/* The Green Action Button in the table */
+.action-btn {
+    background-color: #FF5100;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-family: 'BenchNine', sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    
+    /* THE FIX: Added a small resting shadow and an 'all' transition */
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.2s ease; 
+}
+
+/* The New Hover Effect */
+.action-btn:hover {
+    background-color: #e04800; /* Turns a slightly darker orange */
+    transform: translateY(-2px); /* Makes the button physically lift up */
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2); /* Deepens the shadow underneath it */
+}
+
+/* The Green Completed Pill */
+.badge.completed {
+    background-color: #889E0C; /* Your Olive Green */
+    color: white;
+}
+
+/* =========================================
+   EXPANDABLE ORDER ROWS
+========================================= */
+
+/* Makes the main row change color when you hover so you know it's clickable */
+.order-main-row {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.order-main-row:hover {
+    background-color: #f9f9f9;
+}
+
+/* Hides the details row by default */
+.order-details-row {
+    display: none; 
+}
+
+/* The magic class that JavaScript will add to show the row! */
+.order-details-row.open {
+    display: table-row; 
+}
+
+/* The layout of the expanded box */
+.expanded-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 20px 30px;
+    background-color: #fafafa;
+    border-left: 4px solid #FF5100; /* Big Boyz Orange accent line */
+    border-radius: 0 0 10px 10px;
+    box-shadow: inset 0px 5px 10px rgba(0,0,0,0.03); /* Inner shadow for depth */
+    margin-bottom: 10px;
+}
+
+/* Left Side Text */
+.expanded-left {
+    font-family: 'BenchNine', sans-serif;
+    font-size: 1.5rem;
+    color: #333333;
+}
+
+.expanded-left h4 {
+    font-family: 'Passion One', sans-serif;
+    font-size: 1.8rem;
+    color: #889E0C; /* Olive Green */
+    margin: 15px 0 5px 0;
+    letter-spacing: 1px;
+}
+
+.expanded-left h4:first-child {
+    margin-top: 0;
+}
+
+.expanded-left ul {
+    list-style-position: inside;
+    margin-top: 5px;
+}
+
+.expanded-left li {
+    margin-bottom: 5px;
+}
+
+/* Right Side Image */
+.expanded-right {
+    text-align: center;
+    width: 200px; /* Locks the width of the receipt section */
+}
+
+.expanded-right h4 {
+    font-family: 'Passion One', sans-serif;
+    font-size: 1.8rem;
+    color: #FF5100;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.receipt-box {
+    background-color: white;
+    padding: 5px;
+    border: 2px dashed #cccccc;
+    border-radius: 10px;
+}
+
+.proof-img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+}
+
+/* =========================================
+   ORDERS SUMMARY BAR
+========================================= */
+.orders-summary {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #eeeeee;
+    text-align: right; /* Pushes the total to the right side */
+    font-family: 'Passion One', sans-serif;
+    font-size: 2.2rem;
+    color: #333333;
+    letter-spacing: 1px;
+}
+
+.summary-count {
+    color: #889E0C; /* Olive Green to match the completed badges */
+    font-size: 2.8rem;
+    margin-left: 10px;
+}
+
+/* =========================================
+   CLICKABLE DASHBOARD SECTIONS
+========================================= */
+.clickable-section {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Makes the whole box lift up slightly and cast a deeper shadow when hovered */
+.clickable-section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS (ADMIN DASHBOARD)
+========================================= */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Change Split-Screen to Stacked */
+    .dashboard-layout {
+        flex-direction: column;
+        height: auto; /* Let it scroll naturally */
+        overflow: visible; 
+    }
+
+    /* 2. Turn Sidebar into a Top Navigation Menu */
+    .admin-sidebar {
+        width: 100%;
+        padding: 20px 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Shadow on bottom instead of right */
+        z-index: 20;
+    }
+
+    .sidebar-logo {
+        width: 100px; /* Smaller logo */
+        margin: 0 auto 20px auto;
+    }
+
+    .sidebar-menu {
+        flex-direction: row; /* Puts links side-by-side */
+        flex-wrap: wrap; /* Allows them to drop to a new line if they don't fit */
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .sidebar-menu a {
+        width: auto; /* Removes the 100% width restriction */
+        font-size: 1.3rem; 
+        padding: 8px 12px;
+    }
+
+    .logout-btn {
+        margin-top: 15px;
+        font-size: 1.4rem;
+        padding: 10px;
+    }
+
+    /* 3. Main Content Area Sizing */
+    .admin-main {
+        padding: 20px 15px;
+        overflow-y: visible; 
+    }
+
+    .main-header h1 {
+        font-size: 2.8rem;
+    }
+
+    /* 4. Stack the Sales Cards */
+    .sales-summary-grid {
+        grid-template-columns: 1fr; /* Forces 1 single column */
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    /* 5. Mobile Table Fix (Horizontal Scroll) */
+    .live-orders-section {
+        padding: 15px;
+        overflow-x: auto; /* THE MAGIC FIX: Allows the table to swipe left/right! */
+        -webkit-overflow-scrolling: touch; /* Smooth swiping on iPhones */
+    }
+
+    .live-orders-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .orders-table {
+        width: 600px; /* Forces table to stay wide so columns don't squish */
+    }
+
+    /* 6. Fix the Expanded Details Row */
+    .expanded-content {
+        flex-direction: column; /* Stacks the text on top of the receipt image */
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .expanded-right {
+        width: 100%; 
+        border-top: 2px dashed #cccccc; /* Adds a separator line */
+        padding-top: 15px;
+    }
+
+    /* THE FIX: Shrinks the receipt image box and centers it */
+    .expanded-right .receipt-box {
+        max-width: 120px; /* Limits the image to a nice, small size */
+        margin: 0 auto; /* Keeps it perfectly centered on the screen */
+    }
+
+    /* 7. Summary Total */
+    .orders-summary {
+        font-size: 1.8rem;
+    }
+    
+    .summary-count {
+        font-size: 2.2rem;
+    }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Orders - Big Boyz Admin</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@400;700&family=Passion+One:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+        
+        <aside class="admin-sidebar">
+            <img src="../images/mainlogo.png" alt="Big Boyz" class="sidebar-logo">
+            <ul class="sidebar-menu">
+                <li><a href="admin-dashboard.html">Overview & Sales</a></li>
+                <li><a href="admin-pending.html" class="active">Pending Orders</a></li>
+                <li><a href="admin-completed.html">Completed Orders</a></li>
+            </ul>
+            <button class="logout-btn">LOG OUT</button>
+        </aside>
+
+        <main class="admin-main">
+            <header class="main-header">
+                <h1>PENDING ORDERS</h1>
+                <p>Orders that need to be prepared and served.</p>
+            </header>
+
+            <section class="live-orders-section">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Time</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="order-main-row" onclick="toggleDetails('order-42')">
+                            <td>#0042</td>
+                            <td>12:30 PM</td>
+                            <td>Elisha C.</td>
+                            <td>Chicken Wings (1), Classic Hotdog (1)</td>
+                            <td>P 289.00</td>
+                            <td><span class="badge pending">PENDING</span></td>
+                            <td><button class="action-btn" onclick="event.stopPropagation()">MARK COMPLETE</button></td>
+                        </tr>
+
+                        <tr class="order-details-row" id="order-42">
+                            <td colspan="7">
+                                <div class="expanded-content">
+                                    
+                                    <div class="expanded-left">
+                                        <h4>ORDER DETAILS</h4>
+                                        <p><strong>Customer Name:</strong> Elisha Catiis</p>
+                                        <p><strong>Date & Time:</strong> Oct 24, 2025 - 12:30 PM</p>
+                                        <p><strong>Notes:</strong> Please add extra ketchup and napkins.</p>
+                                        
+                                        <h4>ITEMS ORDERED:</h4>
+                                        <ul>
+                                            <li>1x Chicken Wings (Flavor: Mixed)</li>
+                                            <li>1x Classic Hotdog (Flavor: Original)</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="expanded-right">
+                                        <h4>PROOF OF PAYMENT</h4>
+                                        <div class="receipt-box">
+                                            <img src="../images/qr.png" alt="Receipt" class="proof-img">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="orders-summary">
+                    <span class="summary-label">Total Pending Orders:</span>
+                    <span class="summary-count" id="totalPendingCount">0</span>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script>
+        // 1. The toggle function for expanding rows
+        function toggleDetails(orderId) {
+            const detailsRow = document.getElementById(orderId);
+            if (detailsRow.classList.contains('open')) {
+                detailsRow.classList.remove('open');
+            } else {
+                detailsRow.classList.add('open');
+            }
+        }
+
+        // 2. THE NEW AUTO-COUNTER MAGIC
+        // This counts how many main rows exist on the page
+        const totalRows = document.querySelectorAll('.order-main-row').length;
+        
+        // This updates the '0' in your HTML to the actual counted number!
+        document.getElementById('totalPendingCount').innerText = totalRows;
+    </script>
+
+</body>
+</html>
