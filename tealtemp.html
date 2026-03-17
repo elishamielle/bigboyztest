@@ -8,17 +8,14 @@
         <link rel="stylesheet" href="style8.css">
         <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;500&display=swap" rel="stylesheet">
-
     </head>
     
     <body>  
         <nav class="navbar">  
             <ul class="nav-links">  
-                
                 <li class="logo-item">
                     <img src="images/mainlogo.png" alt="Big Boyz Diner">
                 </li>  
-
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="about.html">ABOUT</a></li>  
                 <li class="dropdown">
@@ -31,13 +28,11 @@
                 </li> 
                 <li><a href="branches.html">BRANCHES</a></li>  
                 <li><a href="#">CONTACT US</a></li>  
-
                 <li class="right-menu">
                     <a href="#" class="icon-link"><img src="images/cart.png" alt="Cart" class="nav-icon"></a>
                     <a href="#" class="icon-link"><img src="images/user.png" alt="User" class="nav-icon"></a>
                     <a href="#" class="login-link">Log-in/Sign-up</a>
                 </li>
-
             </ul>  
         </nav> 
 
@@ -46,44 +41,38 @@
                 
                 <div class="dish-image-side">
                     <div class="dish-bg-box">
-                        <img src="images/wings.png" alt="Wings" class="main-dish-img">
+                        <img src="images/imgPlaceholder.jpg" alt="placeholder" class="main-dish-img" id="dish-image">
                     </div>
                 </div>
 
                 <div class="dish-info-side">
                     <div class="dish-text-content">
-                    <h1 class="detail-title">CHICKEN WINGS (2)</h1>
-                    <h2 class="detail-price">P 139.00</h2>
-                    <p class="detail-desc">
-                       Crispy fried chicken wings coated in flavorful sauces such as honey garlic, buffalo, garlic parmesan, or spicy variants. The wings are fried until crunchy on the outside while remaining juicy inside, then tossed in sauces that range from sweet and savory to spicy and tangy. Served with rice, the dish becomes a satisfying meal with bold flavor in every bite.
-                    </p>
+                        <h1 class="detail-title" id="dish-title">placeholder dish title</h1>
+                        <h2 class="detail-price" id="dish-price">placeholder price</h2>
+                        <p class="detail-desc" id="dish-desc">placeholder dish description</p>
+                        <p class="calories-desc" id="dish-calories">placeholder dish calories</p>
+                        
+                        <p class="extra-desc" id="mixed-flavor-note" style="display: none;">
+                            Kindly input in the message before placing your order for mixed flavors.
+                        </p>
 
-                    <p class="calories-desc"> Estimated Calories: 600-750 kcal</p>
-                    <p class="extra-desc">Kindly input in the message before placing your order for mixed flavors.</p>
-            
-                </div>
-
-                <div class="flavor-section">
-                    <h3 class="flavor-title">CHOOSE FLAVOR:</h3>
-                    <div class="flavor-grid">
-                        <button class="flavor-btn">MANGO HABANERO</button>
-                        <button class="flavor-btn">SALTED EGG</button>
-                        <button class="flavor-btn">YANGNYEOM STYLE</button>
-                        <button class="flavor-btn">SNOW CHEESE</button>
-                        <button class="flavor-btn">FLAMIN' CHEETOS</button>
-                        <button class="flavor-btn">BB SISIG</button>
-                        <button class="flavor-btn">BB SINIGANG</button>
-                        <button class="flavor-btn">MIXED (2 FLAVORS)</button>
-                        <!-- dito pag aadd ng flavors -->
-
+                        <div id="standard-options" style="display: none; margin-top: 20px;">
+                            <h3 class="flavor-title">CHOOSE OPTION:</h3>
+                            <div class="flavor-grid">
+                                <button class="flavor-btn">ORIGINAL</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="detail-actions">
 
+                    <div class="flavor-section" id="flavor-area" style="display: none;">
+                        <h3 class="flavor-title">CHOOSE FLAVOR:</h3>
+                        <div class="flavor-grid" id="flavor-buttons">
+                        </div>
+                    </div>
+                
                     <div class="detail-actions">
                         <div class="qty-selector">
                             <span class="qty-label">QTY</span>
-                            
                             <button class="qty-btn">-</button>
                             <span class="qty-num">0</span>
                             <button class="qty-btn">+</button>
@@ -99,28 +88,23 @@
             </div>
         </section>
 
-
-    <section style="height:150px;"></section>
+        <section style="height:150px;"></section>
 
         <div class="top-bar">
             <div class="top-content">
                 <img src="images/mainlogo.png" alt="Big Boyz Logo" class="top-logo">
-
                 <div class="contact-item">
                     <img src="images/phone-154.png" alt="Phone" class="contact-icon">
                     <span>09296003877</span>
                 </div>
-
                 <div class="contact-item">
                     <img src="images/letter-151.png" alt="Email" class="contact-icon">
                     <span>bigboyzdiner@gmail.com</span>
                 </div>
-
                 <div class="contact-item">
                     <img src="images/facebook-148.png" alt="Facebook" class="contact-icon">
                     <span>BIG BOYZ DINER</span>
                 </div>
-
                 <div class="contact-item">
                     <img src="images/viber-157.png" alt="Viber" class="contact-icon">
                     <span>Bigboyz</span>
@@ -146,7 +130,52 @@
             </div>
         </footer>
 
-        
+        <script>
+            const urlParams = new URLSearchParams(window.location.search);
+            const dishId = urlParams.get('dish');
 
+            fetch('menu.json')
+                .then(response => response.json())
+                .then(data => {
+                    const dishData = data[dishId];
+
+                    if (dishData) {
+                        document.querySelector('.detail-title').innerText = dishData.name;
+                        document.querySelector('.detail-price').innerText = dishData.price;
+                        document.querySelector('.detail-desc').innerText = dishData.description;
+                        document.querySelector('.calories-desc').innerText = dishData.calories;
+                        document.querySelector('.main-dish-img').src = dishData.image;
+
+                        const flavorArea = document.getElementById('flavor-area');
+                        const flavorGrid = document.getElementById('flavor-buttons');
+                        const mixedNote = document.getElementById('mixed-flavor-note');
+                        const standardOptions = document.getElementById('standard-options');
+
+                        if (dishData.flavors && dishData.flavors.length > 0) {
+                            flavorArea.style.display = 'block';
+                            mixedNote.style.display = 'block'; 
+                            standardOptions.style.display = 'none'; 
+                            
+                            flavorGrid.innerHTML = ''; 
+                            dishData.flavors.forEach(flavor => {
+                                const btn = document.createElement('button');
+                                btn.className = 'flavor-btn';
+                                btn.innerText = flavor;
+                                btn.onclick = function() {
+                                    document.querySelectorAll('.flavor-btn').forEach(b => b.classList.remove('active'));
+                                    btn.classList.add('active');
+                                };
+                                flavorGrid.appendChild(btn);
+                            });
+                        } 
+                        else {
+                            flavorArea.style.display = 'none';
+                            mixedNote.style.display = 'none'; 
+                            standardOptions.style.display = 'block'; 
+                        }
+                    }
+                })
+                .catch(error => console.error('Error loading menu data:', error));
+        </script>
     </body>
 </html>

@@ -46,19 +46,19 @@
                 
                 <div class="dish-image-side">
                     <div class="dish-bg-box">
-                        <img src="images/cheese nachos.png" alt="Cheese Nachos" class="main-dish-img">
+                        <img src="images/imgPlaceholder.jpg" alt="placeholder" class="main-dish-img" id="dish-image">
                     </div>
                 </div>
 
                 <div class="dish-info-side">
                     <div class="dish-text-content">
-                    <h1 class="detail-title">CHEESY NACHOS</h1>
-                    <h2 class="detail-price">P 89.00</h2>
-                    <p class="detail-desc">
-                        A crunchy and satisfying starter made with a generous portion of crispy tortilla chips layered with rich, melted cheese. Each chip is coated with creamy cheese sauce that seeps into every corner, creating a perfect balance of crunch and gooey texture. The dish is ideal for sharing and delivers a comforting savory flavor with every bite. The saltiness of the chips combined with the creamy cheese makes it a simple but addictive snack that pairs well with cold drinks or heavier main meals.
+                    <h1 class="detail-title" id="dish-title">placeholder dish title</h1>
+                    <h2 class="detail-price" id="dish-price">placeholder price</h2>
+                    <p class="detail-desc" id="dish-desc">
+                        placeholder dish description
                     </p>
                     
-                    <p class="calories-desc"> Estimated Calories: 400–500 kcal</p>
+                    <p class="calories-desc" id="dish-calories"> placeholder dish calories</p>
             
                 </div>
 
@@ -138,7 +138,35 @@
             </div>
         </footer>
 
-        
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const dishKey = urlParams.get('dish');
+
+                if (dishKey) {
+                    fetch('menu.json')
+                        .then(response => response.json())
+                        .then(data => {
+                            const dish = data[dishKey];
+                            
+                            if (dish) {
+                                document.getElementById('dish-title').textContent = dish.name;
+                                document.getElementById('dish-price').textContent = dish.price;
+                                document.getElementById('dish-desc').textContent = dish.description;
+                                document.getElementById('dish-calories').textContent = dish.calories;
+                                document.getElementById('dish-image').src = dish.image;
+                                document.getElementById('dish-image').alt = dish.name;
+                            } else {
+                                document.getElementById('dish-title').textContent = "Dish Not Found";
+                                document.getElementById('dish-desc').textContent = "We could not find the details for this item.";
+                                document.getElementById('dish-price').textContent = "";
+                                document.getElementById('dish-calories').textContent = "";
+                            }
+                        })
+                        .catch(error => console.error('Error loading menu data:', error));
+                }
+            });
+        </script>
 
     </body>
 </html>
