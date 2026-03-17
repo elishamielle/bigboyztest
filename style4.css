@@ -342,9 +342,9 @@ body {
 /* --- INDIVIDUAL IMAGE SIZES --- */
 
 .hotdog-img {
-    width: 280px; 
+    width: 250px; 
     height: auto;
-    margin-top: -50px;
+    margin-top: -20px;
 }
 
 .carbonara-img {
