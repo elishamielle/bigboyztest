@@ -355,8 +355,8 @@ body {
 
 /* --- INDIVIDUAL IMAGE SIZES --- */
 
-.bibimbap-img {
-    width: 300px; /* Bibimbap is round and wide, so it needs a slightly smaller width */
+.yakiniku-img {
+    width: 260px; /* Yakiniku is round and wide, so it needs a slightly smaller width */
     height: auto;
     margin-top: 10px;
 }
