@@ -33,73 +33,44 @@
                 <li><a href="#contact-us">CONTACT US</a></li>  
 
                 <li class="right-menu">
-                    <a href="#" class="icon-link"><img src="images/cart.png" alt="Cart" class="nav-icon"></a>
-                    <a href="#" class="icon-link"><img src="images/user.png" alt="User" class="nav-icon"></a>
-                    <a href="#" class="login-link">Log-in/Sign-up</a>
+                    <a href="mycart.html" class="icon-link"><img src="images/cart.png" alt="Cart" class="nav-icon"></a>
+                    
+                    <a href="login.html" id="nav-user-link" class="icon-link">
+                        <img src="images/user.png" alt="User" class="nav-icon">
+                    </a>
+                    
+                    <a href="login.html" class="login-link" id="nav-auth-text">Log-in/Sign-up</a>
                 </li>
 
             </ul>  
         </nav> 
 
         <section class="cart-section">
-        <div class="cart-container">
-            
-            <div class="cart-header">
-                <img src="images/checkout.png" alt="Checkout" class="cart-header-icon">
-                <h1 class="cart-title">CHECKOUT</h1>
-            </div>
+            <div class="cart-container">
+                <div class="cart-header">
+                    <img src="images/checkout.png" alt="Checkout" class="cart-header-icon">
+                    <h1 class="cart-title">CHECKOUT</h1>
+                </div>
 
-            <div class="cart-items">
-                
-                <div class="cart-row">
-                    <div class="cart-item-card">
-                        <div class="cart-item-left">
-                            <img src="images/wings.png" alt="Chicken Wings" class="cart-item-img">
-                            <div class="cart-item-details">
-                                <h3 class="cart-item-title">CHICKEN WINGS (1)</h3>
-                                <div class="cart-item-controls">
-                                    <span class="cart-qty-label">QTY</span>
-                                    <button class="cart-qty-btn">-</button>
-                                    <span class="cart-qty-num">1</span>
-                                    <button class="cart-qty-btn">+</button>
-                                    <span class="cart-flavor-tag">MIXED</span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="cart-items" id="checkout-items-display">
+                    </div>
 
-                        <div class="cart-item-right">
-                            <span class="cart-item-total-label">TOTAL</span>
-                            <span class="cart-item-price">P 139.00</span>
-                        </div>
+                <div class="checkout-footer">
+                    <div class="checkout-notes">
+                        <label for="order-notes" class="notes-label">NOTES:</label>
+                        <input type="text" id="order-notes" class="notes-input" placeholder="e.g., extra spicy, no onions" autocomplete="off">
                     </div>
                     
-                    <button class="cart-delete-btn">
-                        <img src="images/trash.png" alt="Remove Item">
-                    </button>
-                </div>
-
-            </div>
-
-            <div class="checkout-footer">
-                
-                <div class="checkout-notes">
-                    <label for="order-notes" class="notes-label">NOTES:</label>
-                    <input type="text" id="order-notes" class="notes-input" autocomplete="off">
-                </div>
-                
-                <div class="cart-summary">
-                    <div class="summary-text">
-                        <span class="summary-total-label">TOTAL</span>
-                        <span class="summary-total-price">P 139.00</span>
+                    <div class="cart-summary">
+                        <div class="summary-text">
+                            <span class="summary-total-label">TOTAL</span>
+                            <span class="summary-total-price" id="checkout-total-price">P 0.00</span>
+                        </div>
+                        <button class="checkout-btn" onclick="proceedToPayment()">PAYMENT</button>
+                        </div>
                     </div>
-                    <button class="checkout-btn">PAYMENT</button>
                 </div>
-
-            </div>
-
-        </div>
-    </section>
-
+        </section>
 
     <section style="height:150px;"></section>
 
@@ -160,29 +131,7 @@
                 </div>
             </div>
         </footer>
-
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const menuLink = document.getElementById('footerMenuLink');
-                const dropdownContent = document.getElementById('footerDropdownContent');
-
-                if (menuLink && dropdownContent) {
-                    menuLink.addEventListener('click', function(event) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                        dropdownContent.classList.toggle('show');
-                    });
-
-                    document.addEventListener('click', function(event) {
-                        if (!dropdownContent.contains(event.target) && event.target !== menuLink) {
-                            dropdownContent.classList.remove('show');
-                        }
-                    });
-                }
-            });
-        </script>
-
-        
-
+        <script src="auth.js"></script>
+        <script src="payment.js"></script>
     </body>
 </html>

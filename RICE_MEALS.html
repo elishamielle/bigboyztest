@@ -29,9 +29,13 @@
                 <li><a href="branches.html">BRANCHES</a></li>  
                 <li><a href="#contact-us">CONTACT US</a></li>  
                 <li class="right-menu">
-                    <a href="#" class="icon-link"><img src="images/cart.png" alt="Cart" class="nav-icon"></a>
-                    <a href="#" class="icon-link"><img src="images/user.png" alt="User" class="nav-icon"></a>
-                    <a href="#" class="login-link">Log-in/Sign-up</a>
+                    <a href="mycart.html" class="icon-link"><img src="images/cart.png" alt="Cart" class="nav-icon"></a>
+                    
+                    <a href="login.html" id="nav-user-link" class="icon-link">
+                        <img src="images/user.png" alt="User" class="nav-icon">
+                    </a>
+                    
+                    <a href="login.html" class="login-link" id="nav-auth-text">Log-in/Sign-up</a>
                 </li>
             </ul>  
         </nav> 
@@ -59,7 +63,7 @@
                         <div id="standard-options" style="display: none; margin-top: 20px;">
                             <h3 class="flavor-title">CHOOSE OPTION:</h3>
                             <div class="flavor-grid">
-                                <button class="flavor-btn">ORIGINAL</button>
+                                <button class="flavor-btn selected" style="background-color: #ff5722; color: white;">ORIGINAL</button>
                             </div>
                         </div>
                     </div>
@@ -177,7 +181,6 @@
                 .then(response => response.json())
                 .then(data => {
                     const dishData = data[dishId];
-
                     if (dishData) {
                         document.querySelector('.detail-title').innerText = dishData.name;
                         document.querySelector('.detail-price').innerText = dishData.price;
@@ -187,34 +190,40 @@
 
                         const flavorArea = document.getElementById('flavor-area');
                         const flavorGrid = document.getElementById('flavor-buttons');
-                        const mixedNote = document.getElementById('mixed-flavor-note');
                         const standardOptions = document.getElementById('standard-options');
 
                         if (dishData.flavors && dishData.flavors.length > 0) {
                             flavorArea.style.display = 'block';
-                            mixedNote.style.display = 'block'; 
-                            standardOptions.style.display = 'none'; 
-                            
+                            standardOptions.style.display = 'none';
                             flavorGrid.innerHTML = ''; 
                             dishData.flavors.forEach(flavor => {
                                 const btn = document.createElement('button');
                                 btn.className = 'flavor-btn';
                                 btn.innerText = flavor;
+                                // We use onclick to add the 'selected' class for product-detail.js
                                 btn.onclick = function() {
-                                    document.querySelectorAll('.flavor-btn').forEach(b => b.classList.remove('active'));
-                                    btn.classList.add('active');
+                                    document.querySelectorAll('.flavor-btn').forEach(b => {
+                                        b.classList.remove('selected');
+                                        b.style.backgroundColor = "";
+                                        b.style.color = "";
+                                    });
+                                    btn.classList.add('selected');
+                                    btn.style.backgroundColor = "#ff5722";
+                                    btn.style.color = "white";
                                 };
                                 flavorGrid.appendChild(btn);
                             });
-                        } 
-                        else {
+                        } else {
                             flavorArea.style.display = 'none';
-                            mixedNote.style.display = 'none'; 
-                            standardOptions.style.display = 'block'; 
+                            standardOptions.style.display = 'block';
                         }
                     }
-                })
-                .catch(error => console.error('Error loading menu data:', error));
+                });
         </script>
+
+        <script src="product-detail.js"></script>
+        <script src="loadMenu.js"></script>
+        <script src="cart.js"></script>
+        <script src="auth.js"></script>
     </body>
 </html>

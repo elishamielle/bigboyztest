@@ -33,51 +33,56 @@
                 <li><a href="#contact-us">CONTACT US</a></li>  
 
                 <li class="right-menu">
-                    <a href="#" class="icon-link"><img src="images/cart.png" alt="Cart" class="nav-icon"></a>
-                    <a href="#" class="icon-link"><img src="images/user.png" alt="User" class="nav-icon"></a>
-                    <a href="#" class="login-link">Log-in/Sign-up</a>
+                    <a href="mycart.html" class="icon-link"><img src="images/cart.png" alt="Cart" class="nav-icon"></a>
+                    <a href="login.html" class="icon-link"><img src="images/user.png" alt="User" class="nav-icon"></a>
+                    <a href="login.html" class="login-link" id="nav-auth-text">Log-in/Sign-up</a>
                 </li>
 
             </ul>  
         </nav> 
 
-        <section class="cart-section">
-        <div class="cart-container">
-            
-            <div class="cart-header">
-                <h1 class="cart-title">PAYMENT</h1>
-            </div>
-
-            <div class="payment-content">
-                
-                <div class="payment-qr-box">
-                    <div class="payment-qr-inner">
-                        <img src="images/qr.png" alt="InstaPay QR Info" class="qr-image">
-                    </div>
-                </div>
-
-                <div class="payment-details">
-                    
-                    <div class="payment-total">
-                        <span class="summary-total-label">TOTAL</span>
-                        <span class="summary-total-price">P 139.00</span>
-                    </div>
-
-                    <div class="upload-section">
-                        <label for="receipt-upload" class="upload-label">
-                            <span class="upload-text">UPLOAD RECEIPT</span>
-                            <span class="choose-file-btn">CHOOSE IMAGE</span>
-                        </label>
-                        <input type="file" id="receipt-upload" class="hidden-file-input" accept="image/*">
-                    </div>
-
-                    <button class="checkout-btn finish-btn">FINISH</button>
-                    
-                </div>
-            </div>
-
+<section class="cart-section">
+    <div class="cart-container">
+        
+        <div class="cart-header">
+            <h1 class="cart-title">PAYMENT</h1>
         </div>
-    </section>
+
+        <div class="payment-content">
+            
+            <div class="payment-qr-box">
+                <div class="payment-qr-inner">
+                    <img src="images/qr.png" alt="InstaPay QR Info" class="qr-image">
+                </div>
+            </div>
+
+            <div class="payment-details">
+                
+                <div class="payment-total">
+                    <span class="summary-total-label">TOTAL</span>
+                    <span class="summary-total-price" id="payment-final-total">P 0.00</span>
+                </div>
+
+                <div class="upload-section">
+                    <label for="receipt-upload" class="upload-label">
+                        <span class="upload-text">UPLOAD RECEIPT</span>
+                        <span class="choose-file-btn">CHOOSE IMAGE</span>
+                    </label>
+                    <input type="file" id="receipt-upload" class="hidden-file-input" accept="image/*">
+            
+                    <div id="receipt-preview-container" style="display: none; margin-top: 20px; text-align: left; width: 100%;">
+    
+                        <p style="font-family: 'Barlow Condensed'; font-size: 14px; color: #ff5722; margin-bottom: 5px;">PREVIEW:</p>
+                        
+                        <img id="receipt-preview-img" src="#" alt="Receipt Preview" 
+                            style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px; border: 2px solid #ff5722; display: block;">
+
+                    </div>
+                </div> <button class="checkout-btn finish-btn" onclick="finishOrder()">FINISH</button>
+            </div> 
+        </div> 
+    </div> 
+</section>
 
 
     <section style="height:150px;"></section>
@@ -161,7 +166,8 @@
             });
         </script>
 
-        
+        <script src="auth.js"></script>
+        <script src="payment.js"></script>
 
     </body>
 </html>
