@@ -1,31 +1,18 @@
 <?php
+error_reporting(0); // 🟢 Hides warnings so JSON stays clean
 session_start();
-require 'db.php'; 
-header('Content-Type: application/json');
+require 'db.php';
 
-if (isset($_SESSION['user_id'])) {
-    $uid = $_SESSION['user_id'];
-    
-    // Fetch fresh email from DB
-    $query = "SELECT email FROM users WHERE id = $1";
-    $result = pg_query_params($conn, $query, array($uid));
-    
-    $email = "";
-    if ($result && pg_num_rows($result) > 0) {
-        $user = pg_fetch_assoc($result);
-        $email = $user['email'];
-    }
-
-    // 🟢 THE FIX: Always return the session name so the Navbar updates!
+// We only need the Session data to update the Navbar! 
+// No need to query the database every time.
+if (isset($_SESSION['user_id']) && isset($_SESSION['name'])) {
     echo json_encode([
-        "status" => "logged_in", 
-        "user_id" => $uid, 
-        "name" => $_SESSION['name'] ?? "User",
-        "email" => $email, 
-        "role" => $_SESSION['role'] ?? "user"
+        "status" => "logged_in",
+        "user_id" => $_SESSION['user_id'],
+        "name" => $_SESSION['name'],
+        "role" => $_SESSION['role'] ?? 'user'
     ]);
 } else {
     echo json_encode(["status" => "logged_out"]);
 }
-pg_close($conn);
 ?>
