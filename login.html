@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>Login - Big Boyz Diner</title>
+    
+    <link rel="stylesheet" href="style15.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;500&family=Passion+One:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body> 
+    <section class="auth-section">
+        <div class="auth-container">
+            <img src="images/mainlogo.png" alt="Big Boyz Diner" style="width: 180px;">
+            
+            <div id="login-form">
+                <h1 class="auth-title">START ORDERING!</h1>
+                <input type="email" id="login-email" class="auth-input" placeholder="Email Address" required>
+                <input type="password" id="login-pass" class="auth-input" placeholder="Password" required>
+                <button class="auth-btn" id="btn-login">LOG IN</button>
+                <p class="toggle-text" onclick="toggleForms()">New here? Create an account!</p>
+            </div>
+
+            <div id="signup-form" style="display: none;">
+                <h1 class="auth-title">JOIN BIG BOYZ</h1>
+                <input type="text" id="signup-name" class="auth-input" placeholder="Full Name" required>
+                <input type="email" id="signup-email" class="auth-input" placeholder="Email Address" required>
+                <input type="password" id="signup-pass" class="auth-input" placeholder="Create a Password" required>
+                <button class="auth-btn" id="btn-signup">SIGN UP</button>
+                <p class="toggle-text" onclick="toggleForms()">Already have an account? Log in.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleForms() {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+            }
+        }
+
+        // SIGN UP LOGIC
+        document.getElementById('btn-signup').addEventListener('click', function() {
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const pass = document.getElementById('signup-pass').value;
+
+            if(!name || !email || !pass) return alert("Please fill out all fields!");
+
+            fetch('signup.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: name, email: email, password: pass })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.status === "success") {
+                    alert("Account created successfully! Please log in.");
+                    toggleForms(); 
+                } else {
+                    alert("Error: " + data.message);
+                }
+            })
+            .catch(err => console.error(err));
+        });
+
+        // LOGIN LOGIC WITH ADMIN REDIRECT
+        document.getElementById('btn-login').addEventListener('click', function() {
+            const email = document.getElementById('login-email').value;
+            const pass = document.getElementById('login-pass').value;
+
+            if(!email || !pass) return alert("Please enter email and password!");
+
+            fetch('login.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email, password: pass })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.status === "success") {
+                    // Check the role returned from login.php
+                    // Inside your login.html script
+                if (data.role === "admin") {
+                    alert("Welcome back, Admin!");
+                    window.location.href = "admin-dashboard.html"; 
+                    } else {
+                        alert("Welcome back!");
+                        window.location.href = "index.html"; 
+                    }
+                } else {
+                    alert(data.message); 
+                }
+            })
+            .catch(err => console.error(err));
+        });
+    </script>
+</body> 
+</html>

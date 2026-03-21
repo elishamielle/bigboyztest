@@ -1,0 +1,126 @@
+body {
+    background-image: url(images/HOMEPAGE.png);
+    background-color: #f7a63b; /* Good fallback while testing */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+}
+
+/* =========================================
+    AUTHENTICATION (LOG-IN & SIGN-UP) STYLES
+    ========================================= */
+
+.auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px); /* Adjusts height based on nav/footer space */
+    padding: 20px; /* Reduced from 40px */
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 380px; /* Slightly narrower */
+    padding: 25px 35px; /* Reduced vertical padding from 40px */
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.auth-title {
+    font-family: 'Passion One', sans-serif;
+    color: #889E0C;
+    font-size: 2.8rem; /* Reduced from 3.5rem to save vertical space */
+    line-height: 0.9;
+    margin-bottom: 15px; /* Reduced from 25px */
+    -webkit-text-stroke: 1px #ffffff;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 12px; /* Reduced from 15px */
+    margin: 8px 0; /* Reduced from 10px */
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.auth-input:focus {
+    border-color: #EF5225;
+    outline: none;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 10px; /* Reduced from 12px */
+    background-color: #EF5225;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem; /* Slightly smaller */
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 15px; /* Reduced from 20px */
+    transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+    background-color: #d14018;
+}
+
+.toggle-text {
+    margin-top: 15px; /* Reduced from 20px */
+    cursor: pointer;
+    color: #08979C;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.toggle-text:hover {
+    text-decoration: underline;
+}
+
+/* Hides the Sign-Up form by default */
+#signup-form { 
+    display: none; 
+}
+
+/* =========================================
+   📱 MOBILE RESPONSIVENESS FOR LOGIN
+   ========================================= */
+
+@media screen and (max-width: 768px) {
+    .auth-section {
+        padding: 20px 15px; /* Reduces outer space on small screens */
+        min-height: 60vh;
+    }
+    
+    .auth-container {
+        padding: 30px 20px; /* Shrinks the white space inside the card */
+        border-radius: 10px;
+    }
+
+    .auth-title {
+        font-size: 2.8rem; /* Shrinks the giant title so it fits nicely */
+        margin-bottom: 20px;
+    }
+
+    .auth-input {
+        padding: 12px; /* Slightly thinner text boxes */
+        font-size: 1.1rem;
+    }
+
+    .auth-btn {
+        font-size: 1.5rem; /* Slightly smaller text on the orange button */
+        padding: 10px;
+        margin-top: 15px;
+    }
+}

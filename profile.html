@@ -4,14 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="images/favicon.png">
-        <title>Big Boyz Diner</title>
+        <title>Big Boyz Diner - Profile</title>
         <link rel="stylesheet" href="style14.css">
         <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;500&display=swap" rel="stylesheet">
-
     </head>
     
-    <body>  
+ <body>  
         <nav class="navbar">  
             <ul class="nav-links">  
                 
@@ -33,9 +32,13 @@
                 <li><a href="#contact-us">CONTACT US</a></li>  
 
                 <li class="right-menu">
-                    <a href="#" class="icon-link"><img src="images/cart.png" alt="Cart" class="nav-icon"></a>
-                    <a href="#" class="icon-link"><img src="images/user.png" alt="User" class="nav-icon"></a>
-                    <a href="#" class="login-link">Log-in/Sign-up</a>
+                    <a href="mycart.html" class="icon-link"><img src="images/cart.png" alt="Cart" class="nav-icon"></a>
+                    
+                    <a href="login.html" id="nav-user-link" class="icon-link">
+                        <img src="images/user.png" alt="User" class="nav-icon">
+                    </a>
+                    
+                    <a href="login.html" class="login-link" id="nav-auth-text">Log-in/Sign-up</a>
                 </li>
 
             </ul>  
@@ -43,120 +46,46 @@
 
         <section class="cart-section">
             <div class="cart-container">
-                
                 <div class="cart-header">
                     <img src="images/user.png" alt="Profile" class="cart-header-icon">
-                    
-                    <h1 class="cart-title">ELISHA CATIIS</h1>
+                    <h1 class="cart-title" id="profile-name">LOADING...</h1>
                 </div>
 
                 <div class="profile-body">
-                    
                     <div class="profile-actions">
-                        <button class="profile-btn">MY ORDERS</button>
-                        <button class="profile-btn">MY CART</button>
+                        <button class="profile-btn"onclick="window.location.href='orders.html'" >MY ORDERS</button>
+                        <button class="profile-btn" onclick="window.location.href='mycart.html'">MY CART</button>
                     </div>
 
                     <div class="profile-info">
                         <h2 class="info-title">ACCOUNT INFORMATION</h2>
                         <div class="info-row">
                             <span class="info-label">EMAIL</span>
-                            <span class="info-value">elishacatiisxx@gmail.com</span>
+                            <span class="info-value" id="profile-email">loading...</span>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="profile-footer">
                     <button class="profile-logout-btn">LOG-OUT</button>
                 </div>
-
             </div>
         </section>
-
-
-    <section style="height:150px;"></section>
-
-        <div class="top-bar" id="contact-us">
-            <div class="top-content">
-                <img src="images/mainlogo.png" alt="Big Boyz Logo" class="top-logo">
-
-                <div class="contact-item">
-                    <a href="tel:09296003877" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 5px;">
-                        <img src="images/phone-154.png" alt="Phone" class="contact-icon">
-                        <span>09296003877</span>
-                    </a>
-                </div>
-
-                <div class="contact-item">
-                    <a href="mailto:bigboyzdiner@gmail.com" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 5px;">
-                        <img src="images/letter-151.png" alt="Email" class="contact-icon">
-                        <span>bigboyzdiner@gmail.com</span>
-                    </a>
-                </div>
-
-                <div class="contact-item">
-                    <a href="https://www.facebook.com/profile.php?id=61574793029509" target="_blank" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 5px;">
-                        <img src="images/facebook-148.png" alt="Facebook" class="contact-icon">
-                        <span>BIG BOYZ DINER</span>
-                    </a>
-                </div>
-
-                <div class="contact-item">
-                    <a href="viber://contact?number=%2B639296003877" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 5px;">
-                        <img src="images/viber-157.png" alt="Viber" class="contact-icon">
-                        <span>Bigboyz</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h3>EST. 2023</h3>
-                </div>
-                <div class="footer-col">
-                    <a href="index.html" style="text-decoration: none; color: inherit;"><h3>Home</h3></a>
-                    <a href="about.html">About</a>
-                    <div class="footer-dropdown">
-                        <a href="#" id="footerMenuLink">Menu</a>
-                        <div class="footer-dropdown-content" id="footerDropdownContent">
-                            <a href="dlsumenu.html">DLSU Laguna</a>
-                            <a href="ltimenu.html">LTI Square Binan</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Branches</h3>
-                    <a href="branches.html#archers-kitchen">DLSU Laguna</a>
-                    <a href="branches.html#lti-square">LTI Square Binan</a>
-                </div>
-            </div>
-        </footer>
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const menuLink = document.getElementById('footerMenuLink');
                 const dropdownContent = document.getElementById('footerDropdownContent');
-
                 if (menuLink && dropdownContent) {
-                    menuLink.addEventListener('click', function(event) {
-                        event.preventDefault();
-                        event.stopPropagation();
+                    menuLink.addEventListener('click', function(e) {
+                        e.preventDefault();
                         dropdownContent.classList.toggle('show');
-                    });
-
-                    document.addEventListener('click', function(event) {
-                        if (!dropdownContent.contains(event.target) && event.target !== menuLink) {
-                            dropdownContent.classList.remove('show');
-                        }
                     });
                 }
             });
         </script>
 
-        
-
+        </script>
+        <script src="auth.js"></script>
     </body>
 </html>

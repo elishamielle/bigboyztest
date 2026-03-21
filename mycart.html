@@ -33,9 +33,13 @@
                 <li><a href="#contact-us">CONTACT US</a></li>  
 
                 <li class="right-menu">
-                    <a href="#" class="icon-link"><img src="images/cart.png" alt="Cart" class="nav-icon"></a>
-                    <a href="#" class="icon-link"><img src="images/user.png" alt="User" class="nav-icon"></a>
-                    <a href="#" class="login-link">Log-in/Sign-up</a>
+                    <a href="mycart.html" class="icon-link"><img src="images/cart.png" alt="Cart" class="nav-icon"></a>
+                    
+                    <a href="login.html" id="nav-user-link" class="icon-link">
+                        <img src="images/user.png" alt="User" class="nav-icon">
+                    </a>
+                    
+                    <a href="login.html" class="login-link" id="nav-auth-text">Log-in/Sign-up</a>
                 </li>
 
             </ul>  
@@ -50,43 +54,19 @@
                 </div>
 
                 <div class="cart-items">
+                    <h2 id="empty-cart-msg" style="text-align: center; color: #555; display: none; margin: 40px 0;">
+                        Your cart is empty! Let's get some food.
+                    </h2>
                     
-                    <div class="cart-row">
-                        <div class="cart-item-card">
-                            
-                            <div class="cart-item-left">
-                                <img src="images/wings.png" alt="Chicken Wings" class="cart-item-img">
-                                <div class="cart-item-details">
-                                    <h3 class="cart-item-title">CHICKEN WINGS (1)</h3>
-                                    <div class="cart-item-controls">
-                                        <span class="cart-qty-label">QTY</span>
-                                        <button class="cart-qty-btn">-</button>
-                                        <span class="cart-qty-num">1</span>
-                                        <button class="cart-qty-btn">+</button>
-                                        <span class="cart-flavor-tag">MIXED</span>
-                                    </div>
-                                </div>
-                            </div>
+                    <div id="cart-items-container"></div>
+                </div>
 
-                            <div class="cart-item-right">
-                                <span class="cart-item-total-label">TOTAL</span>
-                                <span class="cart-item-price">P 139.00</span>
-                            </div>
-
-                        </div>
-                        
-                        <button class="cart-delete-btn">
-                            <img src="images/trash.png" alt="Remove Item">
-                        </button>
-                    </div>
-                    </div>
-
-                <div class="cart-summary">
+                <div class="cart-summary" id="cart-summary-section">
                     <div class="summary-text">
                         <span class="summary-total-label">TOTAL</span>
-                        <span class="summary-total-price">P 139.00</span>
+                        <span class="summary-total-price" id="cart-total-price">P 0.00</span>
                     </div>
-                    <button class="checkout-btn">CHECKOUT</button>
+                    <button class="checkout-btn" onclick="goToCheckoutPage()">CHECKOUT</button>
                 </div>
 
             </div>
@@ -174,7 +154,8 @@
             });
         </script>
 
-        
+        <script src="cart.js"></script>
+        <script src="auth.js"></script>
 
     </body>
 </html>

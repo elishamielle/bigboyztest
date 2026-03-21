@@ -33,9 +33,13 @@
                 <li><a href="#contact-us">CONTACT US</a></li>  
 
                 <li class="right-menu">
-                    <a href="#" class="icon-link"><img src="images/cart.png" alt="Cart" class="nav-icon"></a>
-                    <a href="#" class="icon-link"><img src="images/user.png" alt="User" class="nav-icon"></a>
-                    <a href="#" class="login-link">Log-in/Sign-up</a>
+                    <a href="mycart.html" class="icon-link"><img src="images/cart.png" alt="Cart" class="nav-icon"></a>
+                    
+                    <a href="login.html" id="nav-user-link" class="icon-link">
+                        <img src="images/user.png" alt="User" class="nav-icon">
+                    </a>
+                    
+                    <a href="login.html" class="login-link" id="nav-auth-text">Log-in/Sign-up</a>
                 </li>
 
             </ul>  
@@ -50,61 +54,12 @@
             </div>
 
             <div class="cart-items">
-                
-                <div class="cart-row">
-                    <div class="cart-item-card">
-                        <div class="cart-item-left">
-                            <img src="images/wings.png" alt="Chicken Wings" class="cart-item-img">
-                            <div class="cart-item-details">
-                                <h3 class="cart-item-title">CHICKEN WINGS (1)</h3>
-                                <div class="cart-item-controls">
-                                    <span class="order-qty-text">QTY 1</span>
-                                    <span class="cart-flavor-tag">MIXED</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="cart-item-right">
-                            <span class="cart-item-total-label">TOTAL</span>
-                            <span class="cart-item-price">P 139.00</span>
-                        </div>
-                    </div>
-                    
-                    <div class="order-status-block">
-                        <span class="status-label">STATUS</span>
-                        <span class="status-badge pending">PENDING</span>
-                    </div>
-                </div>
-                
-                <div class="cart-row">
-                    <div class="cart-item-card">
-                        <div class="cart-item-left">
-                            <img src="images/plain hotsog sandwich.png" alt="Hotdog" class="cart-item-img">
-                            <div class="cart-item-details">
-                                <h3 class="cart-item-title">CLASSIC HOTDOG</h3>
-                                <div class="cart-item-controls">
-                                    <span class="order-qty-text">QTY 2</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="cart-item-right">
-                            <span class="cart-item-total-label">TOTAL</span>
-                            <span class="cart-item-price">P 150.00</span>
-                        </div>
-                    </div>
-                    
-                    <div class="order-status-block">
-                        <span class="status-label">STATUS</span>
-                        <span class="status-badge completed">COMPLETED</span>
-                    </div>
-                </div>
-
+                <h2 style="text-align:center; color:#555;">Loading your orders...</h2>
             </div>
         </div>
     </section>
 
-
+    
     <section style="height:150px;"></section>
 
         <div class="top-bar" id="contact-us">
@@ -186,7 +141,8 @@
             });
         </script>
 
-        
+        <script src="auth.js"></script>
+        <script src="orders.js"></script>
 
     </body>
 </html>

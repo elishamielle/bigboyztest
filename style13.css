@@ -599,7 +599,60 @@ body {
     .order-qty-text {
         font-size: 1.4rem;
     }
-    
+
+    /* style13.css */
+
+    /* THE MAIN BOX: Stack children vertically so details go UNDER the header */
+    .cart-row.clickable {
+        display: flex;
+        flex-direction: column; 
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+        height: auto !important; /* Allow it to grow when expanded */
+    }
+
+    /* style13.css */
+
+    .cart-row.clickable {
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* 🟢 THE MAGIC FIX: Make children "Transparent" to clicks */
+    .cart-item-card, 
+    .order-status-block, 
+    .cart-item-left, 
+    .cart-item-right,
+    .cart-item-details,
+    .cart-item-title {
+        pointer-events: none; 
+    }
+
+    /* 🟢 Re-enable clicks ONLY for the items inside the expanded pane */
+    .order-details-pane {
+        pointer-events: auto;
+    }
+
+    .detail-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 1.2rem;
+    }
+
+    .detail-notes {
+        margin-top: 15px;
+        padding: 10px;
+        background: #f9f9f9;
+        border-left: 4px solid #889E0C; /* Big Boyz Green */
+        font-size: 0.9rem;
+        color: #444;
+    }
     /* 1. SHRINK THE TOP BAR & KEEP GRID */
     .top-bar {
         /* Your existing mobile styles */
