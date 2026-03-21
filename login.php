@@ -14,7 +14,6 @@ if ($data) {
     if (pg_num_rows($result) > 0) {
         $user = pg_fetch_assoc($result);
         
-        // Check if the password is correct
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['name'] = $user['name'];
@@ -24,8 +23,7 @@ if ($data) {
                 "status" => "success", 
                 "role" => $user['role']
             ]);
-        } 
-        else {
+        } else {
             echo json_encode(["status" => "error", "message" => "Incorrect password!"]);
         }
     } else {

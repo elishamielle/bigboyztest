@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // ==========================================
     // 1. Fetch session data with a cache-buster
+    // ==========================================
     fetch('check_session.php?v=' + new Date().getTime())
     .then(res => res.json())
     .then(data => {
@@ -42,17 +44,14 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(err => console.error("Session check failed:", err));
 
-    // Handle Logout button (Shared logic)
+    // ==========================================
+    // 2. Handle Logout button (Shared logic)
+    // ==========================================
     const logoutBtn = document.querySelector('.profile-logout-btn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function(e) {
-            // 1. Prevent the immediate redirect
             e.preventDefault();
-
-            // 2. Show the confirmation popup
             const confirmLogout = confirm("Are you sure you want to log out of Big Boyz Diner?");
-
-            // 3. Only redirect if they click "OK"
             if (confirmLogout) {
                 window.location.href = 'logout.php';
             }

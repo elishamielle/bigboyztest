@@ -1,5 +1,4 @@
 <?php
-// db.php
 $host = getenv('DB_HOST');
 $db   = getenv('DB_NAME');
 $user = getenv('DB_USER');
