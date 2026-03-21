@@ -26,8 +26,11 @@ async function fetchOrders() {
             container.innerHTML = '';
             
             globalOrders.forEach((order, index) => {
-                const itemNames = order.items.map(i => i.name).join(', ');
+                const itemNames = (order.items && order.items.length > 0) 
+                    ? order.items.map(i => i.name).join(', ') 
+                    : 'Items not found';
                 const statusClass = order.status.toLowerCase();
+                const firstItemImage = (order.items && order.items.length > 0) ? order.items[0].image : 'images/imgPlaceholder.jpg';
 
                 container.innerHTML += `
                     <div class="cart-row clickable" onclick="toggleOrderDetails(${index})" style="display: flex; flex-direction: column; align-items: stretch; margin-bottom: 20px; cursor: pointer;">

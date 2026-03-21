@@ -121,11 +121,16 @@ async function finishOrder() {
         });
 
         const result = await response.json();
-        // Inside finishOrder() in payment.js
+        
         if (result.status === 'success') {
+            // 1. Success Message
             alert("Salamat! Order placed successfully.");
+            
+            // 2. Clear the cart so it's empty for the next order
             localStorage.removeItem('bigboyz_cart');
-            window.location.href = "orders.html"; // 🟢 Direct them straight to their history
+            
+            // 3. 🟢 THE REDIRECT: Send them to the orders history page
+            window.location.href = "orders.html"; 
         } else {
             alert("Error: " + result.message);
         }

@@ -28,6 +28,25 @@ document.addEventListener('DOMContentLoaded', function() {
             if (profileEmail) {
                 profileEmail.textContent = data.email;
             }
+            // Inside your auth.js fetch('check_session.php') logic:
+            if (document.getElementById('orders-table-body')) {
+                fetch('get_orders.php')
+                .then(res => res.json())
+                .then(orders => {
+                    const tableBody = document.getElementById('orders-table-body');
+                    tableBody.innerHTML = '';
+                    orders.forEach(order => {
+                        tableBody.innerHTML += `
+                            <tr>
+                                <td>#${order.id}</td>
+                                <td>${order.created_at}</td>
+                                <td>P ${parseFloat(order.total).toFixed(2)}</td>
+                                <td><span class="status-${order.status.toLowerCase()}">${order.status}</span></td>
+                            </tr>
+                        `;
+                    });
+                });
+            }
 
         } else {
             // 🟢 THE FIX: If they are not logged in, ensure the cart is totally empty!
