@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'db.php'; // 🟢 Uses your Render database connection
+require 'db.php'; 
 header('Content-Type: application/json');
 
 if (!isset($_SESSION['user_id'])) {
@@ -10,8 +10,8 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// 🟢 PostgreSQL translation: uses $1 instead of ?
-$sql = "SELECT items, total, status, notes, created_at FROM orders WHERE user_id = $1 ORDER BY created_at DESC";
+// 🟢 THE FIX: Added 'id' to the SELECT statement
+$sql = "SELECT id, items, total, status, notes, created_at FROM orders WHERE user_id = $1 ORDER BY created_at DESC";
 $result = pg_query_params($conn, $sql, array($user_id));
 
 if (!$result) {
@@ -26,7 +26,6 @@ while ($row = pg_fetch_assoc($result)) {
     $orders[] = $row;
 }
 
-// 🟢 Keeping your original JSON structure
 echo json_encode(['status' => 'success', 'orders' => $orders]);
 
 pg_close($conn);
