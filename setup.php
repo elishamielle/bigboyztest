@@ -1,34 +1,38 @@
 <?php
-// Get connection info from Render Environment Variables
-$host = getenv('DB_HOST');
-$db   = getenv('DB_NAME');
-$user = getenv('DB_USER');
-$pass = getenv('DB_PASSWORD');
+require 'db.php';
 
-$conn_str = "host=$host dbname=$db user=$user password=$pass sslmode=require";
-$dbconn = pg_connect($conn_str);
+// Drop the old incorrect table
+pg_query($conn, "DROP TABLE IF EXISTS users CASCADE;");
 
-if (!$dbconn) {
-    die("<h1>Database Connection Failed!</h1> Check your Render Environment Variables.");
-}
-
-// The SQL command to create the users table
-$sql = "CREATE TABLE IF NOT EXISTS users (
+// Create the correct Users table
+$sql_users = "CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    full_name VARCHAR(100) NOT NULL,
+    name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     password TEXT NOT NULL,
+    role VARCHAR(20) DEFAULT 'user',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );";
 
-// Run the command
-$result = pg_query($dbconn, $sql);
+// Create your Orders table
+$sql_orders = "CREATE TABLE IF NOT EXISTS orders (
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL,
+    items JSONB NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+    notes TEXT,
+    receipt_image TEXT,
+    status VARCHAR(50) DEFAULT 'Pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);";
 
-if ($result) {
-    echo "<h1 style='color: green;'>Success! The 'users' table has been created! 🎉</h1>";
+$res1 = pg_query($conn, $sql_users);
+$res2 = pg_query($conn, $sql_orders);
+
+if ($res1 && $res2) {
+    echo "<h1 style='color: green;'>Tables recreated successfully! Ready to test!</h1>";
 } else {
-    echo "<h1 style='color: red;'>Error creating table: " . pg_last_error($dbconn) . "</h1>";
+    echo "<h1 style='color: red;'>Error: " . pg_last_error($conn) . "</h1>";
 }
-
-pg_close($dbconn);
+pg_close($conn);
 ?>

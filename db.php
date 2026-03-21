@@ -1,12 +1,14 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "bigboyz_db"; // Make sure this matches your DB name
+// db.php
+$host = getenv('DB_HOST');
+$db   = getenv('DB_NAME');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASSWORD');
 
-$conn = new mysqli($host, $user, $pass, $db);
+$conn_str = "host=$host dbname=$db user=$user password=$pass sslmode=require";
+$conn = pg_connect($conn_str);
 
-if ($conn->connect_error) {
-    die(json_encode(["status" => "error", "message" => "Connection failed"]));
+if (!$conn) {
+    die(json_encode(["status" => "error", "message" => "Database connection failed!"]));
 }
 ?>
