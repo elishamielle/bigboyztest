@@ -1,4 +1,5 @@
 <?php
+error_reporting(0); // 🟢 This hides the warning so your JSON stays perfectly clean!
 session_start();
 require 'db.php'; 
 header('Content-Type: application/json');
@@ -10,7 +11,6 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// 🟢 THE FIX: Added 'id' to the SELECT statement
 $sql = "SELECT id, items, total, status, notes, created_at FROM orders WHERE user_id = $1 ORDER BY created_at DESC";
 $result = pg_query_params($conn, $sql, array($user_id));
 
