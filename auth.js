@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
         } else {
+            // 🟢 THE FIX: If they are not logged in, ensure the cart is totally empty!
+            localStorage.removeItem('bigboyz_cart');
+
             // If NOT logged in and on the profile page, redirect to login
             if (window.location.pathname.includes("profile.html")) {
                 window.location.href = "login.html";
@@ -53,6 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const confirmLogout = confirm("Are you sure you want to log out of Big Boyz Diner?");
             if (confirmLogout) {
+                // 🟢 THE FIX: Wipe the cart from the browser memory!
+                localStorage.removeItem('bigboyz_cart'); 
+                
                 window.location.href = 'logout.php';
             }
         });
