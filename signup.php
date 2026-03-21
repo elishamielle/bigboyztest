@@ -1,29 +1,32 @@
 <?php
-header('Content-Type: application/json'); // Tells the browser "I am sending JSON"
+header('Content-Type: application/json'); 
 require 'db.php';
 
 $data = json_decode(file_get_contents("php://input"), true);
 
 if ($data) {
-    $name = $conn->real_escape_string($data['name']); // Matched to your column
-    $email = $conn->real_escape_string($data['email']);
-    $password = password_hash($data['password'], PASSWORD_DEFAULT); // Encrypts the password
+    $name = $data['name']; 
+    $email = $data['email'];
+    $password = password_hash($data['password'], PASSWORD_DEFAULT); 
 
-    // Check if email already exists
-    $checkEmail = $conn->query("SELECT * FROM users WHERE email = '$email'");
+    // PostgreSQL uses pg_query_params for security
+    $checkEmail = pg_query_params($conn, "SELECT * FROM users WHERE email = $1", array($email));
     
-    if ($checkEmail->num_rows > 0) {
+    if (pg_num_rows($checkEmail) > 0) {
         echo json_encode(["status" => "error", "message" => "Email is already registered!"]);
     } else {
-        $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
-        if ($conn->query($sql) === TRUE) {
+        $sql = "INSERT INTO users (name, email, password, role) VALUES ($1, $2, $3, $4)";
+        // By default, new signups are 'user'
+        $result = pg_query_params($conn, $sql, array($name, $email, $password, 'user'));
+        
+        if ($result) {
             echo json_encode(["status" => "success"]);
         } else {
-            echo json_encode(["status" => "error", "message" => "Database error: " . $conn->error]);
+            echo json_encode(["status" => "error", "message" => "Database error: " . pg_last_error($conn)]);
         }
     }
 } else {
     echo json_encode(["status" => "error", "message" => "No data received."]);
 }
-$conn->close();
+pg_close($conn);
 ?>
