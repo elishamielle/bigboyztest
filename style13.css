@@ -737,6 +737,19 @@ body {
         padding: 4px 8px;
     }
 
+    /* Mobile Table Scroll Fix */
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Enables smooth swiping on iPhones */
+    }
+
+    th, td {
+        white-space: nowrap; /* Stops the text from squishing into unreadable vertical columns */
+        padding-right: 20px; /* Adds breathing room between the columns so they don't overlap */
+    }
+
 }
 
 .footer-dropdown {
