@@ -10,4 +10,4 @@ $conn = pg_connect($conn_str);
 if (!$conn) {
     die(json_encode(["status" => "error", "message" => "Database connection failed!"]));
 }
-?>
+?> 

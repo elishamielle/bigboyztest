@@ -1,4 +1,5 @@
 <?php
+error_reporting(0); // 🟢 Prevents warnings from breaking the JS
 session_start();
 header('Content-Type: application/json');
 

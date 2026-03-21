@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'db.php'; // 🟢 Uses your Render database connection
 header('Content-Type: application/json');
 
 if (!isset($_SESSION['user_id'])) {
@@ -7,24 +8,26 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-$conn = new mysqli("localhost", "root", "", "bigboyz_db");
-
 $user_id = $_SESSION['user_id'];
-// Fetch orders sorted by newest first
-$sql = "SELECT items, total, status, notes, created_at FROM orders WHERE user_id = ? ORDER BY created_at DESC";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
+
+// 🟢 PostgreSQL translation: uses $1 instead of ?
+$sql = "SELECT items, total, status, notes, created_at FROM orders WHERE user_id = $1 ORDER BY created_at DESC";
+$result = pg_query_params($conn, $sql, array($user_id));
+
+if (!$result) {
+    echo json_encode(['status' => 'error', 'message' => 'Database query failed']);
+    exit;
+}
 
 $orders = [];
-while ($row = $result->fetch_assoc()) {
-    $row['items'] = json_decode($row['items'], true); // Turn the JSON string back into an array
+while ($row = pg_fetch_assoc($result)) {
+    // Turn the JSON string from the database back into a PHP array for the frontend
+    $row['items'] = json_decode($row['items'], true); 
     $orders[] = $row;
 }
 
+// 🟢 Keeping your original JSON structure
 echo json_encode(['status' => 'success', 'orders' => $orders]);
 
-$stmt->close();
-$conn->close();
+pg_close($conn);
 ?>
