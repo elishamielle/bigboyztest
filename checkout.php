@@ -8,22 +8,16 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// 🟢 NEW SECTION 2: Get the data from $_POST instead of file_get_contents
-// When using FormData in JS, PHP puts the data into the $_POST superglobal automatically.
+// 2. Check if cart has data
 if (!isset($_POST['items']) || empty($_POST['items'])) {
     echo json_encode(['status' => 'error', 'message' => 'Cart is empty']);
     exit;
 }
 
-// 3. Database Connection
-$conn = new mysqli("localhost", "root", "", "bigboyz_db");
+// 3. Connect to Render PostgreSQL database
+require 'db.php';
 
-if ($conn->connect_error) {
-    echo json_encode(['status' => 'error', 'message' => 'Database connection failed']);
-    exit;
-}
-
-// 🟢 HANDLE THE FILE UPLOAD (Receipt Image)
+// 4. HANDLE THE FILE UPLOAD (Receipt Image)
 $receipt_name = ""; 
 if (isset($_FILES['receipt'])) {
     $target_dir = "uploads/";
@@ -35,33 +29,31 @@ if (isset($_FILES['receipt'])) {
     move_uploaded_file($_FILES["receipt"]["tmp_name"], $target_dir . $receipt_name);
 }
 
-// 🟢 PREPARE THE DATA FROM $_POST
+// 5. PREPARE THE DATA 
 $user_id = $_SESSION['user_id'];
-$items_json = $_POST['items']; // Already stringified in payment.js
-$total = $_POST['total'];      // Matches 'total' key in your FormData
+$items_json = $_POST['items']; 
+$total = $_POST['total'];      
 $notes = isset($_POST['notes']) ? $_POST['notes'] : ""; 
 $status = 'Pending';
 
-// 4. INSERT INTO YOUR 'orders' TABLE
-// Note: Added 'receipt_image' to the columns list
-$stmt = $conn->prepare("INSERT INTO orders (user_id, items, total, notes, receipt_image, status) VALUES (?, ?, ?, ?, ?, ?)");
+// 6. INSERT INTO YOUR 'orders' TABLE
+$sql = "INSERT INTO orders (user_id, items, total, notes, receipt_image, status) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id";
+$result = pg_query_params($conn, $sql, array($user_id, $items_json, $total, $notes, $receipt_name, $status));
 
-// "isdsss" = int, string, double, string, string, string
-$stmt->bind_param("isdsss", $user_id, $items_json, $total, $notes, $receipt_name, $status);
-
-if ($stmt->execute()) {
+if ($result) {
+    // Grab the ID of the order we just created
+    $row = pg_fetch_assoc($result);
     echo json_encode([
         'status' => 'success', 
         'message' => 'Order placed successfully!', 
-        'order_id' => $conn->insert_id
+        'order_id' => $row['id']
     ]);
 } else {
     echo json_encode([
         'status' => 'error', 
-        'message' => 'SQL Error: ' . $stmt->error
+        'message' => 'Database error.'
     ]);
 }
 
-$stmt->close();
-$conn->close();
+pg_close($conn);
 ?>

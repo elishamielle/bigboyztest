@@ -1155,9 +1155,10 @@ body {
         letter-spacing: 1px;
     }
 
-    .bibimbap-img{
-        width: 100px;
-        margin-top: -5px;
+    .yakiniku-img {
+        width: 80px; 
+        height: auto;
+        margin-top: -10px;
     }
 
     .wings-img {

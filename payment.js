@@ -131,6 +131,6 @@ async function finishOrder() {
         }
     } catch (error) {
         console.error("Upload Error:", error);
-        alert("Connection error. Check XAMPP.");
+        alert("Connection error. Please try again.");
     }
 }
