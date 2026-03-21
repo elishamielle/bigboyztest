@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (data.status === "logged_in") {
             // Update Navbar
             if (authLink) {
-                authLink.textContent = "HI, " + data.name.toUpperCase();
+                authLink.textContent = data.name.toUpperCase();
                 authLink.href = "profile.html"; 
             }
             if (userIconLink) userIconLink.href = "profile.html";
