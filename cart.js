@@ -4,6 +4,12 @@
 // cart.js
 
 async function addToCartDynamic(clickedButton) {
+    const authText = document.getElementById('nav-auth-text');
+    if (!authText || authText.textContent.includes("Log-in")) {
+        alert("Please sign in to add items to your cart!");
+        window.location.href = "login.html";
+        return;
+    }
     try {
         const response = await fetch('check_session.php');
         const data = await response.json();
