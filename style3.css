@@ -311,9 +311,6 @@ body {
 }
 /* --- STORY SECTION --- */
 
-.story-section {
-   
-}
 
 .story-title {
     margin-top: 30px;
@@ -967,257 +964,259 @@ body {
     }
 
 
-/* Hero */
+    /* Hero */
 
-.hero-image img{
-    height:160px;
-    margin-top:-60px;
-}
-
-
-/* Story section */
-
-.story-title{
-    margin-top: -190px;
-    text-align: right;
-    font-size: 15px;
-}
-.story-container{
-    flex-direction:row;
-   
-}
-
-.story-text{
-    line-height: -100px;
-    text-align:left;
-    margin-top: -1px;
-    margin-bottom: -10px;
-    font-size: 7px;
-    padding:-100px -100px;
-}
-.story-text p {
-    margin-bottom: 4px;
-}
-
-.story-container {
-    margin-top: -40px;
-    background-color: #f04c23;
-    border-top-left-radius: 300px;
-    border-bottom-left-radius: 300px;
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    color: white;
-}
+    .hero-image img{
+        height:160px;
+        margin-top:-60px;
+    }
 
 
-/* Left circular image */
-.story-image {
-    width: 125px;
-    height: 125px;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-   
-}
+    /* Story section */
 
-.image-circle {
-    margin-right: -40px;
-    width: 125px;
-    height: 125px;
-    background-color: #d9d9d9;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .story-title{
+        margin-top: -190px;
+        text-align: right;
+        font-size: 15px;
+    }
+    .story-container{
+        flex-direction:row;
+    
+    }
 
-.image-circle img {
-    width: 100%;
-    height: auto;
-}
+    .story-text{
+        line-height: -100px;
+        text-align:left;
+        margin-top: -1px;
+        margin-bottom: -10px;
+        font-size: 7px;
+        padding:-100px -100px;
+    }
+    .story-text p {
+        margin-bottom: 4px;
+    }
 
-
-
-/* Mission Vision Values */
-
-
-
-/* 1. STRETCH THE CARD & SQUASH THE HEIGHT */
-    .mvv-card {
-        width: 60%; /* Stretches it almost all the way across the screen */
-        max-width: none; /* Removes any old limits stopping it from growing */
-        
-        height: auto !important; 
-        min-height: auto;
-        
-        /* THE FIX: Less top/bottom padding, more side padding */
-        padding: 50x 50px; 
-        
-        /* THE FIX: Smaller radius makes it a rectangle, not a pill */
-        border-radius: 25px; 
-        
+    .story-container {
+        margin-top: -40px;
+        background-color: #f04c23;
+        border-top-left-radius: 300px;
+        border-bottom-left-radius: 300px;
+        padding: 25px;
         display: flex;
-        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+        color: white;
+    }
+
+
+    /* Left circular image */
+    .story-image {
+        width: 125px;
+        height: 125px;
+        flex: 1;
+        display: flex;
         justify-content: center;
-        align-items: center; /* Ensures text stays perfectly centered */
+    
     }
 
-    /* 2. OVERRIDE ANY LEFTOVER HEIGHTS */
-    .mission, .values, .vision {
-        height: auto !important; 
+    .image-circle {
+        margin-right: -40px;
+        width: 125px;
+        height: 125px;
+        background-color: #d9d9d9;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    /* 3. KEEP THE TEXT READABLE SO IT FILLS THE NEW WIDE SHAPE */
-    .mvv-card h2 {
-        font-size: 1.5rem; 
-        margin-bottom: 5px;
-    }
-
-    .mvv-card h3 {
-        
-        font-size: 0.6rem; 
-        margin-bottom: 8px;
-    }
-
-    .mvv-card p {
-        font-size: 0.5rem; 
-        line-height: 1.4;
-        margin-bottom: 0;
-        margin-left: 5px;
-        margin-right: 5px;
+    .image-circle img {
+        width: 100%;
+        height: auto;
     }
 
 
-/* Pictures */
 
-.PICTURES-1{
-    margin-top: -50px;
-    flex-direction:row;
-    align-items:center;
-}
+    /* Mission Vision Values */
 
-.PICTURES-1 img{
-    width:25%;
-    height:auto;
-}
-.PICTURES-2 img{
-    width:95%;
-    height:auto;
-}
-.line{
-    margin-left: 60px;
-    margin-bottom: -15px;
-}
-.HOW-CONTAINER {
+
+
+    /* 1. STRETCH THE CARD & SQUASH THE HEIGHT */
+        .mvv-card {
+            width: 60%; /* Stretches it almost all the way across the screen */
+            max-width: none; /* Removes any old limits stopping it from growing */
+            
+            height: auto !important; 
+            min-height: auto;
+            
+            /* THE FIX: Less top/bottom padding, more side padding */
+            padding: 50x 50px; 
+            
+            /* THE FIX: Smaller radius makes it a rectangle, not a pill */
+            border-radius: 25px; 
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; /* Ensures text stays perfectly centered */
+        }
+
+        /* 2. OVERRIDE ANY LEFTOVER HEIGHTS */
+        .mission, .values, .vision {
+            height: auto !important; 
+        }
+
+        /* 3. KEEP THE TEXT READABLE SO IT FILLS THE NEW WIDE SHAPE */
+        .mvv-card h2 {
+            font-size: 1.5rem; 
+            margin-bottom: 5px;
+        }
+
+        .mvv-card h3 {
+            
+            font-size: 0.6rem; 
+            margin-bottom: 8px;
+        }
+
+        .mvv-card p {
+            font-size: 0.5rem; 
+            line-height: 1.4;
+            margin-bottom: 0;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+
+    /* Pictures */
+
+    .PICTURES-1{
+        margin-top: -50px;
+        flex-direction:row;
+        align-items:center;
+    }
+
+    .PICTURES-1 img{
+        width:25%;
+        height:auto;
+    }
+    .PICTURES-2 img{
+        width:95%;
+        height:auto;
+    }
+    .line{
+        margin-left: 60px;
+        margin-bottom: -15px;
+    }
+    
+    .HOW-CONTAINER {
     margin-top: -200px;
-    width: 375px; /* Image takes 80% of its parent container */
-    height: auto; /* Keeps the aspect ratio */
-    background-size: 100%;
-  
+    width: 100%; 
+    height: auto; 
+    background-size: cover; 
+    background-position: center top;
     padding-top: 150px; 
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 20px; 
+    padding-right: 20px;
     padding-bottom: 75px;
     display: flex;
-    flex-direction: column;   /* ADD THIS */
+    flex-direction: column;   
     align-items: center;
-    gap: 0px;                /* smaller gap looks better vertically */
+    gap: 0px;                
     color: black;
-}
+    box-sizing: border-box;
+    }
 
 
-.HOW-TITLE{
-    flex-direction: row; 
-    margin-top: -175px;
-    font-size:16px;
-    text-align:center;
-    margin-bottom: 0px;
-}
-.line{
-    margin-top: -185px;
+    .HOW-TITLE{
+        flex-direction: row; 
+        margin-top: -175px;
+        font-size:16px;
+        text-align:center;
+        margin-bottom: 0px;
+    }
+    .line{
+        margin-top: -185px;
+        width: 10%;
+        height: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+
+    }
+    .TITLE-ROW {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+
+    .HOW-TEXT{
+        margin-top: -75px;
+    margin-left:40px ;
+    margin-right: 40px; 
+    font-size:7.5px; 
+    flex-direction:column;
+        align-items:center;
+        gap:30px;
+    }
+
+
+    .PIC-4_PART4{
+        margin-top: 5px;
+        width:110%;
+        height: auto;
+    }
+
+
+    /* Footer */
+
+    .top-content{
+        height: 20px;
+        margin-top: -10px;
+        padding-left: 20px;
+        flex-direction:row;
+        text-align:center;
+        font-size: 7.5px;
+        
+        gap:1px;
+        margin-left: -40px;
+        margin-right: -40px;
+    }
+
+    .top-content img{
+        margin-left: 5px;
+        margin-right: -10px;
+    padding: 1px 1px;  
+    gap:1px;
     width: 10%;
     height: auto;
-    margin-left: 20px;
-    margin-right: 20px;
+    }
 
-}
-.TITLE-ROW {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   
-}
-
-.HOW-TEXT{
-    margin-top: -75px;
-   margin-left:40px ;
-   margin-right: 40px; 
-   font-size:7.5px; 
-   flex-direction:column;
-    align-items:center;
-    gap:30px;
-}
-
-
-.PIC-4_PART4{
-    margin-top: 5px;
-    width:110%;
-    height: auto;
-}
-
-
-/* Footer */
-
-.top-content{
-    height: 20px;
-    margin-top: -10px;
-    padding-left: 20px;
-    flex-direction:row;
-    text-align:center;
-    font-size: 7.5px;
+    .footer-container{
     
-    gap:1px;
-    margin-left: -40px;
-    margin-right: -40px;
-}
+        flex-wrap: nowrap; /* Allows stacking on smaller screens */
+    }
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        min-width: 70px;
+    }
 
-.top-content img{
-      margin-left: 5px;
-    margin-right: -10px;
-   padding: 1px 1px;  
-  gap:1px;
-  width: 10%;
-  height: auto;
-}
+    .footer-col h3 {
+        margin-bottom: 15px;
+        font-size: 0.75rem;
+    }
 
-.footer-container{
- 
-    flex-wrap: nowrap; /* Allows stacking on smaller screens */
-}
-.footer-col {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    min-width: 70px;
-}
+    .footer-col a {
+        text-decoration: none;
+        color: white;
+        font-size: 0.55rem;
+        opacity: 0.9;
+    }
 
-.footer-col h3 {
-    margin-bottom: 15px;
-    font-size: 0.75rem;
-}
-
-.footer-col a {
-    text-decoration: none;
-    color: white;
-    font-size: 0.55rem;
-    opacity: 0.9;
-}
-
-.footer-col a:hover {
-    opacity: 1;
-}
+    .footer-col a:hover {
+        opacity: 1;
+    }
 
 
 }
