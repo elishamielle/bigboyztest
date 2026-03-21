@@ -737,17 +737,26 @@ body {
         padding: 4px 8px;
     }
 
-    /* Mobile Table Scroll Fix */
-    table {
-        display: block;
+    body {
+    overflow-x: hidden;
+    }
+
+    .cart-items {
         width: 100%;
+        max-width: 100vw;
         overflow-x: auto;
-        -webkit-overflow-scrolling: touch; /* Enables smooth swiping on iPhones */
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 15px; 
+    }
+
+    table {
+        width: 100%;
+        min-width: 500px; 
     }
 
     th, td {
-        white-space: nowrap; /* Stops the text from squishing into unreadable vertical columns */
-        padding-right: 20px; /* Adds breathing room between the columns so they don't overlap */
+        white-space: nowrap;
+        padding: 10px; 
     }
 
 }
