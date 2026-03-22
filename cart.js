@@ -16,6 +16,7 @@ async function addToCartDynamic(clickedButton) {
 
         if (data.status !== 'logged_in') {
             sessionStorage.setItem('bb_pending_toast', 'Sign-in first to add to cart!');
+            window.location.href = "login.html";
             return; 
         }
 
