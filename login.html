@@ -63,7 +63,7 @@
             .then(res => res.json())
             .then(data => {
                 if(data.status === "success") {
-                    sessionStorage.setItem('bb_pending_toast', 'Account created successfully! Please log in.');
+                    alert("Account created successfully! Please log in.");
                     toggleForms(); 
                 } else {
                     alert("Error: " + data.message);
