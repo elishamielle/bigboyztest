@@ -60,7 +60,7 @@ document.addEventListener("click", function(e) {
             .then(res => res.json())
             .then(userData => {
                 if (userData.status !== "logged_in") {
-                    alert("Please log in to add items to your cart!");
+                    sessionStorage.setItem('bb_pending_toast', 'Please log in to add items to your cart!');
                     window.location.href = "login.html";
                     return;
                 }

@@ -53,7 +53,7 @@
             const email = document.getElementById('signup-email').value;
             const pass = document.getElementById('signup-pass').value;
 
-            if(!name || !email || !pass) return sessionStorage.setItem('bb_pending_toast', 'Please fill out all fields!');
+            if(!name || !email || !pass) return alert("Please fill out all fields!");
 
             fetch('signup.php', {
                 method: 'POST',

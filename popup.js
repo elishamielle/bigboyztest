@@ -82,9 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const pendingMsg = sessionStorage.getItem('bb_pending_toast');
     if (pendingMsg) {
-        setTimeout(() => {
-            window.alert(pendingMsg);
-            sessionStorage.removeItem('bb_pending_toast');
-        }, 300);
+        window.alert(pendingMsg);
+        sessionStorage.removeItem('bb_pending_toast');
     }
 });
