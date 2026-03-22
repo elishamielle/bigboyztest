@@ -19,22 +19,21 @@ if (!isset($_POST['items']) || empty($_POST['items'])) {
 require 'db.php';
 
 try {
-    // 4. HANDLE THE FILE UPLOAD
+    // 4. HANDLE THE FILE UPLOAD AS BASE64 TEXT
     $receipt_name = ""; 
     if (isset($_FILES['receipt']) && $_FILES['receipt']['error'] === UPLOAD_ERR_OK) {
-        $target_dir = "uploads/";
-        // Ensure directory exists
-        if (!is_dir($target_dir)) {
-            mkdir($target_dir, 0777, true); 
-        }
-
-        $file_ext = pathinfo($_FILES["receipt"]["name"], PATHINFO_EXTENSION);
-        $receipt_name = "receipt_" . time() . "_" . $_SESSION['user_id'] . "." . $file_ext;
+        $tmp_path = $_FILES["receipt"]["tmp_name"];
         
-        if (!move_uploaded_file($_FILES["receipt"]["tmp_name"], $target_dir . $receipt_name)) {
-            // If move fails, we proceed with empty name or handle error
-            $receipt_name = "upload_failed_" . $receipt_name;
-        }
+        // Read the image file and convert it to a Base64 text string
+        $file_data = file_get_contents($tmp_path);
+        $base64 = base64_encode($file_data);
+        
+        // Detect if it is a PNG, JPG, etc.
+        $mime = mime_content_type($tmp_path);
+        if (!$mime) { $mime = "image/jpeg"; }
+        
+        // Create the final text string that browsers can read as an image
+        $receipt_name = "data:" . $mime . ";base64," . $base64;
     }
 
     // 5. PREPARE DATA
