@@ -6,7 +6,7 @@
 async function addToCartDynamic(clickedButton) {
     const authText = document.getElementById('nav-auth-text');
     if (!authText || authText.textContent.includes("Log-in")) {
-        alert("Please sign in to add items to your cart!");
+        sessionStorage.setItem('bb_pending_toast', 'Please sign in to add items to your cart!');
         window.location.href = "login.html";
         return;
     }
@@ -15,7 +15,7 @@ async function addToCartDynamic(clickedButton) {
         const data = await response.json();
 
         if (data.status !== 'logged_in') {
-            alert("Sign-in first to add to cart!");
+            sessionStorage.setItem('bb_pending_toast', 'Sign-in first to add to cart!');
             return; 
         }
 
