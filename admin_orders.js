@@ -68,9 +68,9 @@ function renderOrders(orders, containerId, isPending) {
         const badgeClass = isPending ? 'pending' : 'completed';
         const actionBtn = isPending ? `<td><button class="action-btn" onclick="markComplete(${order.id}, event)">MARK COMPLETE</button></td>` : '';
 
-        let receiptPath = "images/qr.png";
+        let receiptPath = "../images/qr.png";
         if (order.receipt_image && order.receipt_image !== "") {
-            receiptPath = order.receipt_image; 
+            receiptPath = "../" + order.receipt_image; 
         }
 
         tbody.innerHTML += `
@@ -150,7 +150,9 @@ function calculateSales(completedOrders) {
     const todayString = localYear + "-" + localMonth + "-" + localDate;
     
     completedOrders.forEach(order => {
-        const dbDateString = order.created_at.split(' ')[0];
+        if (!order.created_at) return;
+        
+        const dbDateString = order.created_at.substring(0, 10);
         const dbYear = dbDateString.split('-')[0];
         const dbMonth = dbDateString.split('-')[1];
         const total = parseFloat(order.total) || 0;
