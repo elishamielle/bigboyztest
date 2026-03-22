@@ -128,11 +128,12 @@ function calculateSales(completedOrders) {
     let week = 0;
     let month = 0;
     const now = new Date();
-    
+
     completedOrders.forEach(order => {
-        const orderDate = new Date(order.created_at);
-        const total = parseFloat(order.total);
-        
+        const safeDateString = order.created_at.replace(' ', 'T');
+        const orderDate = new Date(safeDateString);
+        const total = parseFloat(order.total) || 0;
+
         if (orderDate.toDateString() === now.toDateString()) {
             today += total;
         }
@@ -141,7 +142,7 @@ function calculateSales(completedOrders) {
         }
         week += total; 
     });
-    
+
     const todayEl = document.getElementById('sales_today');
     const weekEl = document.getElementById('sales_week');
     const monthEl = document.getElementById('sales_month');
