@@ -25,7 +25,7 @@ try {
         $target_dir = "uploads/";
         // Ensure directory exists
         if (!is_dir($target_dir)) {
-            mkdir($target_dir, 0755, true); 
+            mkdir($target_dir, 0777, true); 
         }
 
         $file_ext = pathinfo($_FILES["receipt"]["name"], PATHINFO_EXTENSION);
