@@ -79,4 +79,12 @@ document.addEventListener("DOMContentLoaded", function() {
             modal.style.display = 'none';
         };
     };
+
+    const pendingMsg = sessionStorage.getItem('bb_pending_toast');
+    if (pendingMsg) {
+        setTimeout(() => {
+            window.alert(pendingMsg);
+            sessionStorage.removeItem('bb_pending_toast');
+        }, 300);
+    }
 });

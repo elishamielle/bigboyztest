@@ -53,7 +53,7 @@
             const email = document.getElementById('signup-email').value;
             const pass = document.getElementById('signup-pass').value;
 
-            if(!name || !email || !pass) return alert("Please fill out all fields!");
+            if(!name || !email || !pass) return sessionStorage.setItem('bb_pending_toast', 'Please fill out all fields!');
 
             fetch('signup.php', {
                 method: 'POST',
@@ -63,7 +63,7 @@
             .then(res => res.json())
             .then(data => {
                 if(data.status === "success") {
-                    alert("Account created successfully! Please log in.");
+                    sessionStorage.setItem('bb_pending_toast', 'Account created successfully! Please log in.');
                     toggleForms(); 
                 } else {
                     alert("Error: " + data.message);
@@ -90,10 +90,10 @@
                     // Check the role returned from login.php
                     // Inside your login.html script
                 if (data.role === "admin") {
-                    alert("Welcome back, Admin!");
+                    sessionStorage.setItem('bb_pending_toast', 'Welcome back, Admin!');
                     window.location.href = "admin-dashboard.html"; 
                     } else {
-                        alert("Welcome back!");
+                        sessionStorage.setItem('bb_pending_toast', 'Welcome back!');
                         window.location.href = "index.html"; 
                     }
                 } else {
