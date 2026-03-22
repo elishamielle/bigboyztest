@@ -18,6 +18,14 @@ function toggleOrderDetails(index) {
 async function fetchOrders() {
     const container = document.querySelector('.cart-items');
     try {
+        const openPanes = [];
+        const allOpenDetails = document.querySelectorAll('.order-details-pane');
+        for (let i = 0; i < allOpenDetails.length; i++) {
+            if (allOpenDetails[i].style.display === 'block') {
+                openPanes.push(allOpenDetails[i].id);
+            }
+        }
+
         const response = await fetch('get_orders.php');
         const data = await response.json();
 
@@ -32,15 +40,9 @@ async function fetchOrders() {
             container.innerHTML = '';
             
             globalOrders.forEach((order, index) => {
-                const itemNames = (order.items && order.items.length > 0) 
-                    ? order.items.map(i => i.name).join(', ') 
-                    : 'Items not found';
+                const itemNames = order.items && order.items.length > 0 ? order.items.map(i => i.name).join(', ') : 'Items not found';
                 const statusClass = order.status ? order.status.toLowerCase() : 'pending';
-                
-                // 🟢 SAFE IMAGE VARIABLE
-                const firstItemImage = (order.items && order.items.length > 0 && order.items[0].image) 
-                    ? order.items[0].image 
-                    : 'images/imgPlaceholder.jpg';
+                const firstItemImage = order.items && order.items.length > 0 && order.items[0].image ? order.items[0].image : 'images/imgPlaceholder.jpg';
 
                 container.innerHTML += `
                     <div class="cart-row clickable" onclick="toggleOrderDetails(${index})" style="display: flex; flex-direction: column; align-items: stretch; margin-bottom: 20px; cursor: pointer;">
@@ -52,7 +54,7 @@ async function fetchOrders() {
                                     <img src="${firstItemImage}" class="cart-item-img" alt="Order Image">
                                     <div class="cart-item-details">
                                         <h3 class="cart-item-title">${itemNames}</h3>
-                                        <span class="order-date">${new Date(order.created_at).toLocaleDateString()}</span>
+                                        <span class="order-date">${new Date(order.created_at.replace(' ', 'T')).toLocaleDateString()}</span>
                                     </div>
                                 </div>
                                 <div class="cart-item-right">
@@ -82,6 +84,13 @@ async function fetchOrders() {
                     </div>
                 `;
             });
+
+            for (let i = 0; i < openPanes.length; i++) {
+                const paneToOpen = document.getElementById(openPanes[i]);
+                if (paneToOpen) {
+                    paneToOpen.style.display = 'block';
+                }
+            }
         } else {
              container.innerHTML = '<h2 style="text-align:center; color:#888;">Error loading orders.</h2>';
         }
@@ -90,3 +99,5 @@ async function fetchOrders() {
         container.innerHTML = '<h2 style="text-align:center; color:red;">Failed to connect to server.</h2>';
     }
 }
+
+setInterval(fetchOrders, 20000);

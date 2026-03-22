@@ -6,23 +6,38 @@ async function fetchAdminOrders() {
         const data = await response.json();
 
         if (data.status === 'success') {
+            const openRows = [];
+            const allDetailRows = document.querySelectorAll('.order-details-row.open');
+            for (let i = 0; i < allDetailRows.length; i++) {
+                openRows.push(allDetailRows[i].id);
+            }
+
             const allOrders = data.orders;
             const pending = allOrders.filter(o => o.status.toLowerCase() === 'pending');
             const completed = allOrders.filter(o => o.status.toLowerCase() === 'completed');
 
             if (document.getElementById('pending_orders_body')) {
                 renderOrders(pending, 'pending_orders_body', true);
-                document.getElementById('totalPendingCount').innerText = pending.length;
+                const pendingCount = document.getElementById('totalPendingCount');
+                if (pendingCount) pendingCount.innerText = pending.length;
             }
             
             if (document.getElementById('completed_orders_body')) {
                 renderOrders(completed, 'completed_orders_body', false);
-                document.getElementById('totalCompletedCount').innerText = completed.length;
+                const compCount = document.getElementById('totalCompletedCount');
+                if (compCount) compCount.innerText = completed.length;
             }
 
             if (document.getElementById('dashboard_orders_body')) {
                 renderOrders(pending.slice(0, 5), 'dashboard_orders_body', true); 
                 calculateSales(completed);
+            }
+
+            for (let i = 0; i < openRows.length; i++) {
+                const rowToOpen = document.getElementById(openRows[i]);
+                if (rowToOpen) {
+                    rowToOpen.classList.add('open');
+                }
             }
         } else {
             console.error("Failed to load orders", data.message);
@@ -53,9 +68,9 @@ function renderOrders(orders, containerId, isPending) {
         const badgeClass = isPending ? 'pending' : 'completed';
         const actionBtn = isPending ? `<td><button class="action-btn" onclick="markComplete(${order.id}, event)">MARK COMPLETE</button></td>` : '';
 
-        let receiptPath = "../images/qr.png";
+        let receiptPath = "images/qr.png";
         if (order.receipt_image && order.receipt_image !== "") {
-            receiptPath = "../" + order.receipt_image; 
+            receiptPath = order.receipt_image; 
         }
 
         tbody.innerHTML += `
@@ -128,21 +143,27 @@ function calculateSales(completedOrders) {
     let week = 0;
     let month = 0;
     const now = new Date();
-
+    
+    const localYear = now.getFullYear();
+    const localMonth = String(now.getMonth() + 1).padStart(2, '0');
+    const localDate = String(now.getDate()).padStart(2, '0');
+    const todayString = localYear + "-" + localMonth + "-" + localDate;
+    
     completedOrders.forEach(order => {
-        const safeDateString = order.created_at.replace(' ', 'T');
-        const orderDate = new Date(safeDateString);
+        const dbDateString = order.created_at.split(' ')[0];
+        const dbYear = dbDateString.split('-')[0];
+        const dbMonth = dbDateString.split('-')[1];
         const total = parseFloat(order.total) || 0;
-
-        if (orderDate.toDateString() === now.toDateString()) {
+        
+        if (dbDateString === todayString) {
             today += total;
         }
-        if (orderDate.getMonth() === now.getMonth() && orderDate.getFullYear() === now.getFullYear()) {
+        if (dbYear == localYear && dbMonth == localMonth) {
             month += total;
         }
         week += total; 
     });
-
+    
     const todayEl = document.getElementById('sales_today');
     const weekEl = document.getElementById('sales_week');
     const monthEl = document.getElementById('sales_month');
@@ -151,3 +172,14 @@ function calculateSales(completedOrders) {
     if (weekEl) weekEl.innerText = 'P ' + week.toFixed(2);
     if (monthEl) monthEl.innerText = 'P ' + month.toFixed(2);
 }
+
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('logout-btn')) {
+        e.preventDefault();
+        customConfirm("Are you sure you want to log out of the admin dashboard?", function() {
+            window.location.href = 'logout.php';
+        });
+    }
+});
+
+setInterval(fetchAdminOrders, 20000);
