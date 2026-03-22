@@ -70,7 +70,7 @@ function renderOrders(orders, containerId, isPending) {
 
         let receiptPath = "../images/qr.png";
         if (order.receipt_image && order.receipt_image !== "") {
-            receiptPath = "../" + order.receipt_image; 
+            receiptPath = "../uploads/" + order.receipt_image; 
         }
 
         tbody.innerHTML += `
