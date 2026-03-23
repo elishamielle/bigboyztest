@@ -33,27 +33,28 @@
             </header>
 
             <section class="sales-summary-grid">
-                <div class="sales-card">
+                <div class="sales-card" >
                     <h3>TODAY'S SALES</h3>
-                    <p class="sales-number">P 4,250.00</p>
+                    <p class="sales-number" id="sales_today"></p>
                 </div>
                 <div class="sales-card">
                     <h3>THIS WEEK</h3>
-                    <p class="sales-number">P 28,140.00</p>
+                    <p class="sales-number" id="sales_week"></p>
                 </div>
                 <div class="sales-card">
                     <h3>THIS MONTH</h3>
-                    <p class="sales-number">P 112,500.00</p>
+                    <p class="sales-number" id="sales_month"></p>
                 </div>
             </section>
 
-            <section class="live-orders-section clickable-section" onclick="window.location.href='admin-pending.html'">
+            <section class="live-orders-section">
                 <h2>INCOMING ORDERS (ACTION REQUIRED)</h2>
                 
                 <table class="orders-table">
                     <thead>
                         <tr>
                             <th>Order ID</th>
+                            <th>Time</th>
                             <th>Customer</th>
                             <th>Items</th>
                             <th>Total</th>
@@ -61,15 +62,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>#0042</td>
-                            <td>Elisha C.</td>
-                            <td>Chicken Wings (1), Classic Hotdog (1)</td>
-                            <td>P 289.00</td>
-                            <td><span class="badge pending">PENDING</span></td>
-                            <td><button class="action-btn" onclick="event.stopPropagation()">MARK COMPLETE</button></td>
-                        </tr>
+                    <tbody id="dashboard_orders_body">
                     </tbody>
                 </table>
             </section>
@@ -77,6 +70,8 @@
         </main>
     </div>
     <script src="admin_guard.js"></script>
+    <script src="popup.js"></script>
+    <script src="admin_orders.js"></script>
 
 </body>
 </html>

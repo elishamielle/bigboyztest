@@ -50,10 +50,16 @@
         // SIGN UP LOGIC
         document.getElementById('btn-signup').addEventListener('click', function() {
             const name = document.getElementById('signup-name').value;
-            const email = document.getElementById('signup-email').value;
+            const emailInput = document.getElementById('signup-email');
+            const email = emailInput.value;
             const pass = document.getElementById('signup-pass').value;
 
             if(!name || !email || !pass) return alert("Please fill out all fields!");
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                return alert("Please enter a valid email address!");
+            }
 
             fetch('signup.php', {
                 method: 'POST',
@@ -90,10 +96,10 @@
                     // Check the role returned from login.php
                     // Inside your login.html script
                 if (data.role === "admin") {
-                    alert("Welcome back, Admin!");
+                    sessionStorage.setItem('bb_pending_toast', 'Welcome back, Admin!');
                     window.location.href = "admin-dashboard.html"; 
                     } else {
-                        alert("Welcome back!");
+                        sessionStorage.setItem('bb_pending_toast', 'Welcome back!');
                         window.location.href = "index.html"; 
                     }
                 } else {
@@ -103,5 +109,7 @@
             .catch(err => console.error(err));
         });
     </script>
+
+    <script src="popup.js"></script>
 </body> 
 </html>

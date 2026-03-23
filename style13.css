@@ -758,6 +758,44 @@ body {
         padding: 4px 8px;
     }
 
+    /* Mobile Table Scroll Fix */
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Enables smooth swiping on iPhones */
+    }
+
+    th, td {
+        white-space: nowrap; /* Stops the text from squishing into unreadable vertical columns */
+        padding-right: 20px; /* Adds breathing room between the columns so they don't overlap */
+    }
+
+    .order-header-wrapper {
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        gap: 10px !important;
+    }
+
+    .cart-item-card {
+        width: 100% !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    .order-status-block {
+        width: auto !important;
+        flex-direction: row !important;
+        justify-content: flex-end !important;
+        gap: 8px !important;
+        margin-top: 5px !important;
+    }
+
+    .cart-items {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
 }
 
 .footer-dropdown {

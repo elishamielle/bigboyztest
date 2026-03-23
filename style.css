@@ -1296,6 +1296,14 @@ body {
         margin-top: 0;
         margin-bottom: 0px;
     }
+
+    .review-photo {
+        width: calc(100% + 16px); /* Stretches the image wider into the padding */
+        margin-left: -8px;        /* Pulls it slightly to the left to keep it centered */
+        margin-top: 5px;          /* Adds a tiny bit of space from the name above */
+        margin-bottom: 5px;       /* Adds space before the review text below */
+        border-radius: 8px;       /* Shrinks the corners slightly so it fits the new size smoothly */
+    }
     .user-photo {
         width: 20px;
         height: 20px;

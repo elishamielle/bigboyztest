@@ -73,13 +73,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            const confirmLogout = confirm("Are you sure you want to log out of Big Boyz Diner?");
-            if (confirmLogout) {
-                // 🟢 THE FIX: Wipe the cart from the browser memory!
+            
+            customConfirm("Are you sure you want to log out of Big Boyz Diner?", function() {
                 localStorage.removeItem('bigboyz_cart'); 
-                
                 window.location.href = 'logout.php';
-            }
+            });
         });
     }
 });

@@ -40,44 +40,8 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="order-main-row" onclick="toggleDetails('order-42')">
-                            <td>#0042</td>
-                            <td>12:30 PM</td>
-                            <td>Elisha C.</td>
-                            <td>Chicken Wings (1), Classic Hotdog (1)</td>
-                            <td>P 289.00</td>
-                            <td><span class="badge pending">PENDING</span></td>
-                            <td><button class="action-btn" onclick="event.stopPropagation()">MARK COMPLETE</button></td>
-                        </tr>
-
-                        <tr class="order-details-row" id="order-42">
-                            <td colspan="7">
-                                <div class="expanded-content">
-                                    
-                                    <div class="expanded-left">
-                                        <h4>ORDER DETAILS</h4>
-                                        <p><strong>Customer Name:</strong> Elisha Catiis</p>
-                                        <p><strong>Date & Time:</strong> Oct 24, 2025 - 12:30 PM</p>
-                                        <p><strong>Notes:</strong> Please add extra ketchup and napkins.</p>
-                                        
-                                        <h4>ITEMS ORDERED:</h4>
-                                        <ul>
-                                            <li>1x Chicken Wings (Flavor: Mixed)</li>
-                                            <li>1x Classic Hotdog (Flavor: Original)</li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="expanded-right">
-                                        <h4>PROOF OF PAYMENT</h4>
-                                        <div class="receipt-box">
-                                            <img src="../images/qr.png" alt="Receipt" class="proof-img">
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </td>
-                        </tr>
+                    <tbody id="pending_orders_body">
+                        <!-- Sample pending order row -->
                     </tbody>
                 </table>
                 <div class="orders-summary">
@@ -108,5 +72,9 @@
         document.getElementById('totalPendingCount').innerText = totalRows;
     </script>
     <script src="admin_guard.js"></script>
+    <script src="popup.js"></script>
+    <script src="admin_orders.js"></script>
+
+
 </body>
 </html>
