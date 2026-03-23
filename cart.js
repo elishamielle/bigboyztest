@@ -109,14 +109,19 @@ function renderCart() {
                     <div class="cart-item-left">
                         <img src="${item.image}" alt="${item.name}" class="cart-item-img">
                         <div class="cart-item-details">
-                            <h3 class="cart-item-title">${item.name}</h3>
-                            <div class="cart-item-controls">
-                                <span class="cart-qty-label">QTY</span>
-                                <button class="cart-qty-btn" onclick="updateQty(${index}, -1)">-</button>
-                                <span class="cart-qty-num">${item.qty}</span>
-                                <button class="cart-qty-btn" onclick="updateQty(${index}, 1)">+</button>
-                                <span class="cart-flavor-tag">${item.flavor}</span>
+                            
+                            <div class="cart-title-row">
+                                <h3 class="cart-item-title">${item.name}</h3>
+                                <div class="cart-item-controls">
+                                    <span class="cart-qty-label">QTY</span>
+                                    <button class="cart-qty-btn" onclick="updateQty(${index}, -1)">-</button>
+                                    <span class="cart-qty-num">${item.qty}</span>
+                                    <button class="cart-qty-btn" onclick="updateQty(${index}, 1)">+</button>
+                                </div>
                             </div>
+
+                            <span class="cart-flavor-tag">${item.flavor}</span>
+                            
                         </div>
                     </div>
                     <div class="cart-item-right">

@@ -285,15 +285,22 @@ body {
 /* 🟢 NEW: Forces the title and the + / - buttons to sit side-by-side */
 .cart-item-details {
     display: flex;
-    align-items: center; /* Vertically centers the text and buttons */
-    gap: 20px; /* Space between the food name and the controls */
-    flex-wrap: wrap; /* Allows them to stack safely on tiny phone screens */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px; /* Space between the title row and the flavor tag */
+}
+
+.cart-title-row {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Space between the food name and the QTY */
+    flex-wrap: wrap; /* Allows safe stacking on tiny phone screens */
 }
 
 .cart-item-title {
     font-family: 'Passion One', sans-serif;
     font-size: 2.2rem;
-    margin-bottom: 0; /* 🟢 THE FIX: Change this to 0 so it doesn't push the buttons down! */
+    margin-bottom: 0; 
     line-height: 1;
     letter-spacing: 1px;
 }
@@ -301,28 +308,34 @@ body {
 .cart-item-controls {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-family: 'Passion One', sans-serif;
+    gap: 15px; /* Spacing between the +, -, and numbers */
 }
-
-.cart-qty-label { font-size: 1.4rem; }
-.cart-qty-num { font-size: 1.4rem; }
 
 .cart-qty-btn {
     background: none;
     border: none;
     color: white;
     font-family: 'Passion One', sans-serif;
-    font-size: 1.6rem;
+    font-size: 2.8rem; /* Made the + and - much bigger! */
+    font-weight: bold;
     cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.cart-qty-btn:hover {
+    transform: scale(1.2); 
+}
+
+.cart-qty-num, .cart-qty-label {
+    font-size: 1.6rem; /* Scaled the numbers up slightly to match the big buttons */
 }
 
 .cart-flavor-tag {
-    background-color: #08979C; /* Your Teal color */
-    padding: 2px 15px;
+    background-color: #08979C; 
+    padding: 3px 15px;
     border-radius: 50px;
     font-size: 1.2rem;
-    margin-left: 10px;
+    margin-left: 0; /* Reset this to 0 since it's on its own line now */
 }
 
 .cart-item-right {
