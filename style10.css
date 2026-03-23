@@ -327,8 +327,8 @@ body {
 }
 
 .cart-qty-num, .cart-qty-label {
-    font-size: 1.6rem; /* Scaled the numbers up slightly to match the big buttons */
-}
+    font-size: 1.6rem; 
+
 
 .cart-flavor-tag {
     background-color: #08979C; 
