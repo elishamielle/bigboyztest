@@ -1015,22 +1015,21 @@ body {
 
 /* 5. Mobile Responsiveness */
 @media screen and (max-width: 768px) {
-/* 1. Main Navbar sizing */
+    /* 1. Main Navbar sizing */
     .navbar {
         height: 20px; /* Thinner bar */
         border-radius: 30px;
         margin: 10px auto; 
     }
-
-    /* 2. Shrink the Left-Aligned Bulge (Logo) */
+    
+    /* 2. Shrink the Left-Aligned Bulge */
     .navbar::after {
         width: 80px; /* Narrower bulge */
         height: 40px; /* Shallower drop */
         left: 0; /* Keeps it strictly on the left edge */
-        border-radius: 0px 0 10px 10px; /* Rounds the bottom */
+        border-radius: 0px 0 10px 10px; /* Blends top-left with the pill shape, rounds the bottom */
     }
 
-    /* 🟢 NEW: The Right-Aligned Bulge (Icons) */
     .navbar::before {
         content: "";
         position: absolute;
@@ -1067,12 +1066,6 @@ body {
         left: 10px; /* Tucks it nicely inside the 80px bulge */
     }
 
-    .yakiniku-img {
-        width: 80px; 
-        height: auto;
-        margin-top: -10px;
-    }
-
     /* 5. The Right Side Icons */
     .right-menu {
         gap: 4px; /* Tiny gap between the cart and user icons */
@@ -1095,22 +1088,21 @@ body {
 
     /* 6. The Dropdown Box */
     .dropdown-content {
-        min-width: 40px; 
-        padding: 0px 4px 4px 4px; 
+        min-width: 40px; /* Prevents the box from being unnecessarily wide */
+        padding: 0px 4px 4px 4px; /* Reduces empty white space */
         border-radius: 10px; 
         top: 0px;
     }
 
     .dropdown-content a {
-        font-size: 0.5rem !important; 
+        font-size: 0.5rem !important; /* Smaller main text */
         padding: 2px 0 !important; 
     }
 
     .dropdown-content a:nth-child(2),
     .dropdown-content a:nth-child(3) {
-        font-size: 0.5rem !important; 
+        font-size: 0.5rem !important; /* Noticeably smaller sub-links */
     }
-}
 
     /* --- MOBILE HERO SECTION --- */
     .hero-section {
@@ -1213,7 +1205,7 @@ body {
         letter-spacing: 1px;
     }
 
-    .bibimbap-img{
+    .yakiniku-img{
         width: 100px;
         margin-top: -5px;
     }
