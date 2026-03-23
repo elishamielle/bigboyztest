@@ -93,8 +93,6 @@
             .then(res => res.json())
             .then(data => {
                 if(data.status === "success") {
-                    // Check the role returned from login.php
-                    // Inside your login.html script
                 if (data.role === "admin") {
                     sessionStorage.setItem('bb_pending_toast', 'Welcome back, Admin!');
                     window.location.href = "admin-dashboard.html"; 

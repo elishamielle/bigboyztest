@@ -1,13 +1,13 @@
-// 1. Storage for the data
+// Storage for the data
 let globalOrders = [];
 
-// 2. THE TRIGGER
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Page loaded, calling fetchOrders...");
     fetchOrders();
 });
 
-// 🟢 MOVE THIS FUNCTION TO THE TOP (Best practice for "clickable" functions)
+
 function toggleOrderDetails(index) {
     const pane = document.getElementById(`details-${index}`);
     if (pane) {

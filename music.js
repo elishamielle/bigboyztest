@@ -3,9 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const musicBtn = document.getElementById('music-toggle');
     const musicIcon = document.getElementById('music-icon');
 
-    // Make sure the audio element actually exists on this page before running
+    // cehcks if the audio  exists on page before running
     if (music && musicBtn) {
-        // Set volume to 30% so it's nice background noise
         music.volume = 0.3; 
 
         musicBtn.addEventListener('click', function() {

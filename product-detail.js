@@ -1,7 +1,5 @@
-// product-detail.js
-
 document.addEventListener("click", function(e) {
-    // 1. HANDLE FLAVOR BUTTON CLICKS
+    // HANDLE FLAVOR BUTTON CLICKS
     if (e.target.classList.contains('flavor-btn')) {
         const allFlavorBtns = document.querySelectorAll('.flavor-btn');
         allFlavorBtns.forEach(btn => {
@@ -11,11 +9,11 @@ document.addEventListener("click", function(e) {
         });
 
         e.target.classList.add('selected');
-        e.target.style.backgroundColor = "#ff5722"; // Big Boyz Orange
+        e.target.style.backgroundColor = "#ff5722"; 
         e.target.style.color = "white";
     }
 
-    // 2. HANDLE QUANTITY BUTTONS
+    // HANDLE QUANTITY BUTTONS
     const qtyDisplay = document.querySelector('.qty-num');
     if (e.target.classList.contains('qty-btn')) {
         let currentQty = parseInt(qtyDisplay.textContent);
@@ -27,11 +25,11 @@ document.addEventListener("click", function(e) {
         qtyDisplay.textContent = currentQty;
     }
 
-    // 3. MASTER ADD TO CART LOGIC (FIXED CLICK TARGET!)
+    // ADD TO CART LOGIC  
     const addCartBtn = e.target.closest('.add-cart-btn');
     
     if (addCartBtn) {
-        // --- RULE 1: FORCES MANUAL FLAVOR SELECTION ---
+        // FORCES MANUAL FLAVOR SELECTION 
         const allSelected = document.querySelectorAll('.flavor-btn.selected');
         let selectedFlavorBtn = null;
 
@@ -43,19 +41,19 @@ document.addEventListener("click", function(e) {
         
         if (!selectedFlavorBtn) {
             alert("Please choose a flavor first!");
-            return; // Stops the code dead in its tracks
+            return; 
         }
 
-        // --- RULE 2: FORCES MANUAL QUANTITY SELECTION ---
+        // FORCES MANUAL QUANTITY SELECTION 
         const qtyDisplayEl = document.querySelector('.qty-num');
         const currentQty = qtyDisplayEl ? parseInt(qtyDisplayEl.textContent) : 0;
 
         if (isNaN(currentQty) || currentQty === 0) {
             alert("Please select a quantity of at least 1!");
-            return; // Stops the code dead in its tracks
+            return;  
         }
 
-        // --- If they followed the rules, check login and save! ---
+        //  If  met, check login and save
         fetch('check_session.php')
             .then(res => res.json())
             .then(userData => {

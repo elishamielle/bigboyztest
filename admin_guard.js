@@ -4,10 +4,9 @@
     .then(res => res.json())
     .then(data => {
         if (data.status === "logged_in" && data.role === "admin") {
-            // 🟢 Role confirmed! Show the page.
             document.body.style.display = "block";
         } else {
-            // Not an admin? Kick them out.
+            // if not admin, redirect to login page
             window.location.href = "login.html";
         }
     })

@@ -1,5 +1,5 @@
 <?php
-error_reporting(0); // 🟢 This hides the warning so your JSON stays perfectly clean!
+error_reporting(0);  
 session_start();
 require 'db.php'; 
 header('Content-Type: application/json');

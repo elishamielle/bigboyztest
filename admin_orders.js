@@ -71,10 +71,8 @@ function renderOrders(orders, containerId, isPending) {
         let receiptPath = "../images/qr.png";
         if (order.receipt_image && order.receipt_image !== "") {
             if (order.receipt_image.startsWith("data:image")) {
-                // Read the direct text code from the database
                 receiptPath = order.receipt_image; 
             } else {
-                // Fallback just in case an older test order had a filename
                 receiptPath = "../uploads/" + order.receipt_image; 
             }
         }

@@ -1,23 +1,18 @@
-// ==========================================
-// 1. PAGE INITIALIZER (Runs on Load)
-// ==========================================
+// runs on load
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Check if we are on checkout.html (Review Page)
+    // Check if on checkout.html (Review Page)
     if (document.getElementById('checkout-items-display')) {
         renderCheckoutItems();
     }
     
-    // Check if we are on payment.html (QR/Upload Page)
+    // Check if on payment.html (QR/Upload Page)
     if (document.getElementById('payment-final-total')) {
         renderPaymentTotal();
-        setupReceiptPreview(); // Start listening for the image upload
+        setupReceiptPreview(); 
     }
 });
 
-// ==========================================
-// 2. REVIEW PAGE FUNCTIONS (checkout.html)
-// ==========================================
 function renderCheckoutItems() {
     const container = document.getElementById('checkout-items-display');
     const totalEl = document.getElementById('checkout-total-price');
@@ -54,20 +49,18 @@ function proceedToPayment() {
     const notesEl = document.getElementById('order-notes');
     const notes = notesEl ? notesEl.value : ""; 
     
-    // 🟢 Debugging: This will show in the F12 Console
+    // debug log 
     console.log("Capturing notes:", notes);
     
     sessionStorage.setItem('temp_order_notes', notes);
     
-    // Give the browser a split second to ensure storage is saved
+    // Gives the browser a split second to ensure storage is saved
     setTimeout(() => {
         window.location.href = "payment.html";
     }, 100);
 }
 
-// ==========================================
-// 3. PAYMENT PAGE FUNCTIONS (payment.html)
-// ==========================================
+// payment page functions
 function renderPaymentTotal() {
     let cart = JSON.parse(localStorage.getItem('bigboyz_cart')) || [];
     let grandTotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
@@ -129,7 +122,7 @@ async function finishOrder() {
             // 2. Clear the cart so it's empty for the next order
             localStorage.removeItem('bigboyz_cart');
             
-            // 3. 🟢 THE REDIRECT: Send them to the orders history page
+            // Send them to the orders history page
             window.location.href = "orders.html"; 
         } else {
             alert("Error: " + result.message);
