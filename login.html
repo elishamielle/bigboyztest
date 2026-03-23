@@ -50,10 +50,16 @@
         // SIGN UP LOGIC
         document.getElementById('btn-signup').addEventListener('click', function() {
             const name = document.getElementById('signup-name').value;
-            const email = document.getElementById('signup-email').value;
+            const emailInput = document.getElementById('signup-email');
+            const email = emailInput.value;
             const pass = document.getElementById('signup-pass').value;
 
             if(!name || !email || !pass) return alert("Please fill out all fields!");
+
+            if (!emailInput.checkValidity()) {
+                emailInput.reportValidity();
+                return;
+            }
 
             fetch('signup.php', {
                 method: 'POST',
