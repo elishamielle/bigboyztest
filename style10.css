@@ -316,7 +316,7 @@ body {
     border: none;
     color: white;
     font-family: 'Passion One', sans-serif;
-    font-size: 2rem; /* Made the + and - much bigger! */
+    font-size: 2.8rem; /* Made the + and - much bigger! */
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -327,16 +327,15 @@ body {
 }
 
 .cart-qty-num, .cart-qty-label {
-    font-size: 1.6rem; 
-
+    font-size: 1.6rem; /* Scaled the numbers up slightly to match the big buttons */
+}
 
 .cart-flavor-tag {
     background-color: #08979C; 
     padding: 3px 15px;
     border-radius: 50px;
     font-size: 1.2rem;
-    margin-top: 0px;
-    margin-left: 0px; /* Reset this to 0 since it's on its own line now */
+    margin-left: 0; /* Reset this to 0 since it's on its own line now */
 }
 
 .cart-item-right {
@@ -806,5 +805,4 @@ body {
 .footer-dropdown-content a:hover {
     background-color: #f1f1f1;
     color: #EF5225 !important;
-}
 }
