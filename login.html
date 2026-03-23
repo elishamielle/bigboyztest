@@ -56,9 +56,9 @@
 
             if(!name || !email || !pass) return alert("Please fill out all fields!");
 
-            if (!emailInput.checkValidity()) {
-                emailInput.reportValidity();
-                return;
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                return alert("Please enter a valid email address!");
             }
 
             fetch('signup.php', {
