@@ -733,16 +733,16 @@ body {
 
     /* 3. THE FIX: Target the specific text elements to actually shrink the fonts! */
     .add-cart-btn {
-        font-size: 1.2rem; /* Scaled down from 1.6rem */
+        font-size: 1.4rem; /* Scaled down from 1.6rem */
         justify-content: center; /* Keeps the text perfectly centered inside the orange pill */
     }
 
     .qty-label {
-        font-size: 1.1rem; /* Scaled down from 1.5rem */
+        font-size: 1.5rem; /* Scaled down from 1.5rem */
     }
 
     .qty-btn, .qty-num {
-        font-size: 1rem; /* Scaled down from 1.8rem */
+        font-size: 1.5rem; /* Scaled down from 1.8rem */
     }
     
     /* 1. SHRINK THE TOP BAR & KEEP GRID */
