@@ -435,11 +435,26 @@
     }
 
     .live-orders-section h2 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .orders-table {
         width: 600px; /* Forces table to stay wide so columns don't squish */
+    }
+
+    .orders-table th {
+        font-family: 'Passion One', sans-serif;
+        font-size: 1.3rem; /* 🟢 Shrunk the text down so it fits better */
+        color: #889E0C;
+        padding-bottom: 15px;
+        padding-right: 20px; /* 🟢 Added breathing room between columns */
+        white-space: nowrap; /* 🟢 Forces the headings to stay on one single line */
+    }
+
+    .orders-table td {
+        padding: 15px 10px 15px 0;
+        border-bottom: 1px solid #eeeeee;
+        font-size: 1.2rem;
     }
 
     /* 6. Fix the Expanded Details Row */
