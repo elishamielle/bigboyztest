@@ -282,10 +282,18 @@ body {
     filter: drop-shadow(0px 5px 5px rgba(0,0,0,0.3)); 
 }
 
+/* 🟢 NEW: Forces the title and the + / - buttons to sit side-by-side */
+.cart-item-details {
+    display: flex;
+    align-items: center; /* Vertically centers the text and buttons */
+    gap: 20px; /* Space between the food name and the controls */
+    flex-wrap: wrap; /* Allows them to stack safely on tiny phone screens */
+}
+
 .cart-item-title {
     font-family: 'Passion One', sans-serif;
     font-size: 2.2rem;
-    margin-bottom: 5px;
+    margin-bottom: 0; /* 🟢 THE FIX: Change this to 0 so it doesn't push the buttons down! */
     line-height: 1;
     letter-spacing: 1px;
 }
