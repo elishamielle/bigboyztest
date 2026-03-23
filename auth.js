@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // ==========================================
-    // 1. Fetch session data with a cache-buster
-    // ==========================================
+    // Fetch session data with a cache-buster
     fetch('check_session.php?v=' + new Date().getTime())
     .then(res => res.json())
     .then(data => {
@@ -14,21 +12,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const profileEmail = document.getElementById('profile-email');
 
         if (data.status === "logged_in") {
-            // Update Navbar
             if (authLink) {
                 authLink.textContent = data.name.toUpperCase();
                 authLink.href = "profile.html"; 
             }
             if (userIconLink) userIconLink.href = "profile.html";
 
-            // Update Profile Page specific elements
             if (profileName) {
                 profileName.textContent = data.name.toUpperCase();
             }
             if (profileEmail) {
                 profileEmail.textContent = data.email;
             }
-            // Inside your auth.js fetch('check_session.php') logic:
+
             if (document.getElementById('orders-table-body')) {
                 fetch('get_orders.php')
                 .then(res => res.json())
@@ -49,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
         } else {
-            // 🟢 THE FIX: If they are not logged in, ensure the cart is totally empty!
+            // ensures the cart is empty
             localStorage.removeItem('bigboyz_cart');
 
             // If NOT logged in and on the profile page, redirect to login
@@ -66,9 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(err => console.error("Session check failed:", err));
 
-    // ==========================================
-    // 2. Handle Logout button (Shared logic)
-    // ==========================================
+    // Handle Logout button (Shared logic)
     const logoutBtn = document.querySelector('.profile-logout-btn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function(e) {

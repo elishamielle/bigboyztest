@@ -41,7 +41,6 @@
                         </tr>
                     </thead>
                     <tbody id="completed_orders_body">
-                        <!-- Sample completed order row -->
                     </tbody>
                 </table>
                 <div class="orders-summary">
@@ -55,7 +54,6 @@
 
     <script>
     
-        // 1. The toggle function for expanding rows
         function toggleDetails(orderId) {
             const detailsRow = document.getElementById(orderId);
             if (detailsRow.classList.contains('open')) {
@@ -65,11 +63,8 @@
             }
         }
 
-        // 2. THE NEW AUTO-COUNTER MAGIC
-        // This counts how many rows have the class 'order-main-row'
         const totalRows = document.querySelectorAll('.order-main-row').length;
         
-        // This updates the '0' in your HTML to the actual counted number!
         document.getElementById('totalCompletedCount').innerText = totalRows;
     
     </script>

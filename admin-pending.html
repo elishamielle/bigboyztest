@@ -41,7 +41,7 @@
                         </tr>
                     </thead>
                     <tbody id="pending_orders_body">
-                        <!-- Sample pending order row -->
+                        <!--  pending order row -->
                     </tbody>
                 </table>
                 <div class="orders-summary">
@@ -54,7 +54,6 @@
     </div>
 
     <script>
-        // 1. The toggle function for expanding rows
         function toggleDetails(orderId) {
             const detailsRow = document.getElementById(orderId);
             if (detailsRow.classList.contains('open')) {
@@ -64,11 +63,8 @@
             }
         }
 
-        // 2. THE NEW AUTO-COUNTER MAGIC
-        // This counts how many main rows exist on the page
         const totalRows = document.querySelectorAll('.order-main-row').length;
         
-        // This updates the '0' in your HTML to the actual counted number!
         document.getElementById('totalPendingCount').innerText = totalRows;
     </script>
     <script src="admin_guard.js"></script>

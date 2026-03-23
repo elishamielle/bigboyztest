@@ -1,7 +1,6 @@
 <?php
 require 'db.php';
 
-// Drop the old incorrect table
 pg_query($conn, "DROP TABLE IF EXISTS users CASCADE;");
 
 // Create the correct Users table
@@ -14,7 +13,7 @@ $sql_users = "CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );";
 
-// Create your Orders table
+// Create Orders table
 $sql_orders = "CREATE TABLE IF NOT EXISTS orders (
     id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,

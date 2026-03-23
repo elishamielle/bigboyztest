@@ -1,25 +1,24 @@
 <?php
-error_reporting(0); // 🟢 Prevents warnings from breaking the JS
+error_reporting(0); 
 session_start();
 header('Content-Type: application/json');
 
-// 1. Check if user is logged in
+// Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     echo json_encode(['status' => 'error', 'message' => 'Not logged in']);
     exit;
 }
 
-// 2. Check if cart has data
+// Check if cart has items
 if (!isset($_POST['items']) || empty($_POST['items'])) {
     echo json_encode(['status' => 'error', 'message' => 'Cart is empty']);
     exit;
 }
 
-// 3. Connect to Database
+// Connect to Database
 require 'db.php';
 
 try {
-    // 4. HANDLE THE FILE UPLOAD AS BASE64 TEXT
     $receipt_name = ""; 
     if (isset($_FILES['receipt']) && $_FILES['receipt']['error'] === UPLOAD_ERR_OK) {
         $tmp_path = $_FILES["receipt"]["tmp_name"];
@@ -36,14 +35,13 @@ try {
         $receipt_name = "data:" . $mime . ";base64," . $base64;
     }
 
-    // 5. PREPARE DATA
+    // data
     $user_id = $_SESSION['user_id'];
     $items_json = $_POST['items']; 
-    $total = (float)$_POST['total']; // Force it to be a number
+    $total = (float)$_POST['total']; 
     $notes = isset($_POST['notes']) ? $_POST['notes'] : ""; 
     $status = 'Pending';
 
-    // 6. INSERT (Explicitly casting $3 to numeric for Postgres safety)
     $sql = "INSERT INTO orders (user_id, items, total, notes, receipt_image, status) 
             VALUES ($1, $2, $3::numeric, $4, $5, $6) RETURNING id";
     
@@ -57,7 +55,7 @@ try {
             'order_id' => $row['id']
         ]);
     } else {
-        // This grabs the actual PostgreSQL error message
+        // This grabs PostgreSQL error message
         echo json_encode([
             'status' => 'error', 
             'message' => 'DB Error: ' . pg_last_error($conn)

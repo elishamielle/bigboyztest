@@ -93,7 +93,7 @@
         </section>
 
         <section style="height:150px;"></section>
-<!-- ___ -->
+
         <div class="top-bar" id="contact-us">
             <div class="top-content">
                 <img src="images/mainlogo.png" alt="Big Boyz Logo" class="top-logo">
@@ -200,7 +200,6 @@
                                 const btn = document.createElement('button');
                                 btn.className = 'flavor-btn';
                                 btn.innerText = flavor;
-                                // We use onclick to add the 'selected' class for product-detail.js
                                 btn.onclick = function() {
                                     document.querySelectorAll('.flavor-btn').forEach(b => {
                                         b.classList.remove('selected');

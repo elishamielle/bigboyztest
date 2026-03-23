@@ -1,7 +1,3 @@
-// cart.js
-
-// 1. DYNAMIC ADD TO CART FUNCTION
-// cart.js
 
 async function addToCartDynamic(clickedButton) {
     const authText = document.getElementById('nav-auth-text');
@@ -20,14 +16,13 @@ async function addToCartDynamic(clickedButton) {
             return; 
         }
 
-        // 1. Find the Card
+        // Card
         const card = clickedButton.closest('.menu-item-card');
         
-        // 2. Extract Data
+        // Extract Data
         const itemName = card.querySelector('.item-name').innerText;
         const itemImage = card.querySelector('.item-image').getAttribute('src');
         
-        // 🟢 THE FIX: Reading the attribute directly
         const priceAttr = card.querySelector('.item-price').getAttribute('data-price');
         const itemPrice = parseFloat(priceAttr);
         
@@ -37,8 +32,7 @@ async function addToCartDynamic(clickedButton) {
         const qtyElement = card.querySelector('.item-qty');
         const itemQty = qtyElement ? parseInt(qtyElement.value) : 1;
 
-        // 🔍 EMERGENCY DEBUGGING: 
-        // This will show up in your F12 Console. Tell me what it says!
+        // for debugging 
         console.log("--- ATTEMPTING TO ADD ---");
         console.log("Name:", itemName);
         console.log("Price raw attribute:", priceAttr);
@@ -74,7 +68,7 @@ async function addToCartDynamic(clickedButton) {
     }
 }
 
-// 2. RENDER CART FUNCTION
+
 function renderCart() {
     const container = document.getElementById('cart-items-container');
     const emptyMsg = document.getElementById('empty-cart-msg');
@@ -98,7 +92,7 @@ function renderCart() {
     container.innerHTML = '';
 
     cart.forEach((item, index) => {
-        // 🟢 Ensure item.price is treated as a number
+        // ensures item.price is treated as a number
         let priceNum = parseFloat(item.price) || 0;
         let itemTotal = priceNum * item.qty;
         grandTotal += itemTotal;
@@ -139,7 +133,7 @@ function renderCart() {
     if (totalPriceEl) totalPriceEl.innerText = 'P ' + grandTotal.toFixed(2);
 }
 
-// 3. CART CONTROLS
+
 function updateQty(index, changeAmount) {
     let cart = JSON.parse(localStorage.getItem('bigboyz_cart'));
     cart[index].qty += changeAmount;
@@ -155,11 +149,11 @@ function removeItem(index) {
     renderCart();
 }
 
-// Add this to the bottom of cart.js
+
 function goToCheckoutPage() {
     let cart = JSON.parse(localStorage.getItem('bigboyz_cart')) || [];
     
-    // Check if there is actually food in the cart
+    // Checks if there is food in the cart
     if (cart.length === 0) {
         alert("Your cart is empty! Let's get some Big Boyz meals first.");
         return;
