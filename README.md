@@ -28,17 +28,14 @@ Team Member #2: Vio C. Picardal
 
 1. Log into the website link (https://bigboyzdiner-php.onrender.com/) using the designated administrative email and password.
 
-    email: admintest123@gmail.com
-    password: test1234
+2. Review the main Admin Dashboard to see the automated sales calculations for the current day, week, and month.
 
-3. Review the main Admin Dashboard to see the automated sales calculations for the current day, week, and month.
+3. Navigate to the Pending Orders tab to view all new incoming customer requests.
 
-4. Navigate to the Pending Orders tab to view all new incoming customer requests.
+4. Click on any specific order row to expand the details and visually verify the uploaded payment receipt.
 
-5. Click on any specific order row to expand the details and visually verify the uploaded payment receipt.
+5. Click the Mark Complete button once the food is prepared to automatically stamp the exact completion time and move the order to the completed tab.
 
-6. Click the Mark Complete button once the food is prepared to automatically stamp the exact completion time and move the order to the completed tab.
-
-7. Navigate to the Completed Orders tab to review the full history of served meals and their respective timestamps.
+6. Navigate to the Completed Orders tab to review the full history of served meals and their respective timestamps.
 
 ***
