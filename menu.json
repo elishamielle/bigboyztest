@@ -156,9 +156,9 @@
   "chicken-wings-1": {
     "name": "CHICKEN WINGS",
     "price": "P129.00",
-    "flavors": ["CRUNCHY HONEY GARLIC", "BUFFALO", "GARLIC PARMESAN", "HONEY SRIRACHA", "DRAGON FIRE"],
+    "flavors": ["CRUNCHY HONEY GARLIC", "BUFFALO", "GARLIC PARMESAN", "HONEY SRIRACHA", "DRAGON FIRE", "MIXED (2 FLAVORS)"],
     "image": "images/wings.png",
-    "description": "Crispy fried chicken wings coated in flavorful sauces. The wings are fried until crunchy on the outside while remaining juicy inside, then tossed in sauces that range from sweet and savory to spicy and tangy. Served with rice, the dish becomes a satisfying meal with bold flavor in every bite.",
+    "description": "Crispy fried chicken wings coated in flavorful sauces. The wings are fried until crunchy on the outside while remaining juicy inside, then tossed in sauces that range from sweet and savory to spicy and tangy. Served with rice, the dish becomes a satisfying meal with bold flavor in every bite. \n\n Kindly input desired flavors for mixed in the checkout page.",
     "mixedNote": "Kindly input in the message before placing your order for mixed flavors.",
     "calories": "Estimated Calories: 600 to 750 kcal "
   },
@@ -167,7 +167,7 @@
     "price": "P139.00",
     "flavors": ["MANGO HABANERO", "SALTED EGG", "YANGNYEOM STYLE", "SNOW CHEESE", "FLAMIN' CHEETOS", "BB SISIG", "BB SINIGANG", "MIXED (2 FLAVORS)"],
     "image": "images/wings.png",
-    "description": "Crispy fried chicken wings coated in flavorful sauces. The wings are fried until crunchy on the outside while remaining juicy inside, then tossed in sauces that range from sweet and savory to spicy and tangy. Served with rice, the dish becomes a satisfying meal with bold flavor in every bite.",
+    "description": "Crispy fried chicken wings coated in flavorful sauces. The wings are fried until crunchy on the outside while remaining juicy inside, then tossed in sauces that range from sweet and savory to spicy and tangy. Served with rice, the dish becomes a satisfying meal with bold flavor in every bite. \n\n Kindly input desired flavors for mixed in the checkout page.",
     "mixedNote": "Kindly input in the message before placing your order for mixed flavors.",
     "calories": "Estimated Calories: 600 to 750 kcal "
   },
@@ -268,5 +268,12 @@
     "image": "images/bangus.png",
     "description": "Filipino milkfish cooked either fried or grilled and served with rice. The fish has a mild, slightly sweet flavor and tender texture, often paired with vinegar dipping sauce for extra flavor.",
     "calories": "Estimated Calories: 500 to 600 kcal "
+  },
+  "jurassic-pork": {
+    "name": "JURASSIC PORK",
+    "price": "P159.00",
+    "image": "images/jurassicpork.png",
+    "description": "A hearty and satisfying rice meal featuring a large, thick-cut pork chop cooked until golden on the outside while staying juicy and tender inside. The pork is well-seasoned and pan-fried or grilled to bring out its rich, savory flavor, with slightly crisp edges that add texture to every bite. It is served over a bed of warm, fluffy rice. This dish comes with a creamy and tangy blend of ketchup and garlic mayo sauce.",
+    "calories": "Estimated Calories: 800 to 1000 kcal "
   }
 }
