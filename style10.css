@@ -8,7 +8,7 @@
 
 body {
     background-image: url(images/HOMEPAGE.png);
-    background-color: #f7a63b; /* Good fallback while testing */
+    background-color: #f7a63b;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -17,15 +17,13 @@ body {
     font-family: "Passion One", sans-serif;
 }
 
-/* =========================================
-   MAIN NAVBAR STYLING 
-========================================= */
+/* MAIN NAVBAR STYLING */
 
 .navbar {
     background-color: #EF5225;
     width: 98%; 
     max-width: none; 
-    height: 60px; /* Slightly taller to comfortably fit the new circle icons */
+    height: 60px;
     margin: 20px auto; 
     border-radius: 50px;
     display: flex;
@@ -34,20 +32,18 @@ body {
     z-index: 10;
 }
 
-/* 2. The Left "Bulge" behind the logo */
 .navbar::after {
     content: "";
     position: absolute;
     top: 0;
-    left: 0; /* Anchors the bulge strictly to the left edge */
-    width: 260px; /* Width of the bulge */
+    left: 0;
+    width: 260px;
     height: 120px; 
     background-color: #EF5225;
-    border-radius: 50px 0 40px 40px; /* Matches top pill curve, rounds the bottom */
+    border-radius: 50px 0 40px 40px;
     z-index: -1; 
 }
 
-/* 3. General Link Setup & Flexbox Magic */
 .nav-links {
     list-style: none;
     display: flex;
@@ -55,7 +51,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0 20px;
-    gap: 35px; /* Spacing between the center links */
+    gap: 35px;
 }
 
 .nav-links li {
@@ -79,14 +75,10 @@ body {
     background-color: white;
 }
 
-/* =========================================
-   LEFT SIDE: LOGO 
-========================================= */
+/* LEFT SIDE: LOGO */
 
 .logo-item {
-    width: 180px; /* Creates invisible space pushing the other links right */
-    
-    /* THE MAGIC: Pushes everything after it perfectly to the center */
+    width: 180px;
     margin-right: auto; 
     
     display: flex;
@@ -95,32 +87,24 @@ body {
 
 .logo-item img {
     position: absolute;
-    left: 38px; /* Locks the logo into the left bulge */
-    top: -30px; /* Pops it out of the top */
+    left: 38px;
+    top: -30px;
     height: 180px; 
     z-index: 20;
 }
-
-/* =========================================
-   RIGHT SIDE: ICONS & LOGIN 
-========================================= */
 
 .right-menu {
     display: flex;
     align-items: center;
     gap: 15px; 
-    
-    /* THE MAGIC: Pushes this whole block perfectly to the far right */
     margin-left: auto; 
 }
 
-/* Removes the pill hover background strictly from the circle icons */
 .right-menu .icon-link {
     padding: 0;
     background-color: transparent !important; 
 }
 
-/* The White Circle Shape for the Icons */
 .nav-icon {
     height: 40px;
     width: 40px;
@@ -132,15 +116,12 @@ body {
     transform: scale(1.1); 
 }
 
-/* Keep the log-in text readable and capitalized correctly */
 .login-link {
     font-size: 1.4rem !important; 
     font-weight: bold !important;
 }
 
-/* =========================================
-   DROPDOWN MENU 
-========================================= */
+/* DROPDOWN MENU */
 
 .dropdown {
     position: relative;
@@ -179,7 +160,6 @@ body {
     color: #c43e18 !important; 
 }
 
-/* Make "MENU" inside the dropdown unclickable */
 .dropdown-content a:first-child {
     cursor: default !important;      
     pointer-events: none !important; 
@@ -190,9 +170,7 @@ body {
     background-color: transparent !important;
 }
 
-/* =========================================
-   MY CART STYLES
-========================================= */
+/* MY CART STYLES */
 
 .cart-section {
     padding: 40px 20px 80px 20px; 
@@ -200,22 +178,20 @@ body {
     justify-content: center;
 }
 
-/* The Main White Card */
 .cart-container {
     background-color: white;
     border-radius: 20px;
     padding: 40px;
     width: 100%;
     margin-top: 40px;
-    min-height: 500px; /* Forces the box to be tall like your screenshot */
+    min-height: 500px;
     box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
     
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes Header UP and Checkout DOWN */
+    justify-content: space-between;
 }
 
-/* Header Area */
 .cart-header {
     display: flex;
     align-items: center;
@@ -226,7 +202,7 @@ body {
 .cart-header-icon {
     height: 45px;
     width: auto;
-    filter: brightness(0); /* Magic trick: turns your white cart.png to solid black! */
+    filter: brightness(0);
 }
 
 .cart-title {
@@ -237,30 +213,22 @@ body {
     letter-spacing: 1px;
 }
 
-/* Individual Cart Row */
 .cart-row {
     display: flex;
     align-items: center;
-    gap: 15px; /* Space between the orange box and the trash can */
+    gap: 15px;
     margin-bottom: 20px;
 }
 
-/* MIDDLE: Cart Items List */
-.cart-items {
-    /* THE FIX: Tells this section to grow and fill all the empty vertical space, 
-       which pushes the items to the top and the checkout summary to the bottom! */
+.cart-items { 
     flex: 1; 
-    
     display: flex;
     flex-direction: column;
-    
-    /* Forces the orange boxes to stack from the top down */
     justify-content: flex-start; 
 }
 
-/* The Orange Box */
 .cart-item-card {
-    flex: 1; /* Tells the orange box to stretch and take up all remaining space */
+    flex: 1;
     background-color: #FF5100;
     border-radius: 15px;
     padding: 10px 20px;
@@ -282,19 +250,18 @@ body {
     filter: drop-shadow(0px 5px 5px rgba(0,0,0,0.3)); 
 }
 
-/* 🟢 NEW: Forces the title and the + / - buttons to sit side-by-side */
 .cart-item-details {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px; /* Space between the title row and the flavor tag */
+    gap: 8px;
 }
 
 .cart-title-row {
     display: flex;
     align-items: center;
-    gap: 25px; /* Space between the food name and the QTY */
-    flex-wrap: wrap; /* Allows safe stacking on tiny phone screens */
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
 .cart-item-title {
@@ -308,7 +275,7 @@ body {
 .cart-item-controls {
     display: flex;
     align-items: center;
-    gap: 15px; /* Spacing between the +, -, and numbers */
+    gap: 15px;
 }
 
 .cart-qty-btn {
@@ -316,7 +283,7 @@ body {
     border: none;
     color: white;
     font-family: 'Passion One', sans-serif;
-    font-size: 2.8rem; /* Made the + and - much bigger! */
+    font-size: 2.8rem;
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -327,7 +294,7 @@ body {
 }
 
 .cart-qty-num, .cart-qty-label {
-    font-size: 1.6rem; /* Scaled the numbers up slightly to match the big buttons */
+    font-size: 1.6rem;
 }
 
 .cart-flavor-tag {
@@ -335,7 +302,7 @@ body {
     padding: 3px 15px;
     border-radius: 50px;
     font-size: 1.2rem;
-    margin-left: 0; /* Reset this to 0 since it's on its own line now */
+    margin-left: 0;
 }
 
 .cart-item-right {
@@ -348,7 +315,6 @@ body {
 .cart-item-total-label { font-size: 1.4rem; }
 .cart-item-price { font-size: 1.8rem; }
 
-/* The Trash Button */
 .cart-delete-btn {
     background: none;
     border: none;
@@ -358,7 +324,7 @@ body {
 }
 
 .cart-delete-btn:hover {
-    transform: scale(1.1); /* Makes the trash can pop slightly when hovered */
+    transform: scale(1.1);
 }
 
 .cart-delete-btn img {
@@ -366,10 +332,9 @@ body {
     width: auto;
 }
 
-/* Summary Area */
 .cart-summary {
     display: flex;
-    justify-content: flex-end; /* Shoves everything to the right side */
+    justify-content: flex-end;
     align-items: center;
     gap: 30px;
     font-family: 'Passion One', sans-serif;
@@ -386,7 +351,7 @@ body {
 .summary-total-price { font-size: 2rem; }
 
 .checkout-btn {
-    background-color: #889E0C; /* Your Olive Green */
+    background-color: #889E0C;
     color: white;
     border: none;
     border-radius: 50px;
@@ -402,85 +367,72 @@ body {
     transform: translateY(-3px);
 }
 
-/* =========================================
-   FOOTER & TOP BAR ALIGNMENT
-========================================= */
+/* FOOTER & TOP BAR ALIGNMENT */
 
-/* 1. Shared Grid Setup for Perfect Alignment */
 .top-content {
     display: grid;
     grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    
-    /* THE NEW ADDITIONS FOR CENTERING: */
-    height: 100%;          /* Forces the grid to match the orange bar's new height */
-    align-items: center;   /* Pushes the phone, email, etc., to the vertical middle */
+    height: 100%;
+    align-items: center;  
 }
 
-/* 1. Force the orange bar to stay thin */
 .top-bar {
     background-color: #FF6100;
     padding: 10px 10px;
-    height: 80px; /* Locks the thickness of the bar */
+    height: 80px;
     position: relative; 
     z-index: 20;
-    overflow: visible !important; /* Allows the giant logo to stick out */
+    overflow: visible !important;
 }
 
-/* 2. Make the logo huge and pull it out of the layout */
 .top-logo {
-    position: absolute; /* Breaks it out of the grid's height calculation */
-    height: 130px;      /* Make this as big as you want! */
+    position: absolute;
+    height: 130px; 
     width: auto;
-    top: -25px;         /* Pulls it up so it overlaps the top and bottom */
-    left: 40;            /* Aligns it to the left of your grid container */
-    z-index: 30;        /* Keeps it on top of everything */
+    top: -25px; 
+    left: 40;  
+    z-index: 30;  
 }
 
-/* 3. Keep the phone number from sliding to the left */
 .contact-item:first-of-type {
-    /* Since the logo is now 'absolute', this forces the phone number 
-       to stay in column 2, leaving column 1 empty for your logo */
     grid-column: 2; 
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between icon and text */
-    font-family: 'BenchNine', sans-serif; /* Matches your body font */
+    gap: 10px; 
+    font-family: 'BenchNine', sans-serif;
     font-size: 1.8rem;
     color: black;
 }
 
 .contact-icon {
-    height: 40px; /* Adjust based on your icon image sizes */
+    height: 40px;
     width: auto;
 }
 
-/* 3. Bottom Dark Brown Footer Styling */
 .footer {
-    background-color: #4a2e15; /* The dark brown from your image */
+    background-color: #4a2e15;
     padding: 30px 40px;
 }
 
 .footer-container {
     display: grid;
-    /* THIS IS THE MAGIC LINE: It must exactly match your .top-content columns! */
     grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
-    
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    align-items: start; /* Keeps the footer text anchored to the top of the brown section */
+    align-items: start;
 }
 
 .footer-col {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Vertical spacing between the links */
+    gap: 8px;
     font-family: 'BenchNine', sans-serif;
 }
 
@@ -492,72 +444,66 @@ body {
 }
 
 .footer-col a {
-    color: #e0e0e0; /* Slightly dimmed white for links */
+    color: #e0e0e0;
     text-decoration: none;
     font-size: 1.3rem;
     transition: color 0.3s ease;
 }
 
 .footer-col a:hover {
-    color: #FF6100; /* Turns orange on hover */
+    color: #FF6100;
 }
 
 .desktop-spacer {
     height: 100px;
 }
 
-/* 5. Mobile Responsiveness */
 @media screen and (max-width: 768px) {
-    /* 1. Main Navbar sizing */
     .navbar {
-        height: 20px; /* Thinner bar */
+        height: 20px;
         border-radius: 30px;
         margin: 10px auto; 
     }
     
-    /* 2. Shrink the Left-Aligned Bulge */
     .navbar::after {
-        width: 80px; /* Narrower bulge */
-        height: 40px; /* Shallower drop */
-        left: 0; /* Keeps it strictly on the left edge */
-        border-radius: 0px 0 10px 10px; /* Blends top-left with the pill shape, rounds the bottom */
+        width: 80px;
+        height: 40px;
+        left: 0;
+        border-radius: 0px 0 10px 10px;
     }
 
-    /* 🟢 NEW: The Right-Aligned Bulge (Icons) */
     .navbar::before {
         content: "";
         position: absolute;
         top: 0;
-        right: 0; /* Anchors strictly to the right edge */
-        width: 60px; /* Wide enough to wrap your two icons */
-        height: 35px; /* Matches the left bulge depth */
+        right: 0;
+        width: 60px;
+        height: 35px;
         background-color: #EF5225;
-        border-radius: 0px 0 10px 10px; /* Rounds the bottom */
+        border-radius: 0px 0 10px 10px;
         z-index: -1; 
     }
 
-    /* 3. Link alignment and text sizing */
     .nav-links {
-        padding: 0 5px; /* Less padding on the far left/right */
-        gap: 3px; /* Just a tiny gap between the center links */
+        padding: 0 5px;
+        gap: 3px;
     }
 
     .nav-links a {
-        font-size: 0.6rem; /* Shrink the text heavily */
+        font-size: 0.6rem;
         padding: 2px 4px;
-        white-space: nowrap; /* Forces text to stay on one line */
+        white-space: nowrap;
     }
 
-    /* 4. The Logo Spacer & Image */
     .logo-item {
         width: 60px; 
-        margin-right: auto; /* Shoves the main text links into the center */
+        margin-right: auto;
     }
     
     .logo-item img {
-        height: 60px; /* Smaller logo */
-        top: -10px; /* Adjust the vertical position */
-        left: 10px; /* Tucks it nicely inside the 80px bulge */
+        height: 60px;
+        top: -10px;
+        left: 10px;
     }
 
     .yakiniku-img {
@@ -566,12 +512,11 @@ body {
         margin-top: -10px;
     }
 
-    /* 5. The Right Side Icons */
     .right-menu {
-        gap: 4px; /* Tiny gap between the cart and user icons */
-        margin-left: auto; /* Shoves the icons to the far right */
-        padding-right: 8px; /* 🟢 Tucks the icons nicely inside the new right bulge */
-        z-index: 20; /* Ensures icons are clickable above the bulge */
+        gap: 4px; 
+        margin-left: auto;
+        padding-right: 8px;
+        z-index: 20;
     }
 
     .nav-icon {
@@ -581,37 +526,35 @@ body {
         margin-right: -6px;
     }
 
-    /* Hide the login text so it doesn't break your 0.5rem micro-layout */
     .login-link {
         display: none !important; 
     }
 
-    /* 6. The Dropdown Box */
     .dropdown-content {
-        min-width: 40px; /* Prevents the box from being unnecessarily wide */
-        padding: 0px 4px 4px 4px; /* Reduces empty white space */
+        min-width: 40px;
+        padding: 0px 4px 4px 4px;
         border-radius: 10px; 
         top: 0px;
     }
 
     .dropdown-content a {
-        font-size: 0.5rem !important; /* Smaller main text */
+        font-size: 0.5rem !important;
         padding: 2px 0 !important; 
     }
 
     .dropdown-content a:nth-child(2),
     .dropdown-content a:nth-child(3) {
-        font-size: 0.5rem !important; /* Noticeably smaller sub-links */
+        font-size: 0.5rem !important; 
     }
 
-    /* --- CART & CHECKOUT LAYOUT --- */
+    /* CART & CHECKOUT LAYOUT */
     .cart-section {
         padding: 20px 10px;
     }
 
     .cart-container {
         padding: 20px;
-        min-height: auto; /* Lets the white box shrink to fit contents on mobile */
+        min-height: auto;
     }
 
     .cart-title {
@@ -620,7 +563,7 @@ body {
 
     .cart-row {
         flex-direction: column; 
-        align-items: flex-end; /* Pushes the trash can to the right side */
+        align-items: flex-end;
         gap: 10px;
     }
 
@@ -631,12 +574,10 @@ body {
         width: 100%;
     }
 
-    /* Gives the title and tags enough room */
     .cart-item-left {
         width: 100%;
     }
 
-    /* Allows the flavor tags to drop to a new line if the phone is too narrow! */
     .cart-item-controls {
         flex-wrap: wrap; 
     }
@@ -646,7 +587,7 @@ body {
     }
     
     .cart-item-img {
-        width: 70px; /* Slightly larger so the food still looks appetizing */
+        width: 70px;
     }
 
     .cart-item-right {
@@ -656,7 +597,6 @@ body {
         padding-top: 15px;
     }
 
-    /* Stacks Notes and Payment Summary cleanly */
     .checkout-footer {
         flex-direction: column;
         align-items: flex-start;
@@ -665,7 +605,7 @@ body {
 
     .checkout-notes {
         width: 100%;
-        flex-direction: column; /* Stacks "NOTES:" right on top of the writing line */
+        flex-direction: column;
         align-items: flex-start;
         gap: 5px;
     }
@@ -677,66 +617,55 @@ body {
     .cart-summary {
         width: 100%;
         justify-content: space-between;
-        border-top: 2px solid #eeeeee; /* Adds a nice divider above the final checkout button */
+        border-top: 2px solid #eeeeee;
         padding-top: 20px;
     }
 
     .checkout-btn {
-        padding: 12px 20px; /* Slightly taller for easier thumb tapping */
+        padding: 12px 20px;
         font-size: 1.4rem;
     }
 
-    /* 1. SHRINK THE TOP BAR & KEEP GRID */
     .top-bar {
-        /* Your existing mobile styles */
         height: 40px; 
         padding: 5px; 
-        
-        /* THE FIX: Pulls the entire footer section UP */
-        margin-top: -100px; /* Make this number more negative (e.g., -100px) if you need to pull it higher! */
+        margin-top: -100px;
     }
 
     .top-content {
         display: grid;
-        /* Keeps your exact 5-column desktop layout */
         grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
         height: 100%;
         align-items: center;
-        gap: 2px; /* Tiny gap to save space */
+        gap: 2px;
     }
 
-    /* 2. SCALE DOWN THE POP-OUT LOGO */
     .top-logo {
         position: absolute; 
-        height: 50px; /* Much smaller so it doesn't cover the screen */
+        height: 50px;
         top: 50%; 
         transform: translateY(-50%);
         left: 40;
     }
 
-    /* 3. SHRINK ICONS & TEXT TO FIT */
     .contact-item {
-        font-size: 0.65rem; /* VERY small text to fit the 5 columns */
-        gap: 3px;           /* Less space between icon and text */
-        
-        /* Forces the long email address to wrap to two lines instead of breaking the layout */
+        font-size: 0.65rem; 
+        gap: 3px;
         word-break: break-all; 
         overflow-wrap: anywhere; 
         line-height: 1.1;
     }
 
     .contact-icon {
-        height: 12px; /* Tiny icons */
+        height: 12px;
     }
 
-    /* 4. SHRINK THE FOOTER & KEEP GRID */
     .footer {
-        padding: 15px 5px; /* Minimal padding */
+        padding: 15px 5px;
     }
 
     .footer-container {
         display: grid;
-        /* Matches the top bar exactly to keep that invisible vertical alignment */
         grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
         gap: 2px;
     }
@@ -746,12 +675,12 @@ body {
     }
 
     .footer-col h3 {
-        font-size: 0.9rem; /* Scaled down titles */
+        font-size: 0.9rem;
         margin: 0 0 5px 0;
     }
 
     .footer-col a {
-        font-size: 0.75rem; /* Scaled down links */
+        font-size: 0.75rem;
     }
 
     .desktop-spacer {

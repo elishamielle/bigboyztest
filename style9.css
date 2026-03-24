@@ -8,7 +8,7 @@
 
 body {
     background-image: url(images/HOMEPAGE.png);
-    background-color: #f7a63b; /* Good fallback while testing */
+    background-color: #f7a63b; 
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -17,9 +17,7 @@ body {
     font-family: "Passion One", sans-serif;
 }
 
-/* =========================================
-   MAIN NAVBAR STYLING 
-========================================= */
+/* MAIN NAVBAR STYLING */
 
 .navbar {
     background-color: #EF5225;
@@ -34,20 +32,18 @@ body {
     z-index: 10;
 }
 
-/* 2. The Left "Bulge" behind the logo */
 .navbar::after {
     content: "";
     position: absolute;
     top: 0;
-    left: 0; /* Anchors the bulge strictly to the left edge */
-    width: 260px; /* Width of the bulge */
+    left: 0;
+    width: 260px;
     height: 120px; 
     background-color: #EF5225;
-    border-radius: 50px 0 40px 40px; /* Matches top pill curve, rounds the bottom */
+    border-radius: 50px 0 40px 40px;
     z-index: -1; 
 }
 
-/* 3. General Link Setup & Flexbox Magic */
 .nav-links {
     list-style: none;
     display: flex;
@@ -55,7 +51,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0 20px;
-    gap: 35px; /* Spacing between the center links */
+    gap: 35px;
 }
 
 .nav-links li {
@@ -79,48 +75,33 @@ body {
     background-color: white;
 }
 
-/* =========================================
-   LEFT SIDE: LOGO 
-========================================= */
-
 .logo-item {
-    width: 180px; /* Creates invisible space pushing the other links right */
-    
-    /* THE MAGIC: Pushes everything after it perfectly to the center */
+    width: 180px;
     margin-right: auto; 
-    
     display: flex;
     align-items: center;
 }
 
 .logo-item img {
     position: absolute;
-    left: 38px; /* Locks the logo into the left bulge */
-    top: -30px; /* Pops it out of the top */
+    left: 38px;
+    top: -30px;
     height: 180px; 
     z-index: 20;
 }
-
-/* =========================================
-   RIGHT SIDE: ICONS & LOGIN 
-========================================= */
 
 .right-menu {
     display: flex;
     align-items: center;
     gap: 15px; 
-    
-    /* THE MAGIC: Pushes this whole block perfectly to the far right */
     margin-left: auto; 
 }
 
-/* Removes the pill hover background strictly from the circle icons */
 .right-menu .icon-link {
     padding: 0;
     background-color: transparent !important; 
 }
 
-/* The White Circle Shape for the Icons */
 .nav-icon {
     height: 40px;
     width: 40px;
@@ -132,15 +113,10 @@ body {
     transform: scale(1.1); 
 }
 
-/* Keep the log-in text readable and capitalized correctly */
 .login-link {
     font-size: 1.4rem !important; 
     font-weight: bold !important;
 }
-
-/* =========================================
-   DROPDOWN MENU 
-========================================= */
 
 .dropdown {
     position: relative;
@@ -179,7 +155,6 @@ body {
     color: #c43e18 !important; 
 }
 
-/* Make "MENU" inside the dropdown unclickable */
 .dropdown-content a:first-child {
     cursor: default !important;      
     pointer-events: none !important; 
@@ -190,10 +165,6 @@ body {
     background-color: transparent !important;
 }
 
-/* =========================================
-   DISH DETAIL TEMPLATE STYLES
-========================================= */
-
 .dish-detail-section {
     padding: 40px 20px 40px 20px; 
     display: flex;
@@ -201,7 +172,6 @@ body {
     align-items: center;
 }
 
-/* 1. The Main White Card */
 .dish-detail-container {
     margin-top: 40px;
     background-color: white;
@@ -209,15 +179,12 @@ body {
     padding: 30px;
     width: 100%;
     display: flex;
-    gap: 30px; /* Space between the image and the text */
-    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15); /* Soft shadow behind the card */
+    gap: 30px;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* =========================================
-   LEFT SIDE: IMAGE BOX
-========================================= */
 .dish-image-side {
-    flex: 1; /* Takes up exactly half the card */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -225,53 +192,33 @@ body {
 
 .dish-bg-box {
     position: relative;
-    
-    /* THE FIX: Hard-code the exact dimensions so it never stretches or squishes */
     width: 500px; 
     height: 500px;
-    
-    /* THE FIX: This stops the parent Flexbox from trying to compress the box */
     flex-shrink: 0; 
-    
     background-image: url('images/brownbg.png'); 
-    
-    /* Because the box is now a frozen 350x350 square, this image will stay perfectly still */
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
-    
     border-radius: 10px;
 }
 
-/* The popping-out food image */
 .main-dish-img {
     position: absolute; 
-    
-    /* 1. Push the starting point to the exact middle of the green box */
     top: 50%;
     left: 50%;
-    
-    /* 2. THE MAGIC: Pull the image perfectly into the center using its own size */
     transform: translate(-50%, -50%); 
-    
-    /* Makes it pop out of the edges of the 350px box */
     width: 70%; 
     max-width: none;
     height: auto;
-    
     z-index: 5;
     filter: drop-shadow(0px 15px 15px rgba(0,0,0,0.3)); 
 }
 
-
-/* =========================================
-   RIGHT SIDE: TEXT & BUTTONS
-========================================= */
 .dish-info-side {
-    flex: 1.2; /* Gives the text slightly more room to breathe than the image */
+    flex: 1.2;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes the title UP and the buttons DOWN */
+    justify-content: space-between;
     padding: 5px 0;
 }
 
@@ -289,7 +236,7 @@ body {
     font-family: 'Passion One', sans-serif;
     font-weight: lighter;
     font-size: 2.2rem;
-    color: #3b1b05; /* Slightly darker green to match your mockup */
+    color: #3b1b05;
     margin-bottom: 20px;
 }
 
@@ -309,10 +256,7 @@ body {
     margin-top: 10px;
 }
 
-/* =========================================
-   FLAVOR SELECTION GRID
-========================================= */
-
+/* FLAVOR SELECTION GRID */
 .flavor-section {
     margin-top: 20px;
     width: 100%;
@@ -321,52 +265,43 @@ body {
 .flavor-title {
     font-family: 'Passion One', sans-serif;
     font-size: 1.5rem;
-    color: #3b1b05; /* Matches the price color */
+    color: #3b1b05;
     margin-bottom: 10px;
     letter-spacing: 1px;
 }
 
-/* Forces exactly 5 equal columns */
 .flavor-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr); 
-    gap: 10px; /* Space between the rectangles */
+    gap: 10px;
 }
 
-/* The Plain Rectangle Button */
 .flavor-btn {
     background-color: transparent; 
-    border: 2px solid #cccccc; /* The gray outline */
-    border-radius: 4px; /* Very slight rounding so it's not dangerously sharp */
+    border: 2px solid #cccccc;
+    border-radius: 4px;
     padding: 8px 5px;
-    
     font-family: 'BenchNine', sans-serif;
     font-size: 1.3rem;
     font-weight: bold;
     color: #555555; 
-    
     cursor: pointer;
     text-align: center;
-    transition: all 0.2s ease; /* Makes the hover effect perfectly smooth */
+    transition: all 0.2s ease;
 }
 
-/* The Hover State */
 .flavor-btn:hover {
-    background-color: #e0e0e0; /* The background turns gray */
-    border-color: #aaaaaa; /* The border gets slightly darker gray to match */
-    color: #000000; /* Text pops to solid black */
+    background-color: #e0e0e0;
+    border-color: #aaaaaa;
+    color: #000000;
 }
 
-/* Optional: Add a class for when a flavor is "Selected" or "Active" */
 .flavor-btn.active {
-    background-color: #6C9F28; /* Your Big Boyz green! */
+    background-color: #6C9F28;
     border-color: #6C9F28;
     color: white;
 }
 
-/* =========================================
-   BUTTON STYLES
-========================================= */
 .detail-actions {
     display: flex;
     align-items: center;
@@ -374,34 +309,25 @@ body {
     margin-top: 30px;
 }
 
-/* The new QTY label inside the orange button */
 .qty-label {
     font-family: 'Passion One', sans-serif;
-    font-size: 1.5rem; /* Slightly smaller than the numbers so it doesn't overpower them */
+    font-size: 1.5rem;
     color: white;
-    margin-left: 10px;  /* Pushes it away from the left edge of the pill */
-    margin-right: 5px;  /* Gives a little breathing room before the minus sign */
+    margin-left: 10px;
+    margin-right: 5px;
     letter-spacing: 1px;
 }
 
-/* Optional: You might want to tweak the padding on the main pill just slightly so it looks balanced! */
 .qty-selector {
     display: flex;
     align-items: center;
-    
-    /* Spreads the QTY, -, 0, + evenly across the new wider button */
     justify-content: space-between; 
-    
     background-color: #FF5100; 
     border-radius: 50px;
     color: white;
-    
-    /* ✨ THE FIX: Force an exact matching width and height ✨ */
     width: 220px; 
     height: 48px;
-    padding: 0 25px; /* Adds breathing room on the left and right edges */
-    
-    /* ✨ THE FIX: Adds the matching drop shadow! ✨ */
+    padding: 0 25px;
     box-shadow: 0px 5px 10px rgba(0,0,0,0.2); 
 }
 
@@ -440,34 +366,25 @@ body {
 }
 
 .add-cart-btn:hover {
-    transform: translateY(-3px); /* Button lifts up slightly on hover */
+    transform: translateY(-3px);
 }
 
 .btn-cart-icon {
     height: 20px;
     width: auto;
-    filter: brightness(0) invert(1); /* Forces the cart icon to become purely white */
+    filter: brightness(0) invert(1);
 }
 
-
-/* =========================================
-   FOOTER & TOP BAR ALIGNMENT
-========================================= */
-
-/* 1. Shared Grid Setup for Perfect Alignment */
 .top-content {
     display: grid;
     grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    
-    /* THE NEW ADDITIONS FOR CENTERING: */
-    height: 100%;          /* Forces the grid to match the orange bar's new height */
-    align-items: center;   /* Pushes the phone, email, etc., to the vertical middle */
+    height: 100%;          
+    align-items: center;
 }
 
-/* 1. Force the orange bar to stay thin */
 .top-bar {
     background-color: #FF6100;
     padding: 10px 10px;
@@ -477,7 +394,6 @@ body {
     overflow: visible !important; /* Allows the giant logo to stick out */
 }
 
-/* 2. Make the logo huge and pull it out of the layout */
 .top-logo {
     position: absolute; /* Breaks it out of the grid's height calculation */
     height: 130px;      /* Make this as big as you want! */
