@@ -23,7 +23,7 @@ body {
     background-color: #EF5225;
     width: 98%; 
     max-width: none; 
-    height: 60px; /* Slightly taller to comfortably fit the new circle icons */
+    height: 60px;
     margin: 20px auto; 
     border-radius: 50px;
     display: flex;
@@ -388,63 +388,58 @@ body {
 .top-bar {
     background-color: #FF6100;
     padding: 10px 10px;
-    height: 80px; /* Locks the thickness of the bar */
+    height: 80px;
     position: relative; 
     z-index: 20;
-    overflow: visible !important; /* Allows the giant logo to stick out */
+    overflow: visible !important;
 }
 
 .top-logo {
-    position: absolute; /* Breaks it out of the grid's height calculation */
-    height: 130px;      /* Make this as big as you want! */
+    position: absolute;
+    height: 130px;
     width: auto;
-    top: -25px;         /* Pulls it up so it overlaps the top and bottom */
-    left: 40;            /* Aligns it to the left of your grid container */
-    z-index: 30;        /* Keeps it on top of everything */
+    top: -25px;
+    left: 40; 
+    z-index: 30;
 }
 
-/* 3. Keep the phone number from sliding to the left */
 .contact-item:first-of-type {
-    /* Since the logo is now 'absolute', this forces the phone number 
-       to stay in column 2, leaving column 1 empty for your logo */
     grid-column: 2; 
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between icon and text */
-    font-family: 'BenchNine', sans-serif; /* Matches your body font */
+    gap: 10px;
+    font-family: 'BenchNine', sans-serif;
     font-size: 1.8rem;
     color: black;
 }
 
 .contact-icon {
-    height: 40px; /* Adjust based on your icon image sizes */
+    height: 40px;
     width: auto;
 }
 
-/* 3. Bottom Dark Brown Footer Styling */
 .footer {
-    background-color: #4a2e15; /* The dark brown from your image */
+    background-color: #4a2e15; 
     padding: 30px 40px;
 }
 
 .footer-container {
     display: grid;
-    /* THIS IS THE MAGIC LINE: It must exactly match your .top-content columns! */
     grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
     
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    align-items: start; /* Keeps the footer text anchored to the top of the brown section */
+    align-items: start;
 }
 
 .footer-col {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Vertical spacing between the links */
+    gap: 8px;
     font-family: 'BenchNine', sans-serif;
 }
 
@@ -456,72 +451,66 @@ body {
 }
 
 .footer-col a {
-    color: #e0e0e0; /* Slightly dimmed white for links */
+    color: #e0e0e0;
     text-decoration: none;
     font-size: 1.3rem;
     transition: color 0.3s ease;
 }
 
 .footer-col a:hover {
-    color: #FF6100; /* Turns orange on hover */
+    color: #FF6100;
 }
 
 .desktop-spacer {
     height: 100px;
 }
 
-/* 5. Mobile Responsiveness */
 @media screen and (max-width: 768px) {
-    /* 1. Main Navbar sizing */
     .navbar {
-        height: 20px; /* Thinner bar */
+        height: 20px;
         border-radius: 30px;
         margin: 10px auto; 
     }
     
-    /* 2. Shrink the Left-Aligned Bulge */
     .navbar::after {
-        width: 80px; /* Narrower bulge */
-        height: 40px; /* Shallower drop */
-        left: 0; /* Keeps it strictly on the left edge */
-        border-radius: 0px 0 10px 10px; /* Blends top-left with the pill shape, rounds the bottom */
+        width: 80px;
+        height: 40px;
+        left: 0;
+        border-radius: 0px 0 10px 10px;
     }
 
-    /* 🟢 NEW: The Right-Aligned Bulge (Icons) */
     .navbar::before {
         content: "";
         position: absolute;
         top: 0;
-        right: 0; /* Anchors strictly to the right edge */
-        width: 60px; /* Wide enough to wrap your two icons */
-        height: 35px; /* Matches the left bulge depth */
+        right: 0;
+        width: 60px; 
+        height: 35px;
         background-color: #EF5225;
-        border-radius: 0px 0 10px 10px; /* Rounds the bottom */
+        border-radius: 0px 0 10px 10px;
         z-index: -1; 
     }
 
-    /* 3. Link alignment and text sizing */
     .nav-links {
-        padding: 0 5px; /* Less padding on the far left/right */
-        gap: 3px; /* Just a tiny gap between the center links */
+        padding: 0 5px;
+        gap: 3px;
     }
 
     .nav-links a {
-        font-size: 0.6rem; /* Shrink the text heavily */
+        font-size: 0.6rem;
         padding: 2px 4px;
-        white-space: nowrap; /* Forces text to stay on one line */
+        white-space: nowrap;
     }
 
-    /* 4. The Logo Spacer & Image */
     .logo-item {
         width: 60px; 
-        margin-right: auto; /* Shoves the main text links into the center */
+        margin-right: auto;
     }
     
     .logo-item img {
-        height: 60px; /* Smaller logo */
-        top: -10px; /* Adjust the vertical position */
-        left: 10px; /* Tucks it nicely inside the 80px bulge */
+        height: 60px;
+        top: -10px;
+        left: 10px;
     }
 
     .yakiniku-img {
@@ -530,12 +519,11 @@ body {
         margin-top: -10px;
     }
 
-    /* 5. The Right Side Icons */
     .right-menu {
-        gap: 4px; /* Tiny gap between the cart and user icons */
-        margin-left: auto; /* Shoves the icons to the far right */
-        padding-right: 8px; /* 🟢 Tucks the icons nicely inside the new right bulge */
-        z-index: 20; /* Ensures icons are clickable above the bulge */
+        gap: 4px;
+        margin-left: auto;
+        padding-right: 8px;
+        z-index: 20;
     }
 
     .nav-icon {
@@ -545,53 +533,47 @@ body {
         margin-right: -6px;
     }
 
-    /* Hide the login text so it doesn't break your 0.5rem micro-layout */
     .login-link {
         display: none !important; 
     }
 
-    /* 6. The Dropdown Box */
     .dropdown-content {
-        min-width: 40px; /* Prevents the box from being unnecessarily wide */
-        padding: 0px 4px 4px 4px; /* Reduces empty white space */
+        min-width: 40px;
+        padding: 0px 4px 4px 4px;
         border-radius: 10px; 
         top: 0px;
     }
 
     .dropdown-content a {
-        font-size: 0.5rem !important; /* Smaller main text */
+        font-size: 0.5rem !important;
         padding: 2px 0 !important; 
     }
 
     .dropdown-content a:nth-child(2),
     .dropdown-content a:nth-child(3) {
-        font-size: 0.5rem !important; /* Noticeably smaller sub-links */
+        font-size: 0.5rem !important; 
     }
 
     .dish-detail-section {
         padding: 20px 10px; 
     }
 
-    /* 1. Stack the layout vertically */
     .dish-detail-container {
-        flex-direction: column; /* THE MAGIC: Image goes on top, text drops below! */
+        flex-direction: column;
         padding: 20px;
         gap: 20px;
         margin-top: 20px;
     }
 
-    /* 2. Shrink the massive green box */
     .dish-bg-box {
         width: 100%;
-        height: 280px;    /* Keeps it a perfect square */
+        height: 280px;
     }
 
-    /* Make the sandwich pop nicely on the smaller box */
     .main-dish-img {
         width: 70%; 
     }
 
-    /* 3. Scale down and center the text for a clean mobile read */
     .detail-title {
         font-size: 2rem;
         text-align: center;
@@ -608,7 +590,6 @@ body {
         text-align: center;
     }
 
-    /* 4. Squeeze the flavor grid */
     .flavor-title {
         font-size: 1.3rem;
         text-align: center;
@@ -616,28 +597,23 @@ body {
     }
 
     .flavor-btn {
-        font-size: 0.8rem; /* Shrinks the text so all 5 columns fit */
+        font-size: 0.8rem;
         padding: 6px 2px;
     }
 
-    /* 5. Stack the buttons to make them full-width for thumbs */
     .detail-actions {
-        flex-direction: column; /* Stacks QTY on top, Add to Cart below */
+        flex-direction: column;
         gap: 15px;
         width: 100%;
     }
 
-    /* 1. Center the 80% buttons on the screen */
     .detail-actions {
         flex-direction: column; 
         gap: 15px;
         width: 100%;
-        
-        /* THE FIX: This forces your 80% width buttons into the dead center of the card */
         align-items: center; 
     }
 
-    /* 2. Shape the buttons */
     .qty-selector, .add-cart-btn {
         width: 70%; 
         height: 50px;
@@ -647,71 +623,59 @@ body {
         padding: 0 20px; 
     }
 
-    /* 3. THE FIX: Target the specific text elements to actually shrink the fonts! */
     .add-cart-btn {
-        font-size: 1.4rem; /* Scaled down from 1.6rem */
-        justify-content: center; /* Keeps the text perfectly centered inside the orange pill */
+        font-size: 1.4rem;
+        justify-content: center;
     }
 
     .qty-label {
-        font-size: 1.5rem; /* Scaled down from 1.5rem */
+        font-size: 1.5rem;
     }
 
     .qty-btn, .qty-num {
-        font-size: 1.5rem; /* Scaled down from 1.8rem */
+        font-size: 1.5rem;
     }
-    
-    /* 1. SHRINK THE TOP BAR & KEEP GRID */
+
     .top-bar {
-        /* Your existing mobile styles */
         height: 40px; 
         padding: 5px; 
-        
-        /* THE FIX: Pulls the entire footer section UP */
-        margin-top: -100px; /* Make this number more negative (e.g., -100px) if you need to pull it higher! */
+        margin-top: -100px;
     }
 
     .top-content {
         display: grid;
-        /* Keeps your exact 5-column desktop layout */
         grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
         height: 100%;
         align-items: center;
-        gap: 2px; /* Tiny gap to save space */
+        gap: 2px;
     }
 
-    /* 2. SCALE DOWN THE POP-OUT LOGO */
     .top-logo {
         position: absolute; 
-        height: 50px; /* Much smaller so it doesn't cover the screen */
+        height: 50px;
         top: 50%; 
         transform: translateY(-50%);
         left: 40;
     }
 
-    /* 3. SHRINK ICONS & TEXT TO FIT */
     .contact-item {
-        font-size: 0.65rem; /* VERY small text to fit the 5 columns */
-        gap: 3px;           /* Less space between icon and text */
-        
-        /* Forces the long email address to wrap to two lines instead of breaking the layout */
+        font-size: 0.65rem;
+        gap: 3px;  
         word-break: break-all; 
         overflow-wrap: anywhere; 
         line-height: 1.1;
     }
 
     .contact-icon {
-        height: 12px; /* Tiny icons */
+        height: 12px;
     }
 
-    /* 4. SHRINK THE FOOTER & KEEP GRID */
     .footer {
-        padding: 15px 5px; /* Minimal padding */
+        padding: 15px 5px; 
     }
 
     .footer-container {
         display: grid;
-        /* Matches the top bar exactly to keep that invisible vertical alignment */
         grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
         gap: 2px;
     }
@@ -721,12 +685,12 @@ body {
     }
 
     .footer-col h3 {
-        font-size: 0.9rem; /* Scaled down titles */
+        font-size: 0.9rem;
         margin: 0 0 5px 0;
     }
 
     .footer-col a {
-        font-size: 0.75rem; /* Scaled down links */
+        font-size: 0.75rem;
     }
 
     .desktop-spacer {
