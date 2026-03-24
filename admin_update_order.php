@@ -9,7 +9,12 @@ if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && isset($data['or
     $order_id = $data['order_id'];
     $status = $data['status'];
 
-    $sql = "UPDATE orders SET status = $1 WHERE id = $2";
+    if ($status === 'Completed') {
+        $sql = "UPDATE orders SET status = $1, completed_at = CURRENT_TIMESTAMP WHERE id = $2";
+    } else {
+        $sql = "UPDATE orders SET status = $1 WHERE id = $2";
+    }
+    
     $result = pg_query_params($conn, $sql, array($status, $order_id));
 
     if ($result) {

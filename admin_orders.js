@@ -58,7 +58,11 @@ function renderOrders(orders, containerId, isPending) {
     }
 
     orders.forEach(order => {
-        const dateObj = new Date(order.created_at);
+        let timeSource = order.created_at;
+        if (!isPending && order.completed_at) {
+            timeSource = order.completed_at;
+        }
+        const dateObj = new Date(timeSource.replace(' ', 'T'));
         const timeStr = dateObj.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
         const dateStr = dateObj.toLocaleDateString();
         
