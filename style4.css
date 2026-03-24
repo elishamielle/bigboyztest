@@ -8,7 +8,7 @@
 
 body {
     background-image: url(images/HOMEPAGE.png);
-    background-color: #f7a63b; /* Good fallback while testing */
+    background-color: #f7a63b; 
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -17,15 +17,15 @@ body {
     font-family: "Passion One", sans-serif;
 }
 
-/* =========================================
+/* 
    MAIN NAVBAR STYLING 
-========================================= */
+ */
 
 .navbar {
     background-color: #EF5225;
     width: 98%; 
     max-width: none; 
-    height: 60px; /* Slightly taller to comfortably fit the new circle icons */
+    height: 60px; 
     margin: 20px auto; 
     border-radius: 50px;
     display: flex;
@@ -34,20 +34,19 @@ body {
     z-index: 10;
 }
 
-/* 2. The Left "Bulge" behind the logo */
+
 .navbar::after {
     content: "";
     position: absolute;
     top: 0;
-    left: 0; /* Anchors the bulge strictly to the left edge */
-    width: 260px; /* Width of the bulge */
+    left: 0; 
+    width: 260px; 
     height: 120px; 
     background-color: #EF5225;
-    border-radius: 50px 0 40px 40px; /* Matches top pill curve, rounds the bottom */
+    border-radius: 50px 0 40px 40px; 
     z-index: -1; 
 }
 
-/* 3. General Link Setup & Flexbox Magic */
 .nav-links {
     list-style: none;
     display: flex;
@@ -55,7 +54,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0 20px;
-    gap: 35px; /* Spacing between the center links */
+    gap: 35px; 
 }
 
 .nav-links li {
@@ -79,50 +78,44 @@ body {
     background-color: white;
 }
 
-/* =========================================
+/* 
    LEFT SIDE: LOGO 
-========================================= */
+ */
 
 .logo-item {
-    width: 180px; /* Creates invisible space pushing the other links right */
-    
-    /* THE MAGIC: Pushes everything after it perfectly to the center */
+    width: 180px; 
     margin-right: auto; 
-    
     display: flex;
     align-items: center;
 }
 
 .logo-item img {
     position: absolute;
-    left: 38px; /* Locks the logo into the left bulge */
-    top: -30px; /* Pops it out of the top */
+    left: 38px; 
+    top: -30px; 
     height: 180px; 
     z-index: 20;
     transition: transform 0.3s ease;
 }
 
 
-/* =========================================
+/* 
    RIGHT SIDE: ICONS & LOGIN 
-========================================= */
+ */
 
 .right-menu {
     display: flex;
     align-items: center;
     gap: 15px; 
-    
-    /* THE MAGIC: Pushes this whole block perfectly to the far right */
     margin-left: auto; 
 }
 
-/* Removes the pill hover background strictly from the circle icons */
 .right-menu .icon-link {
     padding: 0;
     background-color: transparent !important; 
 }
 
-/* The White Circle Shape for the Icons */
+
 .nav-icon {
     height: 40px;
     width: 40px;
@@ -134,15 +127,14 @@ body {
     transform: scale(1.1); 
 }
 
-/* Keep the log-in text readable and capitalized correctly */
 .login-link {
     font-size: 1.4rem !important; 
     font-weight: bold !important;
 }
 
-/* =========================================
+/* 
    DROPDOWN MENU 
-========================================= */
+ */
 
 .dropdown {
     position: relative;
@@ -181,7 +173,6 @@ body {
     color: #c43e18 !important; 
 }
 
-/* Make "MENU" inside the dropdown unclickable */
 .dropdown-content a:first-child {
     cursor: default !important;      
     pointer-events: none !important; 
@@ -192,12 +183,11 @@ body {
     background-color: transparent !important;
 }
 
-/* 1. Center everything in the hero section */
 .hero-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 80px 20px 120px 20px; /* Leaves room for your wavy background at the bottom */
+    padding: 80px 20px 120px 20px; 
     text-align: center;
 }
 
@@ -205,12 +195,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Adds perfect spacing between the title and the green pill */
+    gap: 15px; 
 }
 
-/* 1. The Main Title */
 .hero-title {
-    font-family: 'Bayon', sans-serif; /* Changed to Bayon */
+    font-family: 'Bayon', sans-serif; 
     font-weight: bold !important; 
     font-size: 4.5rem; 
     color: #889E0C;
@@ -221,9 +210,8 @@ body {
     margin-top: -20px;
 }
 
-/* 2. The Green Location Pill */
 .dlsu.title {
-    font-family: 'Bayon', sans-serif; /* Changed to Bayon */
+    font-family: 'Bayon', sans-serif; 
     font-weight: normal !important;
     font-size: 2rem;
     color: white;
@@ -241,13 +229,13 @@ body {
 .location-pin {
     height: 25px;
     margin-right: 10px;
-    vertical-align: middle; /* Ensures the pin lines up perfectly with the text */
+    vertical-align: middle; 
 }
 
 .categories {
     position: relative;
-    background-color: transparent; /* REMOVED THE WHITE RECTANGLE */
-    padding: 100px 0; /* Keeps space for the torn edges */
+    background-color: transparent; 
+    padding: 100px 0; 
     margin-top: -160px; 
 }
 
@@ -260,16 +248,16 @@ body {
     position: absolute; 
     left: 0;
     top: 0px;
-    height: 800px; /* Adjust this to match your image's actual height */
-    width: 100%;   /* Ensures it spans the whole section */
-    background-size: 100% 100%; /* Stretches it to fit the box exactly */
+    height: 800px;
+    width: 100%;   
+    background-size: 100% 100%; 
 }
 
 .section {
     text-align: center;
     padding: 100px 0;
     position: relative;
-    z-index: 15; /* Ensures text stays above the torn paper */
+    z-index: 15;
 }
 
 .section1-title {
@@ -284,7 +272,6 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Creating the red lines on the sides */
 .section1-title::before,
 .section1-title::after {
     content: "";
@@ -296,27 +283,22 @@ body {
     box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* --- CONTAINER --- */
 .cards-container {
     display: flex;
     justify-content: center;
-    gap: 60px; /* Space between the rectangles */
+    gap: 60px; 
     padding: 20px;
 }
 
-/* --- THE RECTANGLE BASE --- */
 .menu-card {
     width: 200px;
     height: 280px;
     border-radius: 25px;
-    padding: 10px; /* This sets 10px everywhere */
+    padding: 10px; 
     display: flex;
-    flex-direction: column; /* Stacks the title and image vertically */
+    flex-direction: column; 
     align-items: center;
-    
-    /* THE FIX: Override the top padding to something very small */
     padding-top: 2px; 
-    
     text-align: center;
     color: white;
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
@@ -324,7 +306,7 @@ body {
 }
 
 .menu-card:hover {
-    transform: translateY(-10px); /* Lifts the card when you hover */
+    transform: translateY(-10px); 
 }
 
 /* --- THE FOOD NAMES --- */
@@ -334,12 +316,9 @@ body {
     font-size: 2rem;
     letter-spacing: 1.5px;
     margin-bottom: 5px;
-    /* THE FIX: This physically pulls the text up toward the card's edge */
     margin-top: 9px;
     
 }
-
-/* --- INDIVIDUAL IMAGE SIZES --- */
 
 .hotdog-img {
     width: 250px; 
@@ -356,27 +335,25 @@ body {
 .wings-img {
     width: 240px;
     height: auto;
-    margin-top: 10px; /* Nudge it up slightly if needed */
+    margin-top: 10px; 
 }
 
 .nachos-img {
     width: 270px;
     height: auto;
-    margin-top: -30px; /* Nudge it up slightly if needed */
+    margin-top: -30px; 
 }
 
 .liempo-img {
     width: 220px;
     height: auto;
-    margin-top: -20px; /* Nudge it up slightly if needed */
+    margin-top: -20px; 
 }
 
 /* --- THE IMAGES --- */
 .menu-card img {
-    /* This forces the image to be a block that takes up its own line */
     display: block; 
     height: auto;
-    /* Ensure the image doesn't get too big for the card */
     align-content: center;
 }
 
@@ -387,9 +364,9 @@ body {
 .red { background-color: #FF0202; }
 .brown { background-color: #8B4513; }
 
-/* =========================================
-   SANDIVHES 
-========================================= */
+/* 
+   SANDWICHES 
+ */
 .sandwiches {
     padding: 60px 20px 100px 20px;
     text-align: center;
@@ -405,21 +382,21 @@ body {
     -webkit-text-stroke: 1.5px #000000;
 }
 
-/* =========================================
+/* 
    THE 5-COLUMN GRID 
-========================================= */
+ */
 .dish-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Forces exactly 5 equal columns */
-    gap: 20px; /* Space between each card */
-    max-width: 1400px; /* Gives the row enough room to stretch out */
-    margin: 0 auto; /* Perfectly centers the grid on the screen */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px; 
+    max-width: 1400px; 
+    margin: 0 auto; 
     padding: 0 10px;
 }
 
-/* =========================================
+/* 
    INDIVIDUAL DISH CARDS 
-========================================= */
+ */
 
 .dish-card {
     background-color: white;
@@ -430,8 +407,6 @@ body {
     flex-direction: column;
     transition: transform 0.3s ease;
     height: 270px; 
-    
-    /* THE FIX: Changes from 'space-between' to 'flex-start' to push everything to the top */
     justify-content: flex-start; 
 }
 
@@ -446,28 +421,17 @@ body {
 .dish-image-wrapper4 {
     position: relative; 
     width: 100%;
-    
-    /* 1. THE FIXED SIZE: Forces every background to be exactly this height */
-    height: 160px; /* You can adjust this slightly if you want them taller/shorter */
-    
+    height: 160px;
     background-size: contain; 
     background-repeat: no-repeat; 
-    
-    /* Centers the colored background image itself inside the wrapper */
     background-position: center; 
-    
     background-color: transparent; 
     border-radius: 5px; 
-    
     display: flex;
-    
-    /* 2. THE CENTERING MAGIC: Perfectly suspends the food image in the dead center */
-    justify-content: center; /* Horizontal center */
-    align-items: center;     /* Vertical center (Changed from flex-start!) */
-    
-    /* Remove padding so it doesn't push your centered images down */
+    justify-content: center; 
+    align-items: center;   
     padding: 0; 
-    margin-bottom: 10px; /* Space between the image box and the text below it */
+    margin-bottom: 10px; 
 }
 
 .dish-image-wrapper {
@@ -478,59 +442,42 @@ body {
     background-repeat: no-repeat; 
     background-color: transparent; 
     border-radius: 5px; 
-    
     display: flex;
     justify-content: center;
-    
-    /* THE FIX: Aligns the sandwich to the top of the green box instead of the center */
     align-items: flex-start; 
-    
-    /* THE FIX: Shrink the top padding so there isn't a massive gap above the food */
     padding: 10px 0 20px 0; 
 }
 
-/* 2. The Resizable Food Image */
 .dish-img {
     width: 150px; 
     height: auto;
     flex-shrink: 0; 
-    
-    /* THE FIX: Reset these to 0 so the Flexbox can do its job and center the food! */
     margin-top: 0px; 
     margin-bottom: 0px;
-    
     position: relative;
     z-index: 5; 
     filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.4)); 
 }
 
-/* 3. The Overlapping Badge */
 .best-seller-badge {
     position: absolute;
-    
-    /* THE FIX: Negative values pull it outside the boundaries of the image box */
     top: -30px;   
     right: -30px; 
-    
-    width: 100px;  /* Adjust this if the starburst needs to be bigger/smaller */
-    
-    /* THE FIX: A high z-index forces it to sit on top of absolutely everything else */
+    width: 100px;  
     z-index: 60;  
-    
-    transform: rotate(-5deg); /* That playful slanted look */
+    transform: rotate(-5deg); 
 }
 
-/* 3. Text Info Underneath */
 .dish-info {
     padding-top: -150px;
-    text-align: left; /* Aligns text cleanly to the left edge */
+    text-align: left; 
 }
 
 .dish-info h4 {
     font-family: 'Passion One', sans-serif; 
     font-size: 1.5rem;
     font-weight: normal;
-    color: #889E0C; /* The olive green from your mockup */
+    color: #889E0C;
     line-height: 1.1;
 }
 
@@ -542,9 +489,9 @@ body {
     margin: 0;
 }
 
-/* =========================================
+/* 
    PASTA
-========================================= */
+ */
 
 .pasta {
     padding: 60px 20px 100px 20px;
@@ -559,27 +506,22 @@ body {
     background-repeat: no-repeat; 
     background-color: transparent; 
     border-radius: 5px; 
-    
     display: flex;
     justify-content: center;
-    
-    /* THE FIX: Aligns the sandwich to the top of the green box instead of the center */
     align-items: flex-start; 
-    
-    /* THE FIX: Shrink the top padding so there isn't a massive gap above the food */
     padding: 10px 0 20px 0; 
 }
 
 .dish-info1 {
     padding-top: -150px;
-    text-align: left; /* Aligns text cleanly to the left edge */
+    text-align: left; 
 }
 
 .dish-info1 h4 {
     font-family: 'Passion One', sans-serif; 
     font-size: 1.5rem;
     font-weight: normal;
-    color: #EF5225; /* The olive green from your mockup */
+    color: #EF5225; 
     line-height: 1.1;
 }
 
@@ -591,9 +533,9 @@ body {
     margin: 0;
 }
 
-/* =========================================
+/* 
    RICE MEALS
-========================================= */
+ */
 .rice-meals {
     padding: 60px 20px 100px 20px;
     text-align: center;
@@ -607,27 +549,22 @@ body {
     background-repeat: no-repeat; 
     background-color: transparent; 
     border-radius: 5px; 
-    
     display: flex;
     justify-content: center;
-    
-    /* THE FIX: Aligns the sandwich to the top of the green box instead of the center */
     align-items: flex-center; 
-    
-    /* THE FIX: Shrink the top padding so there isn't a massive gap above the food */
     padding: 10px 0 20px 0; 
 }
 
 .dish-info2 {
     padding-top: -150px;
-    text-align: left; /* Aligns text cleanly to the left edge */
+    text-align: left; 
 }
 
 .dish-info2 h4 {
     font-family: 'Passion One', sans-serif; 
     font-size: 1.5rem;
     font-weight: normal;
-    color: #08979C; /* The olive green from your mockup */
+    color: #08979C; 
     line-height: 1.1;
 }
 
@@ -640,9 +577,9 @@ body {
 }
 
 
-/* =========================================
+/* 
    APPETIZERS
-========================================= */
+ */
 
 .appetizers {
     padding: 60px 20px 100px 20px;
@@ -657,27 +594,22 @@ body {
     background-repeat: no-repeat; 
     background-color: transparent; 
     border-radius: 5px; 
-    
     display: flex;
     justify-content: center;
-    
-    /* THE FIX: Aligns the sandwich to the top of the green box instead of the center */
     align-items: center; 
-    
-    /* THE FIX: Shrink the top padding so there isn't a massive gap above the food */
     padding: 10px 0 20px 0; 
 }
 
 .dish-info3 {
     padding-top: -150px;
-    text-align: left; /* Aligns text cleanly to the left edge */
+    text-align: left; 
 }
 
 .dish-info3 h4 {
     font-family: 'Passion One', sans-serif; 
     font-size: 1.5rem;
     font-weight: normal;
-    color: #FF0202; /* The olive green from your mockup */
+    color: #FF0202; 
     line-height: 1.1;
 }
 
@@ -689,9 +621,9 @@ body {
     margin: 0;
 }
 
-/* =========================================
+/* 
    BINALOT
-========================================= */
+ */
 
 .binalot {
     padding: 60px 20px 100px 20px;
@@ -706,25 +638,21 @@ body {
     background-repeat: no-repeat; 
     background-color: transparent; 
     border-radius: 5px; 
-    
     display: flex;
     justify-content: center;
-    
-    
-    /* THE FIX: Shrink the top padding so there isn't a massive gap above the food */
     padding: 10px 0 20px 0; 
 }
 
 .dish-info4 {
     padding-top: -150px;
-    text-align: left; /* Aligns text cleanly to the left edge */
+    text-align: left; 
 }
 
 .dish-info4 h4 {
     font-family: 'Passion One', sans-serif; 
     font-size: 1.5rem;
     font-weight: normal;
-    color: #8B4513; /* The olive green from your mockup */
+    color: #8B4513; 
     line-height: 1.1;
 }
 
@@ -737,85 +665,75 @@ body {
 }
 
 
-/* =========================================
+/* 
    FOOTER & TOP BAR ALIGNMENT
-========================================= */
+ */
 
-/* 1. Shared Grid Setup for Perfect Alignment */
 .top-content {
     display: grid;
     grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    
-    /* THE NEW ADDITIONS FOR CENTERING: */
-    height: 100%;          /* Forces the grid to match the orange bar's new height */
-    align-items: center;   /* Pushes the phone, email, etc., to the vertical middle */
+    height: 100%;          
+    align-items: center;   
 }
 
-/* 1. Force the orange bar to stay thin */
 .top-bar {
     background-color: #FF6100;
     padding: 10px 10px;
-    height: 80px; /* Locks the thickness of the bar */
+    height: 80px;
     position: relative; 
     z-index: 20;
-    overflow: visible !important; /* Allows the giant logo to stick out */
+    overflow: visible !important; 
 }
 
-/* 2. Make the logo huge and pull it out of the layout */
+
 .top-logo {
-    position: absolute; /* Breaks it out of the grid's height calculation */
-    height: 130px;      /* Make this as big as you want! */
+    position: absolute; 
+    height: 130px;     
     width: auto;
-    top: -25px;         /* Pulls it up so it overlaps the top and bottom */
-    left: 40;            /* Aligns it to the left of your grid container */
-    z-index: 30;        /* Keeps it on top of everything */
+    top: -25px;        
+    left: 40;           
+    z-index: 30;       
 }
 
-/* 3. Keep the phone number from sliding to the left */
 .contact-item:first-of-type {
-    /* Since the logo is now 'absolute', this forces the phone number 
-       to stay in column 2, leaving column 1 empty for your logo */
     grid-column: 2; 
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between icon and text */
-    font-family: 'BenchNine', sans-serif; /* Matches your body font */
+    gap: 10px; 
+    font-family: 'BenchNine', sans-serif; 
     font-size: 1.8rem;
     color: black;
 }
 
 .contact-icon {
-    height: 40px; /* Adjust based on your icon image sizes */
+    height: 40px; 
     width: auto;
 }
 
-/* 3. Bottom Dark Brown Footer Styling */
 .footer {
-    background-color: #4a2e15; /* The dark brown from your image */
+    background-color: #4a2e15; 
     padding: 30px 40px;
 }
 
 .footer-container {
     display: grid;
-    /* THIS IS THE MAGIC LINE: It must exactly match your .top-content columns! */
     grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
-    
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    align-items: start; /* Keeps the footer text anchored to the top of the brown section */
+    align-items: start; 
 }
 
 .footer-col {
     display: flex;
     flex-direction: column;
-    gap: 8px; /* Vertical spacing between the links */
+    gap: 8px; 
     font-family: 'BenchNine', sans-serif;
 }
 
@@ -827,14 +745,14 @@ body {
 }
 
 .footer-col a {
-    color: #e0e0e0; /* Slightly dimmed white for links */
+    color: #e0e0e0; 
     text-decoration: none;
     font-size: 1.3rem;
     transition: color 0.3s ease;
 }
 
 .footer-col a:hover {
-    color: #FF6100; /* Turns orange on hover */
+    color: #FF6100; 
 }
 
 .desktop-spacer {
@@ -842,57 +760,51 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-/* Shrink the main pill shape */
-    /* 1. Main Navbar sizing */
     .navbar {
-        height: 20px; /* Thinner bar */
+        height: 20px; 
         border-radius: 30px;
         margin: 10px auto; 
     }
     
-    /* 2. Shrink the Left-Aligned Bulge */
     .navbar::after {
-        width: 80px; /* Narrower bulge */
-        height: 40px; /* Shallower drop */
-        left: 0; /* Keeps it strictly on the left edge */
-        border-radius: 0px 0 10px 10px; /* Blends top-left with the pill shape, rounds the bottom */
+        width: 80px;
+        height: 40px; 
+        left: 0; 
+        border-radius: 0px 0 10px 10px; 
     }
 
-    /* 🟢 NEW: The Right-Aligned Bulge (Icons) */
     .navbar::before {
         content: "";
         position: absolute;
         top: 0;
-        right: 0; /* Anchors strictly to the right edge */
-        width: 60px; /* Wide enough to wrap your two icons */
-        height: 35px; /* Matches the left bulge depth */
+        right: 0; 
+        width: 60px; 
+        height: 35px; 
         background-color: #EF5225;
-        border-radius: 0px 0 10px 10px; /* Rounds the bottom */
+        border-radius: 0px 0 10px 10px; 
         z-index: -1; 
     }
 
-    /* 3. Link alignment and text sizing */
     .nav-links {
-        padding: 0 5px; /* Less padding on the far left/right */
-        gap: 3px; /* Just a tiny gap between the center links */
+        padding: 0 5px; 
+        gap: 3px; 
     }
 
     .nav-links a {
-        font-size: 0.6rem; /* Shrink the text heavily */
+        font-size: 0.6rem; 
         padding: 2px 4px;
-        white-space: nowrap; /* Forces text to stay on one line */
+        white-space: nowrap; 
     }
 
-    /* 4. The Logo Spacer & Image */
     .logo-item {
         width: 60px; 
-        margin-right: auto; /* Shoves the main text links into the center */
+        margin-right: auto; 
     }
     
     .logo-item img {
-        height: 60px; /* Smaller logo */
-        top: -10px; /* Adjust the vertical position */
-        left: 10px; /* Tucks it nicely inside the 80px bulge */
+        height: 60px; 
+        top: -10px; 
+        left: 10px; 
     }
 
     .yakiniku-img {
@@ -901,12 +813,11 @@ body {
         margin-top: -10px;
     }
 
-    /* 5. The Right Side Icons */
     .right-menu {
-        gap: 4px; /* Tiny gap between the cart and user icons */
-        margin-left: auto; /* Shoves the icons to the far right */
-        padding-right: 8px; /* 🟢 Tucks the icons nicely inside the new right bulge */
-        z-index: 20; /* Ensures icons are clickable above the bulge */
+        gap: 4px; 
+        margin-left: auto; 
+        padding-right: 8px; 
+        z-index: 20; 
     }
 
     .nav-icon {
@@ -916,32 +827,29 @@ body {
         margin-right: -6px;
     }
 
-    /* Hide the login text so it doesn't break your 0.5rem micro-layout */
     .login-link {
         display: none !important; 
     }
 
-    /* 6. The Dropdown Box */
     .dropdown-content {
-        min-width: 40px; /* Prevents the box from being unnecessarily wide */
-        padding: 0px 4px 4px 4px; /* Reduces empty white space */
+        min-width: 40px; 
+        padding: 0px 4px 4px 4px; 
         border-radius: 10px; 
         top: 0px;
     }
 
     .dropdown-content a {
-        font-size: 0.5rem !important; /* Smaller main text */
+        font-size: 0.5rem !important; 
         padding: 2px 0 !important; 
     }
 
     .dropdown-content a:nth-child(2),
     .dropdown-content a:nth-child(3) {
-        font-size: 0.5rem !important; /* Noticeably smaller sub-links */
+        font-size: 0.5rem !important; 
     }
 
-    /* 1. HERO SECTION & TITLES */
     .hero-section {
-        margin-top: 20px; /* Adds a bit of breathing room above the hero */
+        margin-top: 20px; 
         padding: 60px 10px 80px 10px; 
     }
 
@@ -949,47 +857,37 @@ body {
         gap: 15px;
     }
     .hero-title {
-        font-size: 1.4rem; /* Scaled down from 4.5rem */
-        -webkit-text-stroke: .5px white; /* Slightly thicker stroke to be visible on smaller text */
+        font-size: 1.4rem; 
+        -webkit-text-stroke: .5px white; 
         margin-top: -50px;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
     }
 
     .dlsu.title {
-        font-size: .8rem; /* Scaled down from 2rem */
+        font-size: .8rem; 
         padding: .5px 15px;
         margin-top: -20px;
         box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
     }
 
     .location-pin {
-        height: 10px; /* Shrinks the pin so it doesn't look gigantic next to the smaller mobile text */
-        margin-right: 6px; /* Slightly reduces the gap to match the smaller scale */
+        height: 10px;
+        margin-right: 6px; 
     }
 
-    /* --- MERGED CATEGORIES & TORN PAPER --- */
     .categories {
-        margin-top: -90px; /* Pulls the section up drastically for mobile */
-        /* Add min-height here if your absolute paper causes the footer to fly up again */
+        margin-top: -90px; 
     }
 
     .torn-paper {
-        /* ✨ THE MAGIC: Overrides the desktop image with your new mobile version! ✨ */
         background-image: url('images/tornpapernew.png');
-        
         position: absolute;
         top: 0;
         left: 0;
-        
-        /* Forces the new paper to be the exact height of the whole category section */
         height: 100%; 
         width: 100%;   
-        
         background-repeat: no-repeat; 
-        
-        /* Stretches the image to perfectly fill the space */
         background-size: 100% 100%; 
-        
         background-position: center top; 
     }
    
@@ -999,36 +897,31 @@ body {
     }
 
     .section1-title {
-        font-size: 1.5rem; /* Scaled down from 4rem */
+        font-size: 1.5rem; 
         gap: 5px;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     }
 
-    /* Shrink the massive 300px red lines so they fit on a phone */
     .section1-title::before,
     .section1-title::after {
         width: 50px; 
         height: 3px;
     }
     
-    /* =========================================
+    /* 
        MOBILE: FEATURED CATEGORIES
-    ========================================= */
+     */
     
     .cards-container {
         display: flex;
-        
-        /* THE MAGIC FIX: Allows the cards to drop to a new line! */
         flex-wrap: wrap; 
-        
-        justify-content: center; /* Centers everything on the screen */
-        gap: 15px; /* A comfortable gap for touch screens */
+        justify-content: center;
+        gap: 15px; 
         padding: 10px 5px;
         margin-top: 15px;
     }
 
     .menu-card {
-        /* Big enough to tap, but small enough to fit two side-by-side on a phone */
         width: 130px; 
         height: 170px; 
         border-radius: 15px;
@@ -1036,17 +929,11 @@ body {
     }
 
     .menu-card h3 {
-        font-size: 1.2rem; /* Scaled up so it's readable on a phone! */
+        font-size: 1.2rem; 
         margin-top: 5px;
         margin-bottom: 10px;
         letter-spacing: 1px;
     }
-
-    /* =========================================
-       SCALE DOWN THE POP-OUT CATEGORY IMAGES
-    ========================================= */
-    /* These are scaled proportionally to fit the new 150px cards 
-       without breaking out of the sides of the screen */
 
     .hotdog-img { 
         width: 150px; 
@@ -1073,31 +960,28 @@ body {
         margin-top: -20px; 
     }
 
-    /* =========================================
+    /* 
        MOBILE: FOOD CATEGORY GRIDS
-    ========================================= */
+     */
     
-    /* 1. Shrink Section Padding & Titles */
     .sandwiches, .pasta, .rice-meals, .appetizers, .binalot {
-        padding: 30px 10px 40px 10px; /* Reduces the massive desktop gaps */
+        padding: 30px 10px 40px 10px; 
     }
 
     .section2-title {
-        font-size: 2rem; /* Shrinks the massive 4rem font */
+        font-size: 2rem; 
         -webkit-text-stroke: 1px #000000;
         margin-bottom: 20px;
     }
 
-    /* 2. Collapse the Grid from 5 Columns to 2 Columns */
     .dish-grid {
-        grid-template-columns: repeat(2, 1fr); /* THE MAGIC: 2 cards side-by-side! */
-        gap: 10px; /* Tighter gap for mobile screens */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px; 
         padding: 0 5px;
     }
 
-    /* 3. Scale Down the Cards & Wrappers */
     .dish-card {
-        height: 190px; /* Reduced from 270px so they don't look awkwardly tall */
+        height: 190px;
         padding: 8px;
         border-radius: 10px;
     }
@@ -1107,28 +991,26 @@ body {
     .dish-image-wrapper2,
     .dish-image-wrapper3,
     .dish-image-wrapper4 {
-        height: 110px; /* Scaled down perfectly to fit the new card size */
+        height: 110px; 
         margin-bottom: 5px; 
     }
 
-    /* 4. Scale Down the Food Image & Badges */
     .dish-img {
-        width: 100px; /* Scaled down from 150px */
+        width: 100px; 
     }
 
     .best-seller-badge {
-        width: 50px; /* Smaller badge for the smaller card */
+        width: 50px; 
         top: -15px;  
         right: -15px; 
     }
 
-    /* 5. Scale Down the Text */
     .dish-info, .dish-info1, .dish-info2, .dish-info3, .dish-info4 {
-        padding-top: 5px; /* Overrides any weird desktop padding */
+        padding-top: 5px; 
     }
 
     .dish-info h4, .dish-info1 h4, .dish-info2 h4, .dish-info3 h4, .dish-info4 h4 {
-        font-size: 1rem; /* Scaled down for readability */
+        font-size: 1rem; 
         margin-bottom: 2px;
         line-height: 1.1;
     }
@@ -1137,58 +1019,46 @@ body {
         font-size: 1rem; 
     }
 
-    
-    /* 1. SHRINK THE TOP BAR & KEEP GRID */
     .top-bar {
-        /* Your existing mobile styles */
         height: 40px; 
         padding: 5px; 
-        
-        /* THE FIX: Pulls the entire footer section UP */
-        margin-top: -100px; /* Make this number more negative (e.g., -100px) if you need to pull it higher! */
+        margin-top: -100px; 
     }
 
     .top-content {
         display: grid;
-        /* Keeps your exact 5-column desktop layout */
         grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
         height: 100%;
         align-items: center;
-        gap: 2px; /* Tiny gap to save space */
+        gap: 2px; 
     }
 
-    /* 2. SCALE DOWN THE POP-OUT LOGO */
     .top-logo {
         position: absolute; 
-        height: 50px; /* Much smaller so it doesn't cover the screen */
+        height: 50px; 
         top: 50%; 
         transform: translateY(-50%);
         left: 40;
     }
 
-    /* 3. SHRINK ICONS & TEXT TO FIT */
     .contact-item {
-        font-size: 0.65rem; /* VERY small text to fit the 5 columns */
-        gap: 3px;           /* Less space between icon and text */
-        
-        /* Forces the long email address to wrap to two lines instead of breaking the layout */
+        font-size: 0.65rem; 
+        gap: 3px;           
         word-break: break-all; 
         overflow-wrap: anywhere; 
         line-height: 1.1;
     }
 
     .contact-icon {
-        height: 12px; /* Tiny icons */
+        height: 12px; 
     }
 
-    /* 4. SHRINK THE FOOTER & KEEP GRID */
     .footer {
-        padding: 15px 5px; /* Minimal padding */
+        padding: 15px 5px; 
     }
 
     .footer-container {
         display: grid;
-        /* Matches the top bar exactly to keep that invisible vertical alignment */
         grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr 1fr; 
         gap: 2px;
     }
@@ -1198,12 +1068,12 @@ body {
     }
 
     .footer-col h3 {
-        font-size: 0.9rem; /* Scaled down titles */
+        font-size: 0.9rem; 
         margin: 0 0 5px 0;
     }
 
     .footer-col a {
-        font-size: 0.75rem; /* Scaled down links */
+        font-size: 0.75rem; 
     }
 
     .desktop-spacer {
