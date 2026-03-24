@@ -87,7 +87,7 @@ function renderOrders(orders, containerId, isPending) {
                 ${isPending ? `<td>${timeStr}</td>` : `<td>${timeStr}</td>`}
                 <td>${order.customer_name}</td>
                 <td>${itemsText}</td>
-                <td>P ${parseFloat(order.total).toFixed(2)}</td>
+                <td style="white-space: nowrap;">P ${parseFloat(order.total).toFixed(2)}</td>
                 <td><span class="badge ${badgeClass}">${order.status.toUpperCase()}</span></td>
                 ${actionBtn}
             </tr>
