@@ -230,20 +230,28 @@ body {
 /* QR Code*/
 .payment-qr-box {
     background-color: #FF5100;
-    padding: 30px;
+    padding: 25px;
     border-radius: 15px;
-    width: 350px;
+    width: 100%;
+    max-width: 800px; 
     flex-shrink: 0; 
+}
+
+.payment-qr-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px;
 }
 
 .payment-qr-inner {
     background-color: white;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
 }
 
 .qr-image {
@@ -506,21 +514,32 @@ body {
     }
 
     .payment-content {
-        flex-direction: column; /* Stacks the QR code above the upload button */
+        display: flex;
+        flex-direction: column; 
         align-items: center;
-        gap: 30px;
+        gap: 25px;
     }
 
     .payment-qr-box {
-        width: 100%;
-        max-width: 320px;
-        padding: 20px;
+        order: 3;
     }
 
     .payment-details {
-        align-items: center;
-        width: 100%;
+        display: contents; 
+    }
+
+    .payment-qr-grid {
+        grid-template-columns: 1fr; 
         gap: 20px;
+    }
+
+    .payment-total {
+        order: 1;
+    }
+
+    .upload-section {
+        order: 2;
+        width: 100%;
     }
 
     .payment-total .summary-total-label { font-size: 2.2rem; }
@@ -537,8 +556,8 @@ body {
     }
 
     .finish-btn {
+        order: 4;
         width: 100%;
-        align-self: center;
         margin-top: 10px;
     }
 
