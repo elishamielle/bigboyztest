@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
         musicBtn.addEventListener('click', function() {
             if (music.paused) {
                 music.play();
-                musicBtn.innerHTML = '<span id="music-icon">🔊</span>';
+                musicBtn.innerHTML = '<span id="music-icon">🔊</span> PAUSE MUSIC';
             } else {
                 music.pause();
-                musicBtn.innerHTML = '<span id="music-icon">🔇</span>';
+                musicBtn.innerHTML = '<span id="music-icon">🔇</span> PLAY MUSIC';
             }
         });
     }
